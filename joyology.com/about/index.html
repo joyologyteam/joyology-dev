@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Joyology Cannabis</title>
+    <link rel="icon" href="/media/favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --green: #8CC541;
+            --light-green: #C8DC64;
+            --blue-green: #80C9AB;
+            --acid: #E2F752;
+            --sky: #41C6EF;
+            --root: #1A1F1C;
+            --cloud: #F4F7F5;
+            --silver: #9BA5A1;
+            --white: #FFFFFF;
+            --teal: #2A7C6F;
+            --red: #E04F5F;
+        }
+
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--root);
+            background: var(--cloud);
+            overflow-x: hidden;
+            padding-bottom: 72px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+        /* ---- REVEAL ANIMATIONS ---- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* ---- BUTTONS ---- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .btn-primary {
+            background: var(--green);
+            color: var(--white);
+            padding: 14px 32px;
+            font-size: 13px;
+        }
+        .btn-primary:hover {
+            background: var(--teal);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(140, 197, 65, 0.3);
+        }
+        .btn-sm { padding: 10px 22px; font-size: 11px; }
+        .btn-ghost {
+            background: transparent;
+            color: var(--root);
+            border: 1.5px solid rgba(26,31,28,0.12);
+            padding: 10px 22px;
+            font-size: 11px;
+        }
+        .btn-ghost:hover {
+            border-color: var(--green);
+            color: var(--green);
+        }
+        .btn-gradient {
+            background: linear-gradient(135deg, #E2F752 0%, #8CC541 100%);
+            color: var(--root);
+            padding: 10px 22px;
+            font-size: 11px;
+        }
+        .btn-white {
+            background: var(--white);
+            color: var(--root);
+            padding: 14px 32px;
+            font-size: 13px;
+        }
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255,255,255,0.3);
+        }
+        .btn-outline-white {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255,255,255,0.4);
+            padding: 14px 32px;
+            font-size: 13px;
+        }
+        .btn-outline-white:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* ---- HEADER ---- */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10000;
+            padding: 10px 0;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .header-inner {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo img {
+            height: 96px;
+            width: auto;
+            transition: height 0.4s ease;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .nav-link {
+            padding: 10px 18px;
+            font-size: 14px;
+            font-weight: 700;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            color: var(--root);
+        }
+        .nav-link:hover { background: rgba(42, 124, 111, 0.08); color: var(--teal); }
+        .nav-link.active { color: var(--teal); }
+
+        /* Location selector */
+        .loc-selector { position: relative; }
+        .loc-selector-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 10px;
+            border: 1.5px solid rgba(26,31,28,0.12);
+            background: var(--cloud);
+            cursor: pointer;
+            font-family: 'Nunito', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--root);
+            transition: all 0.3s ease;
+        }
+        .loc-selector-btn:hover { border-color: var(--green); }
+        .loc-selector-btn .loc-pin { color: var(--green); font-size: 12px; }
+        .loc-selector-btn .loc-chevron { font-size: 9px; opacity: 0.5; transition: transform 0.3s ease; }
+        .loc-selector.open .loc-chevron { transform: rotate(180deg); }
+        .loc-selector-menu {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 0;
+            background: var(--white);
+            border-radius: 16px;
+            min-width: 280px;
+            padding: 8px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(8px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.04);
+            z-index: 100;
+        }
+        .loc-selector.open .loc-selector-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .loc-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 14px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+            font-family: 'Nunito', sans-serif;
+        }
+        .loc-option:hover { background: var(--cloud); }
+        .loc-option.active { background: rgba(140,197,65,0.08); }
+        .loc-option-icon {
+            width: 36px; height: 36px; border-radius: 10px;
+            background: var(--cloud); display: flex; align-items: center; justify-content: center;
+            color: var(--green); font-size: 14px; flex-shrink: 0;
+        }
+        .loc-option.active .loc-option-icon { background: var(--green); color: var(--white); }
+        .loc-option-info h5 { font-size: 14px; font-weight: 700; color: var(--root); margin-bottom: 1px; line-height: 1.2; }
+        .loc-option-info p { font-size: 11px; color: var(--silver); margin: 0; line-height: 1.3; }
+        .loc-option-check { margin-left: auto; color: var(--green); font-size: 13px; opacity: 0; }
+        .loc-option.active .loc-option-check { opacity: 1; }
+
+        /* Dropdown */
+        .dropdown { position: relative; }
+        .dropdown-menu {
+            position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%) translateY(8px);
+            background: var(--white); border-radius: 16px; padding: 10px; min-width: 200px;
+            opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04); z-index: 100;
+        }
+        .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .dropdown-menu a {
+            display: flex; align-items: center; gap: 10px; padding: 10px 14px;
+            border-radius: 8px; font-size: 14px; font-weight: 600; color: var(--root); transition: all 0.2s;
+        }
+        .dropdown-menu a:hover { background: var(--cloud); color: var(--green); }
+        .dropdown-menu a i { font-size: 14px; color: var(--silver); width: 18px; text-align: center; }
+        .dropdown-menu a:hover i { color: var(--green); }
+
+        .mobile-menu-btn {
+            display: none; background: none; border: none; font-size: 22px;
+            cursor: pointer; padding: 8px; border-radius: 10px;
+            transition: all 0.3s ease; color: var(--root);
+        }
+
+        /* Mobile nav */
+        .mobile-nav {
+            position: fixed; inset: 0; background: var(--white); z-index: 99999;
+            display: flex; flex-direction: column; padding: 80px 32px 32px;
+            transform: translateX(100%); transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .mobile-nav.open { transform: translateX(0); }
+        .mobile-nav-close {
+            position: absolute; top: 20px; right: 24px; background: none;
+            border: none; font-size: 28px; cursor: pointer; color: var(--root); padding: 8px;
+        }
+        .mobile-nav a {
+            display: block; padding: 16px 0; font-size: 22px; font-weight: 700;
+            color: var(--root); border-bottom: 1px solid var(--cloud);
+        }
+        .mobile-nav a:hover { color: var(--green); }
+        .mobile-nav .btn { margin-top: 24px; width: 100%; }
+        .mobile-loc-selector { padding-bottom: 20px; margin-bottom: 8px; border-bottom: 1px solid var(--cloud); }
+        .mobile-loc-label {
+            font-size: 13px; font-weight: 600; color: var(--silver);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;
+        }
+        .mobile-loc-options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .mobile-loc-opt {
+            padding: 12px 14px; border-radius: 12px; border: 1.5px solid rgba(26,31,28,0.08);
+            background: var(--cloud); font-family: 'Nunito', sans-serif; font-size: 14px;
+            font-weight: 700; color: var(--root); cursor: pointer; transition: all 0.2s ease; text-align: center;
+        }
+        .mobile-loc-opt:hover { border-color: var(--green); }
+        .mobile-loc-opt.active { background: rgba(140,197,65,0.12); border-color: var(--green); color: var(--teal); }
+
+        /* ---- HERO ---- */
+        .about-hero {
+            position: relative;
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 140px 24px 80px;
+            overflow: hidden;
+        }
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 70% 55% at 20% 80%, rgba(140,197,65,0.65) 0%, transparent 55%),
+                radial-gradient(ellipse 60% 60% at 80% 20%, rgba(65,198,239,0.6) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 45% at 50% 50%, rgba(226,247,82,0.25) 0%, transparent 40%),
+                radial-gradient(ellipse 45% 55% at 8% 30%, rgba(42,124,111,0.4) 0%, transparent 50%),
+                radial-gradient(ellipse 40% 45% at 92% 65%, rgba(53,168,184,0.45) 0%, transparent 45%),
+                radial-gradient(ellipse 120% 120% at 50% 50%, #7DC242 0%, #5BB83A 20%, #3DBE7B 40%, #35A8B8 65%, #41C6EF 90%, #2EA0D4 100%);
+            animation: meshMove 12s ease-in-out infinite alternate;
+        }
+        @keyframes meshMove {
+            0% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.03) rotate(0.5deg); }
+            100% { transform: scale(1.06) rotate(-0.3deg); }
+        }
+        .about-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 760px;
+        }
+        .about-hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            border-radius: 50px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 24px;
+        }
+        .about-hero h1 {
+            font-size: 56px;
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+        .about-hero-subtitle {
+            font-size: 22px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 0;
+            font-style: italic;
+        }
+
+        /* Floating shapes in hero */
+        .hero-shape {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .hero-shape-1 {
+            width: 300px; height: 300px;
+            top: -50px; right: -60px;
+            background: radial-gradient(circle at 35% 35%, rgba(226,247,82,0.3) 0%, transparent 70%);
+            animation: geoFloat 18s ease-in-out infinite alternate;
+        }
+        .hero-shape-2 {
+            width: 200px; height: 200px;
+            bottom: -30px; left: -40px;
+            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15) 0%, transparent 70%);
+            animation: geoFloat 14s ease-in-out infinite alternate;
+            animation-delay: -4s;
+        }
+        .hero-shape-3 {
+            width: 120px; height: 120px;
+            top: 30%; left: 8%;
+            background: radial-gradient(circle at 50% 50%, rgba(140,197,65,0.25) 0%, transparent 70%);
+            animation: geoFloat 12s ease-in-out infinite alternate;
+            animation-delay: -7s;
+        }
+        @keyframes geoFloat {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(-30px) scale(1.1); }
+        }
+
+        /* ---- STORY SECTION ---- */
+        .about-story {
+            padding: 80px 0;
+            background: var(--white);
+        }
+        .about-story-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border-radius: 50px;
+            background: rgba(140,197,65,0.1);
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--green);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-size: 40px;
+            font-weight: 900;
+            color: var(--root);
+            line-height: 1.15;
+            margin-bottom: 32px;
+        }
+        .about-story p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: rgba(26,31,28,0.7);
+            margin-bottom: 24px;
+        }
+        .about-story p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ---- VALUES SECTION ---- */
+        .about-values {
+            padding: 80px 0;
+            background: var(--cloud);
+            position: relative;
+        }
+        .about-values::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 80% at 0% 50%, rgba(140,197,65,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 60% at 100% 50%, rgba(65,198,239,0.06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .about-values-header {
+            text-align: center;
+            margin-bottom: 56px;
+            position: relative;
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            position: relative;
+        }
+        .value-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 40px 32px;
+            text-align: center;
+            border: 1px solid rgba(26,31,28,0.04);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, var(--green), var(--sky));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 56px rgba(0,0,0,0.08), 0 0 0 1px rgba(140,197,65,0.1);
+        }
+        .value-card:hover::before {
+            opacity: 1;
+        }
+        .value-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 20px;
+            background: rgba(140,197,65,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 28px;
+            color: var(--green);
+            transition: all 0.4s ease;
+        }
+        .value-card:hover .value-icon {
+            background: var(--green);
+            color: var(--white);
+            transform: scale(1.08);
+        }
+        .value-card h3 {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--root);
+            margin-bottom: 12px;
+        }
+        .value-card p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--silver);
+        }
+
+        /* ---- VISIT US SECTION ---- */
+        .about-visit {
+            padding: 80px 0;
+            background: var(--white);
+            position: relative;
+        }
+        .about-visit-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .about-visit-header .section-title {
+            margin-bottom: 12px;
+        }
+        .about-visit-header p {
+            font-size: 17px;
+            color: var(--silver);
+            max-width: 560px;
+            margin: 0 auto;
+        }
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .location-card {
+            background: var(--cloud);
+            border-radius: 20px;
+            padding: 32px 24px;
+            text-align: center;
+            border: 1.5px solid rgba(26,31,28,0.04);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .location-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 48px rgba(0,0,0,0.08);
+            border-color: rgba(140,197,65,0.2);
+        }
+        .location-card-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: rgba(140,197,65,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 22px;
+            color: var(--green);
+            transition: all 0.4s ease;
+        }
+        .location-card:hover .location-card-icon {
+            background: var(--green);
+            color: var(--white);
+        }
+        .location-card h4 {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--root);
+            margin-bottom: 6px;
+        }
+        .location-card .location-address {
+            font-size: 13px;
+            color: var(--silver);
+            line-height: 1.5;
+            margin-bottom: 6px;
+        }
+        .location-card .location-hours {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--green);
+            margin-bottom: 18px;
+        }
+        .location-card .btn {
+            width: 100%;
+        }
+
+        /* ---- CTA BANNER ---- */
+        .about-cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--root) 0%, #2a3530 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .about-cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 50% 40% at 10% 90%, rgba(140,197,65,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 50% at 90% 10%, rgba(65,198,239,0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .about-cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .about-cta h2 {
+            font-size: 36px;
+            font-weight: 900;
+            color: var(--white);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        .about-cta p {
+            font-size: 17px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 32px;
+        }
+        .about-cta .cta-buttons {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ---- FOOTER ---- */
+        .footer {
+            background: var(--root);
+            padding: 80px 0 40px;
+            color: rgba(255,255,255,0.6);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+            gap: 48px;
+        }
+        .footer-brand p { font-size: 14px; line-height: 1.7; margin-top: 16px; }
+        .footer-logo { height: 84px; width: auto; margin-bottom: 8px; }
+        .social-links { display: flex; gap: 12px; margin-top: 20px; }
+        .social-links a {
+            width: 40px; height: 40px; border-radius: 12px;
+            background: rgba(255,255,255,0.06); display: flex;
+            align-items: center; justify-content: center;
+            font-size: 16px; color: rgba(255,255,255,0.4);
+            transition: all 0.3s ease;
+        }
+        .social-links a:hover { background: var(--green); color: var(--white); transform: translateY(-2px); }
+        .footer-col h4 {
+            font-size: 13px; font-weight: 800; text-transform: uppercase;
+            letter-spacing: 2px; color: var(--white); margin-bottom: 20px;
+        }
+        .footer-col a {
+            display: block; font-size: 14px; padding: 6px 0;
+            color: rgba(255,255,255,0.5); transition: color 0.2s;
+        }
+        .footer-col a:hover { color: var(--green); }
+        .footer-bottom {
+            margin-top: 56px; padding-top: 28px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 13px;
+        }
+        .footer-bottom-links { display: flex; gap: 24px; }
+        .footer-bottom-links a { color: rgba(255,255,255,0.4); transition: color 0.2s; }
+        .footer-bottom-links a:hover { color: var(--green); }
+
+        /* ---- BOTTOM NAV ---- */
+        .bottom-nav {
+            position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+            background: rgba(26,31,28,0.95); backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px); padding: 12px 28px;
+            display: flex; align-items: center; justify-content: space-between;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .bottom-nav-locations { display: flex; align-items: center; gap: 16px; }
+        .bottom-nav-locations a {
+            font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.4); transition: color 0.2s;
+        }
+        .bottom-nav-locations a:hover { color: var(--white); }
+        .bottom-nav-locations a.highlight { color: var(--green); font-weight: 700; }
+        .bottom-nav-actions { display: flex; gap: 10px; }
+        .bottom-nav .btn { font-size: 11px; padding: 10px 22px; }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 1100px) {
+            .nav { display: none; }
+            .mobile-menu-btn { display: block; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+            .values-grid { grid-template-columns: repeat(3, 1fr); gap: 18px; }
+            .locations-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .about-hero { min-height: 420px; padding: 120px 24px 64px; }
+            .about-hero h1 { font-size: 36px; }
+            .about-hero-subtitle { font-size: 18px; }
+            .section-title { font-size: 30px; }
+            .values-grid { grid-template-columns: 1fr; gap: 16px; }
+            .value-card { padding: 32px 24px; }
+            .locations-grid { grid-template-columns: 1fr; gap: 14px; }
+            .about-story { padding: 56px 0; }
+            .about-values { padding: 56px 0; }
+            .about-visit { padding: 56px 0; }
+            .about-cta { padding: 56px 0; }
+            .about-cta h2 { font-size: 28px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+            .bottom-nav-locations { display: none; }
+            .bottom-nav { justify-content: center; }
+        }
+
+        @media (max-width: 480px) {
+            .about-hero h1 { font-size: 30px; }
+            .about-hero-subtitle { font-size: 16px; }
+            .about-hero-label { font-size: 11px; }
+            .about-story p { font-size: 16px; }
+            .section-title { font-size: 26px; }
+            .value-card h3 { font-size: 19px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <img src="/media/logo-gradient-cannabis.png" alt="Joyology Cannabis" id="headerLogo">
+            </a>
+
+            <nav class="nav">
+                <div class="loc-selector" id="locSelector">
+                    <button class="loc-selector-btn" id="locSelectorBtn">
+                        <i class="fas fa-map-marker-alt loc-pin"></i>
+                        <span id="locSelectorLabel">Lake Orion</span>
+                        <i class="fas fa-chevron-down loc-chevron"></i>
+                    </button>
+                    <div class="loc-selector-menu" id="locSelectorMenu">
+                        <button class="loc-option active" data-slug="lake-orion" data-name="Lake Orion">
+                            <div class="loc-option-icon"><i class="fas fa-store"></i></div>
+                            <div class="loc-option-info">
+                                <h5>Lake Orion</h5>
+                                <p>4098 S Baldwin Rd, Lake Orion, MI</p>
+                            </div>
+                            <i class="fas fa-check loc-option-check"></i>
+                        </button>
+                        <button class="loc-option" data-slug="monroe" data-name="Monroe">
+                            <div class="loc-option-icon"><i class="fas fa-store"></i></div>
+                            <div class="loc-option-info">
+                                <h5>Monroe</h5>
+                                <p>14880 LaPlaisance Rd, Monroe, MI</p>
+                            </div>
+                            <i class="fas fa-check loc-option-check"></i>
+                        </button>
+                        <button class="loc-option" data-slug="centerline" data-name="Centerline">
+                            <div class="loc-option-icon"><i class="fas fa-store"></i></div>
+                            <div class="loc-option-info">
+                                <h5>Centerline</h5>
+                                <p>25831 Sherwood Ave, Center Line, MI</p>
+                            </div>
+                            <i class="fas fa-check loc-option-check"></i>
+                        </button>
+                        <button class="loc-option" data-slug="mt-clemens" data-name="Mt. Clemens">
+                            <div class="loc-option-icon"><i class="fas fa-store"></i></div>
+                            <div class="loc-option-info">
+                                <h5>Mt. Clemens</h5>
+                                <p>195 N Malow St, Mt Clemens, MI</p>
+                            </div>
+                            <i class="fas fa-check loc-option-check"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="/shop/" class="nav-link">Shop <i class="fas fa-chevron-down" style="font-size:9px;margin-left:4px;opacity:0.5;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="/shop/#flower"><i class="fas fa-leaf"></i> Flower</a>
+                        <a href="/shop/#pre-rolls"><i class="fas fa-smoking"></i> Pre-rolls</a>
+                        <a href="/shop/#vaporizers"><i class="fas fa-wind"></i> Vapes & carts</a>
+                        <a href="/shop/#edibles"><i class="fas fa-cookie-bite"></i> Edibles</a>
+                        <a href="/shop/#concentrates"><i class="fas fa-droplet"></i> Concentrates</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="/about/" class="nav-link active">About <i class="fas fa-chevron-down" style="font-size:9px;margin-left:4px;opacity:0.5;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="/brands/"><i class="fas fa-award"></i> Our brands</a>
+                        <a href="/careers/"><i class="fas fa-briefcase"></i> Careers</a>
+                        <a href="/faqs/"><i class="fas fa-circle-question"></i> FAQs</a>
+                    </div>
+                </div>
+
+                <a href="/blog/" class="nav-link">Blog</a>
+
+                <a href="/daily-deals/" class="btn btn-primary btn-sm">View deals</a>
+            </nav>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu"><i class="fas fa-times"></i></button>
+
+        <div class="mobile-loc-selector">
+            <p class="mobile-loc-label"><i class="fas fa-map-marker-alt" style="color:var(--green);margin-right:6px;"></i> Your location</p>
+            <div class="mobile-loc-options">
+                <button class="mobile-loc-opt active" data-slug="lake-orion" data-name="Lake Orion">Lake Orion</button>
+                <button class="mobile-loc-opt" data-slug="monroe" data-name="Monroe">Monroe</button>
+                <button class="mobile-loc-opt" data-slug="centerline" data-name="Centerline">Centerline</button>
+                <button class="mobile-loc-opt" data-slug="mt-clemens" data-name="Mt. Clemens">Mt. Clemens</button>
+            </div>
+        </div>
+
+        <a href="/shop/">Shop menu</a>
+        <a href="/shop/#flower">Flower</a>
+        <a href="/shop/#pre-rolls">Pre-rolls</a>
+        <a href="/shop/#vaporizers">Vapes & carts</a>
+        <a href="/shop/#edibles">Edibles</a>
+        <a href="/shop/#concentrates">Concentrates</a>
+        <a href="/about/">About</a>
+        <a href="/brands/">Our brands</a>
+        <a href="/blog/">Blog</a>
+        <a href="/daily-deals/" class="btn btn-primary">View today's deals</a>
+    </div>
+
+    <!-- Hero -->
+    <section class="about-hero">
+        <div class="hero-shape hero-shape-1"></div>
+        <div class="hero-shape hero-shape-2"></div>
+        <div class="hero-shape hero-shape-3"></div>
+        <div class="about-hero-content">
+            <div class="about-hero-label"><i class="fas fa-sparkles"></i> Our story</div>
+            <h1>About Joyology</h1>
+            <p class="about-hero-subtitle">The Science of Happiness</p>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="about-story">
+        <div class="container">
+            <div class="about-story-inner reveal">
+                <span class="section-label"><i class="fas fa-heart"></i> Our Philosophy</span>
+                <h2 class="section-title">The Pursuit of Happiness</h2>
+                <p>Happiness is not a destination. It is a way of life. It is a path that we choose. That's why our forefathers wrote, "Life, Liberty and the Pursuit of Happiness."</p>
+                <p>Some pursue happiness by enhancing their quality of life. Some by enjoying their highest level of wellbeing, regardless of what they are going through or where they are at in life.</p>
+                <p>Whatever path to happiness you are pursuing, you can find it at Joyology Cannabis, with four locations across Michigan ready to serve you.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="about-values">
+        <div class="container">
+            <div class="about-values-header reveal">
+                <span class="section-label"><i class="fas fa-star"></i> What Sets Us Apart</span>
+                <h2 class="section-title">Our Values</h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-card reveal" style="transition-delay: 0.1s;">
+                    <div class="value-icon"><i class="fas fa-gem"></i></div>
+                    <h3>Premium Quality</h3>
+                    <p>We curate only the finest cannabis products from 500+ trusted brands across Michigan.</p>
+                </div>
+                <div class="value-card reveal" style="transition-delay: 0.2s;">
+                    <div class="value-icon"><i class="fas fa-comments"></i></div>
+                    <h3>Expert Guidance</h3>
+                    <p>Our knowledgeable Blissologists specialize in matching you with the perfect products for your needs.</p>
+                </div>
+                <div class="value-card reveal" style="transition-delay: 0.3s;">
+                    <div class="value-icon"><i class="fas fa-people-group"></i></div>
+                    <h3>Community First</h3>
+                    <p>Four Michigan locations committed to creating welcoming, approachable cannabis experiences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visit Us Section -->
+    <section class="about-visit">
+        <div class="container">
+            <div class="about-visit-header reveal">
+                <span class="section-label"><i class="fas fa-map-marker-alt"></i> Our Locations</span>
+                <h2 class="section-title">Visit Us</h2>
+                <p>Four Michigan locations ready to help you find your path to happiness.</p>
+            </div>
+            <div class="locations-grid">
+                <div class="location-card reveal" style="transition-delay: 0.1s;">
+                    <div class="location-card-icon"><i class="fas fa-store"></i></div>
+                    <h4>Lake Orion</h4>
+                    <p class="location-address">4098 S Baldwin Rd<br>Lake Orion, MI 48359</p>
+                    <p class="location-hours"><i class="fas fa-clock"></i> Open daily 9am &ndash; 9pm</p>
+                    <a href="/location/lake-orion/" class="btn btn-ghost btn-sm">Visit location</a>
+                </div>
+                <div class="location-card reveal" style="transition-delay: 0.2s;">
+                    <div class="location-card-icon"><i class="fas fa-store"></i></div>
+                    <h4>Monroe</h4>
+                    <p class="location-address">14880 LaPlaisance Rd<br>Monroe, MI 48161</p>
+                    <p class="location-hours"><i class="fas fa-clock"></i> Open daily 9am &ndash; 9pm</p>
+                    <a href="/location/monroe/" class="btn btn-ghost btn-sm">Visit location</a>
+                </div>
+                <div class="location-card reveal" style="transition-delay: 0.3s;">
+                    <div class="location-card-icon"><i class="fas fa-store"></i></div>
+                    <h4>Centerline</h4>
+                    <p class="location-address">25831 Sherwood Ave<br>Center Line, MI 48015</p>
+                    <p class="location-hours"><i class="fas fa-clock"></i> Open daily 9am &ndash; 9pm</p>
+                    <a href="/location/centerline-sherwood/" class="btn btn-ghost btn-sm">Visit location</a>
+                </div>
+                <div class="location-card reveal" style="transition-delay: 0.4s;">
+                    <div class="location-card-icon"><i class="fas fa-store"></i></div>
+                    <h4>Mt. Clemens</h4>
+                    <p class="location-address">195 N Malow St<br>Mt Clemens, MI 48043</p>
+                    <p class="location-hours"><i class="fas fa-clock"></i> Open daily 9am &ndash; 9pm</p>
+                    <a href="/location/mt-clemens-malow/" class="btn btn-ghost btn-sm">Visit location</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="about-cta">
+        <div class="container">
+            <div class="about-cta-content reveal">
+                <h2>Ready to Find Your Joy?</h2>
+                <p>Browse our curated menu of premium cannabis products or stop by one of our four Michigan locations today.</p>
+                <div class="cta-buttons">
+                    <a href="/shop/" class="btn btn-primary">Shop menu</a>
+                    <a href="/daily-deals/" class="btn btn-outline-white">View daily deals</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="/media/logo-cannabis-white.png" alt="Joyology Cannabis" class="footer-logo">
+                    <p>Cultivating joy, wellness, and community connection through premium, approachable cannabis experiences. Michigan's destination for elevated wellness.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Locations</h4>
+                    <a href="/location/lake-orion/">Lake Orion</a>
+                    <a href="/location/monroe/">Monroe</a>
+                    <a href="/location/centerline-sherwood/">Centerline</a>
+                    <a href="/location/mt-clemens-malow/">Mt. Clemens</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <a href="/shop/#flower">Flower</a>
+                    <a href="/shop/#pre-rolls">Pre-rolls</a>
+                    <a href="/shop/#edibles">Edibles</a>
+                    <a href="/shop/#vaporizers">Vapes & carts</a>
+                    <a href="/shop/#concentrates">Concentrates</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="/about/">About us</a>
+                    <a href="/brands/">Our brands</a>
+                    <a href="/careers/">Careers</a>
+                    <a href="/blog/">Blog</a>
+                    <a href="/faqs/">FAQs</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick links</h4>
+                    <a href="/daily-deals/">Daily deals</a>
+                    <a href="/locations/">All locations</a>
+                    <a href="#">Loyalty program</a>
+                    <a href="#">Contact us</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Joyology Cannabis. All rights reserved. Must be 21+ to enter.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bottom Nav -->
+    <div class="bottom-nav">
+        <div class="bottom-nav-locations">
+            <a href="/locations/" class="highlight"><i class="fas fa-map-marker-alt"></i> Find a location</a>
+            <a href="/location/lake-orion/">Lake Orion</a>
+            <a href="/location/monroe/">Monroe</a>
+            <a href="/location/centerline-sherwood/">Centerline</a>
+            <a href="/location/mt-clemens-malow/">Mt. Clemens</a>
+        </div>
+        <div class="bottom-nav-actions">
+            <a href="/daily-deals/" class="btn btn-gradient btn-sm">View deals</a>
+            <a href="/shop/" class="btn btn-primary btn-sm">Shop menu</a>
+        </div>
+    </div>
+
+    <script>
+        // ---- Location Data ----
+        var locData = {
+            'lake-orion': { name: 'Lake Orion', address: '4098 S Baldwin Rd, Lake Orion, MI 48359' },
+            'monroe': { name: 'Monroe', address: '14880 LaPlaisance Rd, Monroe, MI 48161' },
+            'centerline': { name: 'Centerline', address: '25831 Sherwood Ave, Center Line, MI 48015' },
+            'mt-clemens': { name: 'Mt. Clemens', address: '195 N Malow St, Mt Clemens, MI 48043' }
+        };
+
+        // ---- Location Management ----
+        var currentLoc = localStorage.getItem('joyology-location') || 'lake-orion';
+        var locSelector = document.getElementById('locSelector');
+        var locSelectorBtn = document.getElementById('locSelectorBtn');
+        var locSelectorLabel = document.getElementById('locSelectorLabel');
+        var locSelectorMenu = document.getElementById('locSelectorMenu');
+
+        function setLocation(slug) {
+            currentLoc = slug;
+            localStorage.setItem('joyology-location', slug);
+            var loc = locData[slug];
+
+            // Update nav selector
+            locSelectorLabel.textContent = loc.name;
+            locSelectorMenu.querySelectorAll('.loc-option').forEach(function(opt) {
+                opt.classList.toggle('active', opt.dataset.slug === slug);
+            });
+
+            // Update mobile selector
+            document.querySelectorAll('.mobile-loc-opt').forEach(function(opt) {
+                opt.classList.toggle('active', opt.dataset.slug === slug);
+            });
+
+            locSelector.classList.remove('open');
+        }
+
+        // Initialize
+        setLocation(currentLoc);
+
+        // Desktop dropdown toggle
+        locSelectorBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            locSelector.classList.toggle('open');
+        });
+
+        // Desktop option click
+        locSelectorMenu.querySelectorAll('.loc-option').forEach(function(opt) {
+            opt.addEventListener('click', function() { setLocation(this.dataset.slug); });
+        });
+
+        // Mobile option click
+        document.querySelectorAll('.mobile-loc-opt').forEach(function(opt) {
+            opt.addEventListener('click', function() { setLocation(this.dataset.slug); });
+        });
+
+        // Close on outside click
+        document.addEventListener('click', function(e) {
+            if (!locSelector.contains(e.target)) locSelector.classList.remove('open');
+        });
+
+        // ---- Mobile Menu ----
+        var mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        var mobileNav = document.getElementById('mobileNav');
+        var mobileNavClose = document.getElementById('mobileNavClose');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileNav.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        });
+        mobileNavClose.addEventListener('click', function() {
+            mobileNav.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+        mobileNav.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                mobileNav.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // ---- Scroll Reveal (IntersectionObserver) ----
+        var revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        var revealObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealEls.forEach(function(el) {
+            revealObserver.observe(el);
+        });
+    </script>
+</body>
+</html>

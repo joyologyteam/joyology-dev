@@ -1,0 +1,2371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyology Cannabis | The Science of Happiness</title>
+    <link rel="icon" href="/media/favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* =============================================
+           JOYOLOGY - BOTANICAL EUPHORIA
+           A 10x landing page experience
+        ============================================= */
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --green: #8CC541;
+            --light-green: #C8DC64;
+            --blue-green: #80C9AB;
+            --acid: #E2F752;
+            --sky: #41C6EF;
+            --root: #1A1F1C;
+            --cloud: #F4F7F5;
+            --silver: #9BA5A1;
+            --white: #FFFFFF;
+            --violet: #6B5B95;
+            --orange: #FF9F1C;
+            --teal: #2A7C6F;
+            --red: #E04F5F;
+            --joy-grad: linear-gradient(135deg, #E2F752 0%, #8CC541 40%, #41C6EF 100%);
+            --fresh-grad: linear-gradient(180deg, #A4D65E 0%, #7DC242 100%);
+            --emerald-grad: linear-gradient(180deg, #3DBE7B 0%, #2A7C6F 100%);
+            --dark-grad: linear-gradient(180deg, #1A1F1C 0%, #0d110e 100%);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--root);
+            background: var(--white);
+            overflow-x: hidden;
+            padding-bottom: 72px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ---- SCROLL PROGRESS ---- */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--joy-grad);
+            z-index: 10001;
+            width: 0%;
+            transition: width 0.05s linear;
+        }
+
+        /* ---- REVEAL ANIMATIONS ---- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.85);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Stagger children */
+        .stagger > * { transition-delay: calc(var(--i, 0) * 0.08s); }
+
+        /* ---- TYPOGRAPHY ---- */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            line-height: 1.15;
+            color: var(--root);
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--green);
+            margin-bottom: 16px;
+        }
+        .section-label::before {
+            content: '';
+            width: 24px;
+            height: 2px;
+            background: var(--green);
+            border-radius: 2px;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        /* ---- BUTTONS ---- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 15px 32px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 50px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .btn:hover::after { opacity: 1; }
+
+        .btn-primary {
+            background: var(--green);
+            color: var(--white);
+            border-color: var(--green);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(140, 197, 65, 0.4);
+            background: #7ab838;
+        }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--green);
+            border-color: var(--white);
+        }
+        .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 255, 255, 0.3);
+            background: var(--acid);
+            color: var(--root);
+            border-color: var(--acid);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255,255,255,0.5);
+        }
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--green);
+            border-color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--green);
+            border: 2px solid var(--green);
+        }
+        .btn-ghost:hover {
+            background: var(--green);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(140, 197, 65, 0.25);
+        }
+
+        .btn-gradient {
+            background: var(--joy-grad);
+            color: var(--root);
+            border: none;
+            font-weight: 800;
+        }
+        .btn-gradient:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(226, 247, 82, 0.4);
+        }
+
+        .btn-sm {
+            padding: 10px 22px;
+            font-size: 11px;
+        }
+
+        /* ---- CONTAINER ---- */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* =============================================
+           HEADER
+        ============================================= */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            padding: 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .header.scrolled {
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            box-shadow: 0 1px 30px rgba(0,0,0,0.06);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            transition: padding 0.4s ease;
+        }
+        .header.scrolled .header-inner {
+            padding: 10px 0;
+        }
+
+        .logo img {
+            height: 96px;
+            width: auto;
+            transition: all 0.4s ease;
+        }
+
+        .nav {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-weight: 700;
+            font-size: 14px;
+            padding: 10px 16px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .header:not(.scrolled) .nav-link { color: var(--white); }
+        .header.scrolled .nav-link { color: var(--root); }
+
+        /* Scrolled: dark text → teal text, subtle teal tint bg */
+        .header.scrolled .nav-link:hover {
+            background: rgba(42, 124, 111, 0.08);
+            color: var(--teal);
+        }
+        /* Over hero: white text → bright white, frosted bg */
+        .header:not(.scrolled) .nav-link:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--white);
+        }
+
+        .dropdown { position: relative; }
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%) translateY(8px);
+            background: var(--white);
+            border-radius: 16px;
+            min-width: 220px;
+            padding: 8px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04);
+            z-index: 100;
+        }
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        .dropdown-menu a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            color: var(--root);
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+        }
+        .dropdown-menu a:hover {
+            background: var(--cloud);
+            color: var(--green);
+            transform: translateX(4px);
+        }
+        .dropdown-menu a i {
+            width: 20px;
+            text-align: center;
+            color: var(--green);
+            font-size: 13px;
+        }
+
+        .nav .btn-primary {
+            margin-left: 8px;
+        }
+        .header:not(.scrolled) .nav .btn-primary {
+            background: var(--white);
+            color: var(--green);
+            border-color: var(--white);
+        }
+
+        /* Location selector */
+        .loc-selector {
+            position: relative;
+        }
+        .loc-selector-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 10px;
+            border: 1.5px solid rgba(255,255,255,0.25);
+            background: rgba(255,255,255,0.08);
+            cursor: pointer;
+            font-family: 'Nunito', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        .header:not(.scrolled) .loc-selector-btn {
+            color: var(--white);
+            border-color: rgba(255,255,255,0.25);
+            background: rgba(255,255,255,0.08);
+        }
+        .header.scrolled .loc-selector-btn {
+            color: var(--root);
+            border-color: rgba(26,31,28,0.12);
+            background: var(--cloud);
+        }
+        .loc-selector-btn:hover {
+            border-color: var(--green);
+        }
+        .loc-selector-btn .loc-pin {
+            color: var(--green);
+            font-size: 12px;
+        }
+        .loc-selector-btn .loc-chevron {
+            font-size: 9px;
+            opacity: 0.5;
+            transition: transform 0.3s ease;
+        }
+        .loc-selector.open .loc-chevron {
+            transform: rotate(180deg);
+        }
+        .loc-selector-menu {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 0;
+            background: var(--white);
+            border-radius: 16px;
+            min-width: 280px;
+            padding: 8px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(8px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.04);
+            z-index: 100;
+        }
+        .loc-selector.open .loc-selector-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .loc-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 14px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+            font-family: 'Nunito', sans-serif;
+        }
+        .loc-option:hover {
+            background: var(--cloud);
+        }
+        .loc-option.active {
+            background: rgba(140,197,65,0.08);
+        }
+        .loc-option-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: var(--cloud);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green);
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+        .loc-option.active .loc-option-icon {
+            background: var(--green);
+            color: var(--white);
+        }
+        .loc-option-info h5 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--root);
+            margin-bottom: 1px;
+            line-height: 1.2;
+        }
+        .loc-option-info p {
+            font-size: 11px;
+            color: var(--silver);
+            margin: 0;
+            line-height: 1.3;
+        }
+        .loc-option-check {
+            margin-left: auto;
+            color: var(--green);
+            font-size: 13px;
+            opacity: 0;
+        }
+        .loc-option.active .loc-option-check { opacity: 1; }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 22px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            color: var(--root);
+        }
+        .header:not(.scrolled) .mobile-menu-btn { color: var(--white); }
+        .mobile-menu-btn:hover { background: rgba(140,197,65,0.1); }
+
+        /* Mobile nav overlay */
+        .mobile-nav {
+            position: fixed;
+            inset: 0;
+            background: var(--white);
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            padding: 80px 32px 32px;
+            transform: translateX(100%);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .mobile-nav.open { transform: translateX(0); }
+        .mobile-nav-close {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--root);
+            padding: 8px;
+        }
+        .mobile-nav a {
+            display: block;
+            padding: 16px 0;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--root);
+            border-bottom: 1px solid var(--cloud);
+        }
+        .mobile-nav a:hover { color: var(--green); }
+        .mobile-nav .btn {
+            margin-top: 24px;
+            width: 100%;
+        }
+        .mobile-loc-selector {
+            padding-bottom: 20px;
+            margin-bottom: 8px;
+            border-bottom: 1px solid var(--cloud);
+        }
+        .mobile-loc-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--silver);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        .mobile-loc-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        .mobile-loc-opt {
+            padding: 12px 14px;
+            border-radius: 12px;
+            border: 1.5px solid rgba(26,31,28,0.08);
+            background: var(--cloud);
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--root);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+        .mobile-loc-opt:hover {
+            border-color: var(--green);
+        }
+        .mobile-loc-opt.active {
+            background: rgba(140,197,65,0.12);
+            border-color: var(--green);
+            color: var(--teal);
+        }
+
+        /* =============================================
+           HERO
+        ============================================= */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: #6aad38;
+        }
+
+        /* Animated mesh gradient background */
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 70% 55% at 20% 80%, rgba(140,197,65,0.65) 0%, transparent 55%),
+                radial-gradient(ellipse 60% 60% at 80% 20%, rgba(65,198,239,0.6) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 45% at 50% 50%, rgba(226,247,82,0.25) 0%, transparent 40%),
+                radial-gradient(ellipse 45% 55% at 8% 30%, rgba(42,124,111,0.4) 0%, transparent 50%),
+                radial-gradient(ellipse 40% 45% at 92% 65%, rgba(53,168,184,0.45) 0%, transparent 45%),
+                radial-gradient(ellipse 120% 120% at 50% 50%, #7DC242 0%, #5BB83A 20%, #3DBE7B 40%, #35A8B8 65%, #41C6EF 90%, #2EA0D4 100%);
+            animation: meshMove 12s ease-in-out infinite alternate;
+        }
+        @keyframes meshMove {
+            0% { background-position: 0% 0%, 100% 0%, 50% 50%, 0% 100%, 80% 60%, 0% 0%; }
+            100% { background-position: 25% 15%, 75% 85%, 45% 35%, 15% 55%, 85% 75%, 0% 0%; }
+        }
+
+        /* Grain overlay */
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+            opacity: 0.5;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Floating orbs */
+        .hero-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.3;
+            animation: orbFloat 8s ease-in-out infinite alternate;
+        }
+        .hero-orb-1 {
+            width: 400px; height: 400px;
+            background: var(--sky);
+            top: -10%; right: -5%;
+            animation-delay: -2s;
+        }
+        .hero-orb-2 {
+            width: 300px; height: 300px;
+            background: var(--green);
+            bottom: -5%; left: 10%;
+            animation-delay: -4s;
+            animation-duration: 10s;
+        }
+        .hero-orb-3 {
+            width: 200px; height: 200px;
+            background: var(--acid);
+            top: 30%; left: 50%;
+            animation-delay: -1s;
+            animation-duration: 7s;
+        }
+        @keyframes orbFloat {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, -40px) scale(1.15); }
+        }
+
+        /* Floating circle geometry */
+        .hero-circles {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .hero-circle {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.35);
+            animation: circleDrift 14s ease-in-out infinite alternate;
+        }
+        .hero-circle-1 {
+            width: 220px; height: 220px;
+            top: 8%; left: 12%;
+            border-color: rgba(255,255,255,0.3);
+            animation-duration: 16s;
+        }
+        .hero-circle-2 {
+            width: 80px; height: 80px;
+            top: 25%; right: 18%;
+            border-color: rgba(226,247,82,0.45);
+            animation-duration: 11s;
+            animation-delay: -3s;
+        }
+        .hero-circle-3 {
+            width: 340px; height: 340px;
+            bottom: -8%; right: -4%;
+            border-color: rgba(65,198,239,0.25);
+            border-width: 2.5px;
+            animation-duration: 20s;
+            animation-delay: -7s;
+        }
+        .hero-circle-4 {
+            width: 50px; height: 50px;
+            top: 55%; left: 22%;
+            border-color: rgba(255,255,255,0.45);
+            animation-duration: 9s;
+            animation-delay: -2s;
+        }
+        .hero-circle-5 {
+            width: 140px; height: 140px;
+            bottom: 20%; left: 42%;
+            border-color: rgba(140,197,65,0.35);
+            animation-duration: 18s;
+            animation-delay: -5s;
+        }
+        .hero-circle-6 {
+            width: 180px; height: 180px;
+            top: -5%; right: 30%;
+            border-color: rgba(255,255,255,0.22);
+            border-width: 2.5px;
+            animation-duration: 22s;
+            animation-delay: -10s;
+        }
+        .hero-circle-7 {
+            width: 60px; height: 60px;
+            bottom: 35%; right: 12%;
+            border-color: rgba(226,247,82,0.42);
+            animation-duration: 10s;
+            animation-delay: -1s;
+        }
+        .hero-circle-8 {
+            width: 100px; height: 100px;
+            top: 70%; left: 8%;
+            border-color: rgba(65,198,239,0.32);
+            animation-duration: 15s;
+            animation-delay: -8s;
+        }
+        @keyframes circleDrift {
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { transform: translate(20px, -30px) scale(1.08) rotate(15deg); opacity: 0.5; }
+        }
+
+        /* Bold geometric circle composition */
+        .hero-geo {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .hero-geo-shape {
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        /* Large filled — anchor shape, right side */
+        .geo-1 {
+            width: 520px; height: 520px;
+            right: -6%; top: 10%;
+            background: radial-gradient(circle at 35% 35%, rgba(65,198,239,0.45) 0%, rgba(65,198,239,0.12) 70%, transparent 100%);
+            animation: geoFloat 18s ease-in-out infinite alternate;
+        }
+
+        /* Thick ring — overlapping geo-1 */
+        .geo-2 {
+            width: 340px; height: 340px;
+            right: 8%; top: 5%;
+            border: 4px solid rgba(255,255,255,0.32);
+            animation: geoFloat 22s ease-in-out infinite alternate-reverse;
+            animation-delay: -4s;
+        }
+
+        /* Mid filled — green accent */
+        .geo-3 {
+            width: 200px; height: 200px;
+            right: 22%; bottom: 22%;
+            background: radial-gradient(circle at 50% 50%, rgba(140,197,65,0.5) 0%, rgba(140,197,65,0.08) 70%, transparent 100%);
+            animation: geoFloat 15s ease-in-out infinite alternate;
+            animation-delay: -6s;
+        }
+
+        /* Small solid accent — acid yellow glow */
+        .geo-4 {
+            width: 90px; height: 90px;
+            right: 18%; top: 38%;
+            background: radial-gradient(circle at 50% 50%, rgba(226,247,82,0.55) 0%, rgba(226,247,82,0.12) 70%, transparent 100%);
+            animation: geoFloat 12s ease-in-out infinite alternate;
+            animation-delay: -2s;
+        }
+
+        /* Thin ring — large, overlaps left edge of cluster */
+        .geo-5 {
+            width: 420px; height: 420px;
+            right: -2%; bottom: -10%;
+            border: 2px solid rgba(128,201,171,0.35);
+            animation: geoFloat 25s ease-in-out infinite alternate-reverse;
+            animation-delay: -9s;
+        }
+
+        /* Gradient-stroke ring — medium, intersects geo-1 and geo-2 */
+        .geo-6 {
+            width: 160px; height: 160px;
+            right: 30%; top: 15%;
+            border: 3px solid rgba(65,198,239,0.38);
+            background: radial-gradient(circle at 50% 50%, rgba(65,198,239,0.15) 0%, transparent 60%);
+            animation: geoFloat 14s ease-in-out infinite alternate;
+            animation-delay: -7s;
+        }
+
+        @keyframes geoFloat {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(15px, -20px) scale(1.04); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-geo { display: none; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 5;
+            max-width: 720px;
+            padding: 120px 0 80px;
+        }
+        .hero-content .section-label {
+            color: var(--acid);
+        }
+        .hero-content .section-label::before {
+            background: var(--acid);
+        }
+
+        .hero-brand {
+            font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1.05;
+            letter-spacing: -1px;
+            margin-bottom: 12px;
+            white-space: nowrap;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            font-weight: 900;
+            line-height: 1.05;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+        .hero h1 span {
+            color: var(--white);
+        }
+
+        .hero-sub {
+            color: rgba(255,255,255,0.85);
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-weight: 500;
+            max-width: 520px;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 64px;
+        }
+
+        /* Stats bar */
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+        }
+        .hero-stat h3 {
+            color: var(--acid);
+            font-size: 2rem;
+            font-weight: 900;
+        }
+        .hero-stat p {
+            color: rgba(255,255,255,0.6);
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Wave divider */
+        .wave-divider {
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            z-index: 4;
+            line-height: 0;
+        }
+        .wave-divider svg {
+            width: 100%;
+            height: 80px;
+        }
+
+        /* =============================================
+           PRODUCT CATEGORIES
+        ============================================= */
+        .products {
+            padding: 120px 0 100px;
+            background: var(--white);
+            position: relative;
+        }
+
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 64px;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+        .products-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            max-width: 500px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 24px;
+        }
+
+        .product-card {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            background: var(--cloud);
+            padding: 40px 24px 32px;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            group: product;
+        }
+        .product-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            border: 2px solid transparent;
+            transition: border-color 0.4s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 24px 60px rgba(0,0,0,0.1);
+        }
+        .product-card:hover::before {
+            border-color: var(--green);
+        }
+
+        .product-card-bg {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            border-radius: 24px;
+        }
+        .product-card:hover .product-card-bg { opacity: 1; }
+
+        .product-card:nth-child(1) .product-card-bg { background: linear-gradient(180deg, rgba(140,197,65,0.1) 0%, rgba(140,197,65,0.02) 100%); }
+        .product-card:nth-child(2) .product-card-bg { background: linear-gradient(180deg, rgba(65,198,239,0.1) 0%, rgba(65,198,239,0.02) 100%); }
+        .product-card:nth-child(3) .product-card-bg { background: linear-gradient(180deg, rgba(200,220,100,0.15) 0%, rgba(200,220,100,0.02) 100%); }
+        .product-card:nth-child(4) .product-card-bg { background: linear-gradient(180deg, rgba(255,159,28,0.1) 0%, rgba(255,159,28,0.02) 100%); }
+        .product-card:nth-child(5) .product-card-bg { background: linear-gradient(180deg, rgba(107,91,149,0.1) 0%, rgba(107,91,149,0.02) 100%); }
+
+        .product-img-wrap {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 24px;
+            position: relative;
+            z-index: 1;
+        }
+        .product-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            filter: drop-shadow(0 8px 20px rgba(0,0,0,0.08));
+        }
+        .product-card:hover .product-img-wrap img {
+            transform: scale(1.1) translateY(-8px);
+        }
+
+        .product-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+        .product-card p {
+            font-size: 13px;
+            color: var(--silver);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .product-card .btn {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* =============================================
+           POPULAR PRODUCTS
+        ============================================= */
+        .popular {
+            padding: 100px 0 120px;
+            background: var(--cloud);
+        }
+
+        .popular-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .pop-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            text-decoration: none;
+            display: block;
+        }
+        .pop-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 24px 60px rgba(0,0,0,0.1);
+        }
+
+        .pop-card-img {
+            height: 240px;
+            background: #f8faf8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            overflow: hidden;
+        }
+        .pop-card-img img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .pop-card:hover .pop-card-img img {
+            transform: scale(1.08);
+        }
+
+        .pop-card-body {
+            padding: 20px 24px 24px;
+        }
+        .pop-cat {
+            display: inline-block;
+            padding: 3px 10px;
+            background: rgba(140,197,65,0.1);
+            color: var(--green);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+        .pop-card h4 {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--root);
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+        .pop-card p {
+            font-size: 13px;
+            color: var(--silver);
+            margin: 0;
+        }
+
+        @media (max-width: 992px) {
+            .popular-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 480px) {
+            .popular-grid { grid-template-columns: 1fr; }
+            .pop-card-img { height: 200px; }
+        }
+
+        /* =============================================
+           BRAND MARQUEE
+        ============================================= */
+        .brands-section {
+            padding: 80px 0;
+            background: var(--cloud);
+            overflow: hidden;
+            position: relative;
+        }
+        .brands-section .section-label {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 64px;
+            animation: marqueeScroll 25s linear infinite;
+            width: max-content;
+        }
+        .marquee-track:hover { animation-play-state: paused; }
+
+        @keyframes marqueeScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .marquee-item {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 70px;
+            padding: 0 16px;
+            filter: grayscale(100%);
+            opacity: 0.5;
+            transition: all 0.4s ease;
+        }
+        .marquee-item:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.15);
+        }
+        .marquee-item img {
+            height: 50px;
+            width: auto;
+            max-width: 130px;
+            object-fit: contain;
+        }
+
+        /* =============================================
+           JOY CTA BANNER
+        ============================================= */
+        .joy-banner {
+            padding: 100px 0;
+            background: var(--root);
+            position: relative;
+            overflow: hidden;
+        }
+        .joy-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 80% at 0% 50%, rgba(140,197,65,0.15) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 60% at 100% 50%, rgba(65,198,239,0.1) 0%, transparent 60%);
+        }
+
+        .joy-banner-content {
+            position: relative;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .joy-banner h2 {
+            color: var(--white);
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 20px;
+        }
+        .joy-banner h2 span {
+            background: var(--joy-grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .joy-banner p {
+            color: rgba(255,255,255,0.6);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+        .joy-banner-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* =============================================
+           BLOG / JOYITUDES
+        ============================================= */
+        .blog {
+            padding: 120px 0;
+            background: var(--white);
+        }
+
+        .blog-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 56px;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+        .blog-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+        }
+        .blog-header p {
+            color: var(--silver);
+            max-width: 400px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 24px;
+        }
+
+        .blog-card {
+            border-radius: 24px;
+            overflow: hidden;
+            background: var(--cloud);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 60px rgba(0,0,0,0.08);
+        }
+
+        /* Featured card spans two rows */
+        .blog-card.featured {
+            grid-row: 1 / 3;
+        }
+        .blog-card.featured .blog-card-img {
+            height: 100%;
+            min-height: 400px;
+        }
+        .blog-card.featured .blog-card-body {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px 32px;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+        }
+        .blog-card.featured h3 {
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+        .blog-card.featured p { color: rgba(255,255,255,0.7); }
+        .blog-card.featured .blog-date { color: rgba(255,255,255,0.5); }
+        .blog-card.featured .blog-read-more { color: var(--acid); }
+
+        .blog-card-img {
+            height: 220px;
+            overflow: hidden;
+        }
+        .blog-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .blog-card:hover .blog-card-img img {
+            transform: scale(1.06);
+        }
+
+        .blog-card-body {
+            padding: 28px 28px 24px;
+        }
+        .blog-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(140,197,65,0.12);
+            color: var(--green);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+        .blog-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+            line-height: 1.35;
+        }
+        .blog-card p {
+            font-size: 14px;
+            color: var(--silver);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+        .blog-date {
+            font-size: 12px;
+            color: var(--silver);
+            font-weight: 600;
+        }
+        .blog-read-more {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--green);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.3s ease;
+        }
+        .blog-card:hover .blog-read-more { gap: 10px; }
+
+        /* =============================================
+           LOCATIONS
+        ============================================= */
+        .locations {
+            padding: 120px 0;
+            background: var(--root);
+            position: relative;
+            overflow: hidden;
+        }
+        .locations::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 50% 40% at 10% 90%, rgba(140,197,65,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 50% at 90% 10%, rgba(65,198,239,0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .locations-header {
+            text-align: center;
+            margin-bottom: 64px;
+            position: relative;
+            z-index: 1;
+        }
+        .locations-header .section-label {
+            color: var(--acid);
+            justify-content: center;
+        }
+        .locations-header .section-label::before { background: var(--acid); }
+        .locations-header h2 {
+            color: var(--white);
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 12px;
+        }
+        .locations-header p {
+            color: rgba(255,255,255,0.5);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .location-card {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 24px;
+            padding: 36px 28px 32px;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .location-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--green);
+            border-radius: 0 0 4px 4px;
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+        .location-card:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(140,197,65,0.3);
+            transform: translateY(-8px);
+        }
+        .location-card:hover::before {
+            opacity: 1;
+            width: 80px;
+        }
+
+        .location-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: rgba(140,197,65,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 22px;
+            color: var(--green);
+            transition: all 0.4s ease;
+        }
+        .location-card:hover .location-icon {
+            background: var(--green);
+            color: var(--white);
+            transform: scale(1.1);
+        }
+
+        .location-card h3 {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        .location-card .location-address {
+            color: rgba(255,255,255,0.5);
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        .location-card .location-hours {
+            color: rgba(255,255,255,0.35);
+            font-size: 13px;
+            margin-bottom: 24px;
+        }
+        .location-card .btn-ghost {
+            border-color: rgba(255,255,255,0.2);
+            color: var(--white);
+        }
+        .location-card .btn-ghost:hover {
+            border-color: var(--green);
+            background: var(--green);
+            color: var(--white);
+        }
+
+        /* Lounge card special */
+        .location-card.lounge {
+            background: linear-gradient(135deg, rgba(226,247,82,0.08) 0%, rgba(65,198,239,0.06) 100%);
+            border-color: rgba(226,247,82,0.15);
+        }
+        .location-card.lounge .location-icon {
+            background: linear-gradient(135deg, rgba(226,247,82,0.2), rgba(65,198,239,0.2));
+            color: var(--acid);
+        }
+        .location-card.lounge:hover .location-icon {
+            background: var(--joy-grad);
+            color: var(--root);
+        }
+        .location-card.lounge .lounge-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(226,247,82,0.1);
+            color: var(--acid);
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+
+        /* =============================================
+           FOOTER
+        ============================================= */
+        .footer {
+            background: #0d110e;
+            padding: 80px 0 40px;
+            color: var(--white);
+            position: relative;
+        }
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(140,197,65,0.3), transparent);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.8fr repeat(4, 1fr);
+            gap: 48px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.45);
+            font-size: 14px;
+            line-height: 1.8;
+            margin-top: 20px;
+        }
+
+        .footer-logo {
+            height: 84px;
+            opacity: 0.9;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 28px;
+        }
+        .social-links a {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.6);
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        .social-links a:hover {
+            background: var(--green);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .footer-col h4 {
+            color: rgba(255,255,255,0.4);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+        .footer-col a {
+            display: block;
+            color: rgba(255,255,255,0.6);
+            font-weight: 500;
+            font-size: 14px;
+            margin-bottom: 14px;
+            transition: all 0.3s ease;
+        }
+        .footer-col a:hover {
+            color: var(--acid);
+            transform: translateX(4px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding-top: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .footer-bottom p {
+            color: rgba(255,255,255,0.3);
+            font-size: 13px;
+        }
+        .footer-bottom-links {
+            display: flex;
+            gap: 24px;
+        }
+        .footer-bottom-links a {
+            color: rgba(255,255,255,0.3);
+            font-size: 13px;
+        }
+        .footer-bottom-links a:hover { color: var(--green); }
+
+        /* =============================================
+           BOTTOM NAV
+        ============================================= */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 9998;
+            background: rgba(26,31,28,0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 14px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 -4px 30px rgba(0,0,0,0.2);
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .bottom-nav-locations {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .bottom-nav-locations a {
+            color: rgba(255,255,255,0.6);
+            font-size: 13px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        .bottom-nav-locations a:hover { color: var(--white); }
+        .bottom-nav-locations a.highlight {
+            color: var(--acid);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .bottom-nav-actions {
+            display: flex;
+            gap: 10px;
+        }
+        .bottom-nav .btn {
+            padding: 10px 22px;
+            font-size: 11px;
+        }
+
+        /* =============================================
+           RESPONSIVE
+        ============================================= */
+        @media (max-width: 1100px) {
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .locations-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .hero-geo { display: none; }
+        }
+
+        @media (max-width: 992px) {
+            .nav { display: none; }
+            .mobile-menu-btn { display: block; }
+
+            .hero-content { padding: 100px 0 60px; }
+            .hero-stats { gap: 32px; flex-wrap: wrap; }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            .blog-card.featured { grid-row: auto; }
+            .blog-card.featured .blog-card-img { min-height: 280px; }
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
+
+            .hero { min-height: auto; }
+            .hero-content { padding: 100px 0 60px; }
+            .hero-brand { font-size: 2.4rem; letter-spacing: -0.5px; margin-bottom: 10px; }
+            .hero h1 { font-size: 2.4rem; }
+            .hero-sub { font-size: 1rem; }
+            .hero-stats { gap: 24px; }
+            .hero-stat h3 { font-size: 1.5rem; }
+
+            .products, .blog, .locations { padding: 80px 0; }
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            .product-img-wrap { width: 100px; height: 100px; }
+
+            .locations-grid { grid-template-columns: 1fr; }
+
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+
+            .bottom-nav-locations { display: none; }
+            .bottom-nav { justify-content: center; }
+
+            .joy-banner { padding: 80px 0; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-buttons { flex-direction: column; }
+            .hero-buttons .btn { width: 100%; }
+            .hero-stats { flex-direction: column; gap: 20px; }
+
+            .products-grid { grid-template-columns: 1fr 1fr; }
+            .product-card { padding: 28px 16px 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo">
+                    <img src="/media/logo-cannabis-white.png" alt="Joyology Cannabis" id="headerLogo">
+                </a>
+
+                <nav class="nav">
+                    <div class="loc-selector" id="locSelector">
+                        <button class="loc-selector-btn" id="locSelectorBtn">
+                            <i class="fas fa-map-marker-alt loc-pin"></i>
+                            <span id="locSelectorLabel">Lake Orion</span>
+                            <i class="fas fa-chevron-down loc-chevron"></i>
+                        </button>
+                        <div class="loc-selector-menu" id="locSelectorMenu">
+                            <button class="loc-option active" data-slug="lake-orion" data-name="Lake Orion">
+                                <div class="loc-option-icon"><i class="fas fa-store"></i></div>
+                                <div class="loc-option-info">
+                                    <h5>Lake Orion</h5>
+                                    <p>4098 S Baldwin Rd, Lake Orion, MI</p>
+                                </div>
+                                <i class="fas fa-check loc-option-check"></i>
+                            </button>
+                            <button class="loc-option" data-slug="monroe" data-name="Monroe">
+                                <div class="loc-option-icon"><i class="fas fa-store"></i></div>
+                                <div class="loc-option-info">
+                                    <h5>Monroe</h5>
+                                    <p>14880 LaPlaisance Rd, Monroe, MI</p>
+                                </div>
+                                <i class="fas fa-check loc-option-check"></i>
+                            </button>
+                            <button class="loc-option" data-slug="centerline" data-name="Centerline">
+                                <div class="loc-option-icon"><i class="fas fa-store"></i></div>
+                                <div class="loc-option-info">
+                                    <h5>Centerline</h5>
+                                    <p>25831 Sherwood Ave, Center Line, MI</p>
+                                </div>
+                                <i class="fas fa-check loc-option-check"></i>
+                            </button>
+                            <button class="loc-option" data-slug="mt-clemens" data-name="Mt. Clemens">
+                                <div class="loc-option-icon"><i class="fas fa-store"></i></div>
+                                <div class="loc-option-info">
+                                    <h5>Mt. Clemens</h5>
+                                    <p>195 N Malow St, Mt Clemens, MI</p>
+                                </div>
+                                <i class="fas fa-check loc-option-check"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <a href="/shop/" class="nav-link">Shop <i class="fas fa-chevron-down" style="font-size:9px;margin-left:4px;opacity:0.5;"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="/shop/#flower"><i class="fas fa-leaf"></i> Flower</a>
+                            <a href="/shop/#pre-rolls"><i class="fas fa-smoking"></i> Pre-rolls</a>
+                            <a href="/shop/#vaporizers"><i class="fas fa-wind"></i> Vapes & carts</a>
+                            <a href="/shop/#edibles"><i class="fas fa-cookie-bite"></i> Edibles</a>
+                            <a href="/shop/#concentrates"><i class="fas fa-droplet"></i> Concentrates</a>
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <a href="/about/" class="nav-link">About <i class="fas fa-chevron-down" style="font-size:9px;margin-left:4px;opacity:0.5;"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="/brands/"><i class="fas fa-award"></i> Our brands</a>
+                            <a href="/careers/"><i class="fas fa-briefcase"></i> Careers</a>
+                            <a href="/faqs/"><i class="fas fa-circle-question"></i> FAQs</a>
+                        </div>
+                    </div>
+
+                    <a href="/blog/" class="nav-link">Blog</a>
+
+                    <a href="/daily-deals/" class="btn btn-primary btn-sm">View deals</a>
+                </nav>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu"><i class="fas fa-times"></i></button>
+
+        <div class="mobile-loc-selector">
+            <p class="mobile-loc-label"><i class="fas fa-map-marker-alt" style="color:var(--green);margin-right:6px;"></i> Your location</p>
+            <div class="mobile-loc-options">
+                <button class="mobile-loc-opt active" data-slug="lake-orion" data-name="Lake Orion">Lake Orion</button>
+                <button class="mobile-loc-opt" data-slug="monroe" data-name="Monroe">Monroe</button>
+                <button class="mobile-loc-opt" data-slug="centerline" data-name="Centerline">Centerline</button>
+                <button class="mobile-loc-opt" data-slug="mt-clemens" data-name="Mt. Clemens">Mt. Clemens</button>
+            </div>
+        </div>
+
+        <a href="/shop/">Shop menu</a>
+        <a href="/shop/#flower">Flower</a>
+        <a href="/shop/#pre-rolls">Pre-rolls</a>
+        <a href="/shop/#vaporizers">Vapes & carts</a>
+        <a href="/shop/#edibles">Edibles</a>
+        <a href="/shop/#concentrates">Concentrates</a>
+        <a href="/about/">About</a>
+        <a href="/brands/">Our brands</a>
+        <a href="/blog/">Blog</a>
+        <a href="/daily-deals/" class="btn btn-primary">View today's deals</a>
+    </div>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-orb hero-orb-1"></div>
+        <div class="hero-orb hero-orb-2"></div>
+        <div class="hero-orb hero-orb-3"></div>
+
+        <!-- Floating circle geometry -->
+        <div class="hero-circles">
+            <div class="hero-circle hero-circle-1"></div>
+            <div class="hero-circle hero-circle-2"></div>
+            <div class="hero-circle hero-circle-3"></div>
+            <div class="hero-circle hero-circle-4"></div>
+            <div class="hero-circle hero-circle-5"></div>
+            <div class="hero-circle hero-circle-6"></div>
+            <div class="hero-circle hero-circle-7"></div>
+            <div class="hero-circle hero-circle-8"></div>
+        </div>
+
+        <!-- Bold geometric circle composition -->
+        <div class="hero-geo">
+            <div class="hero-geo-shape geo-1"></div>
+            <div class="hero-geo-shape geo-2"></div>
+            <div class="hero-geo-shape geo-3"></div>
+            <div class="hero-geo-shape geo-4"></div>
+            <div class="hero-geo-shape geo-5"></div>
+            <div class="hero-geo-shape geo-6"></div>
+        </div>
+
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-brand reveal">Joyology Cannabis</div>
+                <div class="section-label reveal" style="transition-delay:0.08s">Michigan's cannabis destination</div>
+                <h1 class="reveal" style="transition-delay:0.1s">the science of <span>happiness</span></h1>
+                <p class="hero-sub reveal" style="transition-delay:0.2s">Cultivating joy, wellness, and community connection through premium cannabis experiences across Michigan.</p>
+                <div class="hero-buttons reveal" style="transition-delay:0.3s">
+                    <a href="/daily-deals/" class="btn btn-white">View today's deals</a>
+                    <a href="/locations/" class="btn btn-outline">Find a location</a>
+                </div>
+                <div class="hero-stats reveal" style="transition-delay:0.45s">
+                    <div class="hero-stat">
+                        <h3 id="statLocations">4</h3>
+                        <p>Locations</p>
+                    </div>
+                    <div class="hero-stat">
+                        <h3 id="statProducts">27,000+</h3>
+                        <p>Products</p>
+                    </div>
+                    <div class="hero-stat">
+                        <h3 id="statBrands">500+</h3>
+                        <p>Premium brands</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wave-divider">
+            <svg viewBox="0 0 1440 80" fill="none" preserveAspectRatio="none">
+                <path d="M0 40C240 80 480 0 720 40C960 80 1200 0 1440 40V80H0V40Z" fill="white"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ============ PRODUCTS ============ -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="products-header">
+                <div>
+                    <div class="section-label reveal">Our products</div>
+                    <h2 class="reveal" style="transition-delay:0.08s">Explore our cannabis <br>collection</h2>
+                </div>
+                <a href="/cannabis-products/flower/" class="btn btn-ghost reveal" style="transition-delay:0.16s">View all products <i class="fas fa-arrow-right" style="font-size:12px;"></i></a>
+            </div>
+
+            <div class="products-grid stagger">
+                <a href="/cannabis-products/flower/" class="product-card reveal" style="--i:0">
+                    <div class="product-card-bg"></div>
+                    <div class="product-img-wrap">
+                        <img src="https://images.dutchie.com/bf74c9cb0b7d7455d182a2475b0cc28a?w=500&fm=webp" alt="Flower">
+                    </div>
+                    <h3>Flower</h3>
+                    <p>Premium buds</p>
+                    <span class="btn btn-ghost btn-sm">Shop now</span>
+                </a>
+
+                <a href="/cannabis-products/vaporizers-cartridges/" class="product-card reveal" style="--i:1">
+                    <div class="product-card-bg"></div>
+                    <div class="product-img-wrap">
+                        <img src="https://images.dutchie.com/a350f6b8c34c276dfedd6c2471d939c5?w=500&fm=webp" alt="Vaporizers">
+                    </div>
+                    <h3>Vaporizers</h3>
+                    <p>Carts & pens</p>
+                    <span class="btn btn-ghost btn-sm">Shop now</span>
+                </a>
+
+                <a href="/cannabis-products/edibles/" class="product-card reveal" style="--i:2">
+                    <div class="product-card-bg"></div>
+                    <div class="product-img-wrap">
+                        <img src="https://images.dutchie.com/b21506ec795df9a0ab44d17f7bcab927?w=500&fm=webp" alt="Edibles">
+                    </div>
+                    <h3>Edibles</h3>
+                    <p>Gummies & treats</p>
+                    <span class="btn btn-ghost btn-sm">Shop now</span>
+                </a>
+
+                <a href="/cannabis-products/pre-rolls/" class="product-card reveal" style="--i:3">
+                    <div class="product-card-bg"></div>
+                    <div class="product-img-wrap">
+                        <img src="https://images.dutchie.com/6a05c41160f2b508809b77986f98d62b?w=500&fm=webp" alt="Pre-rolls">
+                    </div>
+                    <h3>Pre-rolls</h3>
+                    <p>Ready to enjoy</p>
+                    <span class="btn btn-ghost btn-sm">Shop now</span>
+                </a>
+
+                <a href="/cannabis-products/concentrates/" class="product-card reveal" style="--i:4">
+                    <div class="product-card-bg"></div>
+                    <div class="product-img-wrap">
+                        <img src="https://images.dutchie.com/95aa5c3a54ce39036a3fe2b754d64b8d?w=500&fm=webp" alt="Concentrates">
+                    </div>
+                    <h3>Concentrates</h3>
+                    <p>Wax, shatter & more</p>
+                    <span class="btn btn-ghost btn-sm">Shop now</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ POPULAR PRODUCTS ============ -->
+    <section class="popular" id="popular">
+        <div class="container">
+            <div class="products-header">
+                <div>
+                    <div class="section-label reveal">Staff picks</div>
+                    <h2 class="reveal" style="transition-delay:0.08s">Popular right now</h2>
+                </div>
+                <a href="/shop/lake-orion" class="btn btn-ghost reveal" style="transition-delay:0.16s">Shop full menu <i class="fas fa-arrow-right" style="font-size:12px;"></i></a>
+            </div>
+
+            <div class="popular-grid stagger">
+                <a href="/shop/lake-orion" class="pop-card reveal" style="--i:0">
+                    <div class="pop-card-img">
+                        <img src="https://images.dutchie.com/ae97ef4b104d379ff6a61a9437e73439?w=500&fm=webp" alt="Smoorhouse Bad Candy Apple">
+                    </div>
+                    <div class="pop-card-body">
+                        <span class="pop-cat">Flower</span>
+                        <h4>Smoorhouse | Bad Candy Apple</h4>
+                        <p>3.5G Infused Prepack</p>
+                    </div>
+                </a>
+                <a href="/shop/lake-orion" class="pop-card reveal" style="--i:1">
+                    <div class="pop-card-img">
+                        <img src="https://images.dutchie.com/11eebad6b5ec7dc819d08598b29dea28?w=500&fm=webp" alt="Muha Meds Bubblegum Burst">
+                    </div>
+                    <div class="pop-card-body">
+                        <span class="pop-cat">Vaporizer</span>
+                        <h4>Muha Meds | Bubblegum Burst</h4>
+                        <p>Disposable Vape</p>
+                    </div>
+                </a>
+                <a href="/shop/lake-orion" class="pop-card reveal" style="--i:2">
+                    <div class="pop-card-img">
+                        <img src="https://images.dutchie.com/b77418a0c1b538fc5a2da4f1c911b4d8?w=500&fm=webp" alt="Camino Sleep Gummies">
+                    </div>
+                    <div class="pop-card-body">
+                        <span class="pop-cat">Edible</span>
+                        <h4>Camino | Midnight Blueberry</h4>
+                        <p>Sleep CBN Gummies 200mg</p>
+                    </div>
+                </a>
+                <a href="/shop/lake-orion" class="pop-card reveal" style="--i:3">
+                    <div class="pop-card-img">
+                        <img src="https://images.dutchie.com/5860084b77c97529a5028cc4b9ef9fc9?w=500&fm=webp" alt="Strawberry Diamond Pre-Rolls">
+                    </div>
+                    <div class="pop-card-body">
+                        <span class="pop-cat">Pre-Roll</span>
+                        <h4>Strawberry Diamond</h4>
+                        <p>Pre-Rolls | 1.2g</p>
+                    </div>
+                </a>
+                <a href="/shop/lake-orion" class="pop-card reveal" style="--i:4">
+                    <div class="pop-card-img">
+                        <img src="https://images.dutchie.com/f67f6e5fb7f4e07f42495988d403900f?w=500&fm=webp" alt="Peninsula Gardens Hash Rosin">
+                    </div>
+                    <div class="pop-card-body">
+                        <span class="pop-cat">Concentrate</span>
+                        <h4>Peninsula Gardens | Motor Breath</h4>
+                        <p>Hash Rosin</p>
+                    </div>
+                </a>
+                <a href="/shop/lake-orion" class="pop-card reveal" style="--i:5">
+                    <div class="pop-card-img">
+                        <img src="https://images.dutchie.com/a8f52556abb53dc76852e8811fe1eb43?w=500&fm=webp" alt="Good Tide Pineapple Gummies">
+                    </div>
+                    <div class="pop-card-body">
+                        <span class="pop-cat">Edible</span>
+                        <h4>Good Tide | Pineapple</h4>
+                        <p>200MG Hash Rosin Gummies</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ BRAND MARQUEE ============ -->
+    <section class="brands-section">
+        <div class="section-label reveal" style="justify-content:center;">Trusted brands we carry</div>
+        <div class="marquee-track" aria-label="Featured brands">
+            <div class="marquee-item"><img src="/media/MUHAMEDS.webp" alt="Muha Meds"></div>
+            <div class="marquee-item"><img src="/media/Jeeter-PNG.webp" alt="Jeeter"></div>
+            <div class="marquee-item"><img src="/media/PACKS-LA.webp" alt="Packwoods"></div>
+            <div class="marquee-item"><img src="/media/MKX.webp" alt="MKX"></div>
+            <div class="marquee-item"><img src="/media/MITTEN.webp" alt="Mitten"></div>
+            <div class="marquee-item"><img src="/media/STIIIIZY-300x300-1.webp" alt="Stiiizy"></div>
+            <div class="marquee-item"><img src="/media/Sauce.webp" alt="Sauce"></div>
+            <div class="marquee-item"><img src="/media/Platinum-Vape.webp" alt="Platinum Vape"></div>
+            <!-- Duplicate for seamless scroll -->
+            <div class="marquee-item"><img src="/media/MUHAMEDS.webp" alt="Muha Meds"></div>
+            <div class="marquee-item"><img src="/media/Jeeter-PNG.webp" alt="Jeeter"></div>
+            <div class="marquee-item"><img src="/media/PACKS-LA.webp" alt="Packwoods"></div>
+            <div class="marquee-item"><img src="/media/MKX.webp" alt="MKX"></div>
+            <div class="marquee-item"><img src="/media/MITTEN.webp" alt="Mitten"></div>
+            <div class="marquee-item"><img src="/media/STIIIIZY-300x300-1.webp" alt="Stiiizy"></div>
+            <div class="marquee-item"><img src="/media/Sauce.webp" alt="Sauce"></div>
+            <div class="marquee-item"><img src="/media/Platinum-Vape.webp" alt="Platinum Vape"></div>
+        </div>
+    </section>
+
+    <!-- ============ JOY BANNER ============ -->
+    <section class="joy-banner">
+        <div class="container">
+            <div class="joy-banner-content">
+                <div class="section-label reveal" style="color:var(--acid);justify-content:center;"><span style="background:var(--acid);width:24px;height:2px;display:inline-block;border-radius:2px;margin-right:8px;"></span>Don't miss out</div>
+                <h2 class="reveal" style="transition-delay:0.08s">Today's deals are <span>kind of amazing</span></h2>
+                <p class="reveal" style="transition-delay:0.16s">BOGO offers, daily specials, and exclusive discounts across all our Michigan locations. Check what's on today.</p>
+                <div class="joy-banner-actions reveal" style="transition-delay:0.24s">
+                    <a href="/daily-deals/" class="btn btn-gradient">View today's deals <i class="fas fa-arrow-right" style="font-size:12px;"></i></a>
+                    <a href="/locations/" class="btn btn-outline">Find your store</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ BLOG / JOYITUDES ============ -->
+    <section class="blog" id="blog">
+        <div class="container">
+            <div class="blog-header">
+                <div>
+                    <div class="section-label reveal">From the blog</div>
+                    <h2 class="reveal" style="transition-delay:0.08s">Joyitudes</h2>
+                </div>
+                <a href="/blog/" class="btn btn-ghost reveal" style="transition-delay:0.16s">All posts <i class="fas fa-arrow-right" style="font-size:12px;"></i></a>
+            </div>
+
+            <div class="blog-grid stagger">
+                <article class="blog-card featured reveal" style="--i:0">
+                    <a href="/blog/">
+                        <div class="blog-card-img">
+                            <img src="/media/that_sativa_smile_joyology.jpg" alt="That sativa smile">
+                        </div>
+                        <div class="blog-card-body">
+                            <span class="blog-tag">Strains</span>
+                            <h3>That sativa smile</h3>
+                            <p>Discover why sativa strains are celebrated for their uplifting, energizing effects that can truly brighten your day and boost creativity.</p>
+                            <span class="blog-read-more">Read more <i class="fas fa-arrow-right" style="font-size:11px;"></i></span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-card reveal" style="--i:1">
+                    <a href="/blog/">
+                        <div class="blog-card-img">
+                            <img src="/media/Indica_Blog.png" alt="Let's talk about indica">
+                        </div>
+                        <div class="blog-card-body">
+                            <span class="blog-tag">Education</span>
+                            <h3>Let's talk about indica, baby...</h3>
+                            <p>Everything you need to know about indica strains and why they're perfect for relaxation.</p>
+                            <div style="display:flex;justify-content:space-between;align-items:center;">
+                                <span class="blog-date">January 10, 2025</span>
+                                <span class="blog-read-more">Read <i class="fas fa-arrow-right" style="font-size:11px;"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-card reveal" style="--i:2">
+                    <a href="/blog/">
+                        <div class="blog-card-img">
+                            <img src="/media/MarijuanaHappy.jpg" alt="How cannabis creates joy">
+                        </div>
+                        <div class="blog-card-body">
+                            <span class="blog-tag">Wellness</span>
+                            <h3>How does cannabis create joy?</h3>
+                            <p>The science behind cannabis and happiness - how cannabinoids interact with your body.</p>
+                            <div style="display:flex;justify-content:space-between;align-items:center;">
+                                <span class="blog-date">January 5, 2025</span>
+                                <span class="blog-read-more">Read <i class="fas fa-arrow-right" style="font-size:11px;"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ LOCATIONS ============ -->
+    <section class="locations" id="locations">
+        <div class="container">
+            <div class="locations-header">
+                <div class="section-label reveal">Visit us</div>
+                <h2 class="reveal" style="transition-delay:0.08s">Our Michigan locations</h2>
+                <p class="reveal" style="transition-delay:0.16s">Four dispensaries serving communities across Michigan</p>
+            </div>
+
+            <div class="locations-grid stagger">
+                <div class="location-card reveal" style="--i:0">
+                    <div class="location-icon"><i class="fas fa-store"></i></div>
+                    <h3>Lake Orion</h3>
+                    <p class="location-address">Lake Orion, MI</p>
+                    <p class="location-hours">Open daily 9am - 9pm</p>
+                    <a href="/location/lake-orion/" class="btn btn-ghost btn-sm">Visit store</a>
+                </div>
+
+                <div class="location-card reveal" style="--i:1">
+                    <div class="location-icon"><i class="fas fa-store"></i></div>
+                    <h3>Monroe</h3>
+                    <p class="location-address">Monroe, MI</p>
+                    <p class="location-hours">Open daily 9am - 9pm</p>
+                    <a href="/location/monroe/" class="btn btn-ghost btn-sm">Visit store</a>
+                </div>
+
+                <div class="location-card reveal" style="--i:2">
+                    <div class="location-icon"><i class="fas fa-store"></i></div>
+                    <h3>Centerline</h3>
+                    <p class="location-address">Centerline, MI</p>
+                    <p class="location-hours">Open daily 9am - 9pm</p>
+                    <a href="/location/centerline-sherwood/" class="btn btn-ghost btn-sm">Visit store</a>
+                </div>
+
+                <div class="location-card reveal" style="--i:3">
+                    <div class="location-icon"><i class="fas fa-store"></i></div>
+                    <h3>Mt. Clemens</h3>
+                    <p class="location-address">Mt. Clemens, MI</p>
+                    <p class="location-hours">Open daily 9am - 9pm</p>
+                    <a href="/location/mt-clemens-malow/" class="btn btn-ghost btn-sm">Visit store</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="/media/logo-cannabis-white.png" alt="Joyology Cannabis" class="footer-logo">
+                    <p>Cultivating joy, wellness, and community connection through premium, approachable cannabis experiences. Michigan's destination for elevated wellness.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Locations</h4>
+                    <a href="/location/lake-orion/">Lake Orion</a>
+                    <a href="/location/monroe/">Monroe</a>
+                    <a href="/location/centerline-sherwood/">Centerline</a>
+                    <a href="/location/mt-clemens-malow/">Mt. Clemens</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <a href="/cannabis-products/flower/">Flower</a>
+                    <a href="/cannabis-products/pre-rolls/">Pre-rolls</a>
+                    <a href="/cannabis-products/edibles/">Edibles</a>
+                    <a href="/cannabis-products/vaporizers-cartridges/">Vapes & carts</a>
+                    <a href="/cannabis-products/concentrates/">Concentrates</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="/about/">About us</a>
+                    <a href="/brands/">Our brands</a>
+                    <a href="/careers/">Careers</a>
+                    <a href="/blog/">Blog</a>
+                    <a href="/faqs/">FAQs</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick links</h4>
+                    <a href="/daily-deals/">Daily deals</a>
+                    <a href="/locations/">All locations</a>
+                    <a href="#">Loyalty program</a>
+                    <a href="#">Contact us</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Joyology Cannabis. All rights reserved. Must be 21+ to enter.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============ BOTTOM NAV ============ -->
+    <div class="bottom-nav">
+        <div class="bottom-nav-locations">
+            <a href="/locations/" class="highlight"><i class="fas fa-map-marker-alt"></i> Find a location</a>
+            <a href="/location/lake-orion/">Lake Orion</a>
+            <a href="/location/monroe/">Monroe</a>
+            <a href="/location/centerline-sherwood/">Centerline</a>
+            <a href="/location/mt-clemens-malow/">Mt. Clemens</a>
+        </div>
+        <div class="bottom-nav-actions">
+            <a href="/daily-deals/" class="btn btn-gradient btn-sm">View deals</a>
+            <a href="/shop/" class="btn btn-primary btn-sm">Shop menu</a>
+        </div>
+    </div>
+
+    <!-- ============ SCRIPTS ============ -->
+    <script>
+        // Scroll progress bar
+        function updateScrollProgress() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            document.getElementById('scrollProgress').style.width = progress + '%';
+        }
+
+        // Header scroll state
+        const header = document.getElementById('header');
+        var headerLogo = document.getElementById('headerLogo');
+        function updateHeader() {
+            var scrolled = window.scrollY > 60;
+            header.classList.toggle('scrolled', scrolled);
+            headerLogo.src = scrolled ? '/media/logo-gradient-cannabis.png' : '/media/logo-cannabis-white.png';
+        }
+
+        // Scroll handler (debounced with rAF)
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(function() {
+                    updateScrollProgress();
+                    updateHeader();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+
+        // Initial calls
+        updateHeader();
+        updateScrollProgress();
+
+        // Intersection Observer for reveal animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -60px 0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(function(el) {
+            observer.observe(el);
+        });
+
+        // ---- Location Selector ----
+        var locData = {
+            'lake-orion': { name: 'Lake Orion', address: '4098 S Baldwin Rd, Lake Orion, MI 48359' },
+            'monroe': { name: 'Monroe', address: '14880 LaPlaisance Rd, Monroe, MI 48161' },
+            'centerline': { name: 'Centerline', address: '25831 Sherwood Ave, Center Line, MI 48015' },
+            'mt-clemens': { name: 'Mt. Clemens', address: '195 N Malow St, Mt Clemens, MI 48043' }
+        };
+
+        var currentLoc = localStorage.getItem('joyology-location') || 'lake-orion';
+        var locSelector = document.getElementById('locSelector');
+        var locSelectorBtn = document.getElementById('locSelectorBtn');
+        var locSelectorLabel = document.getElementById('locSelectorLabel');
+        var locSelectorMenu = document.getElementById('locSelectorMenu');
+
+        function setLocation(slug) {
+            currentLoc = slug;
+            localStorage.setItem('joyology-location', slug);
+            locSelectorLabel.textContent = locData[slug].name;
+
+            // Update desktop dropdown active state
+            locSelectorMenu.querySelectorAll('.loc-option').forEach(function(opt) {
+                opt.classList.toggle('active', opt.dataset.slug === slug);
+            });
+
+            // Update mobile selector active state
+            document.querySelectorAll('.mobile-loc-opt').forEach(function(opt) {
+                opt.classList.toggle('active', opt.dataset.slug === slug);
+            });
+
+            // Close the dropdown
+            locSelector.classList.remove('open');
+        }
+
+        // Initialize from localStorage
+        setLocation(currentLoc);
+
+        // Toggle desktop dropdown
+        locSelectorBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            locSelector.classList.toggle('open');
+        });
+
+        // Desktop option click
+        locSelectorMenu.querySelectorAll('.loc-option').forEach(function(opt) {
+            opt.addEventListener('click', function() {
+                setLocation(this.dataset.slug);
+            });
+        });
+
+        // Mobile option click
+        document.querySelectorAll('.mobile-loc-opt').forEach(function(opt) {
+            opt.addEventListener('click', function() {
+                setLocation(this.dataset.slug);
+            });
+        });
+
+        // Close dropdown on outside click
+        document.addEventListener('click', function(e) {
+            if (!locSelector.contains(e.target)) {
+                locSelector.classList.remove('open');
+            }
+        });
+
+        // Mobile menu
+        var mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        var mobileNav = document.getElementById('mobileNav');
+        var mobileNavClose = document.getElementById('mobileNavClose');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileNav.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        });
+
+        mobileNavClose.addEventListener('click', function() {
+            mobileNav.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+
+        // Close mobile nav on link click
+        mobileNav.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                mobileNav.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // (Parallax removed — geometric shapes use CSS animation only)
+
+        // Product card tilt effect
+        document.querySelectorAll('.product-card').forEach(function(card) {
+            card.addEventListener('mousemove', function(e) {
+                var rect = card.getBoundingClientRect();
+                var x = (e.clientX - rect.left) / rect.width - 0.5;
+                var y = (e.clientY - rect.top) / rect.height - 0.5;
+                card.style.transform = 'translateY(-12px) perspective(600px) rotateX(' + (y * -6) + 'deg) rotateY(' + (x * 6) + 'deg)';
+            });
+            card.addEventListener('mouseleave', function() {
+                card.style.transform = '';
+            });
+        });
+    </script>
+</body>
+</html>

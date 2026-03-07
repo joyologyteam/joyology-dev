@@ -1,0 +1,56 @@
+- document:
+  - paragraph:
+    - strong:
+      - link "Joyology Offers Daily/Weekly Special Offers. Click To See Now" [ref=e1]:
+        - /url: /shop/specials/
+      - text: "!"
+  - link "View Cart" [ref=e2]:
+    - /url: /cart/
+  - link "Headless shop nav logo HOME" [ref=e3]:
+    - /url: https://joyology.com
+    - img "Headless shop nav logo"
+    - text: HOME
+  - navigation "Primary menu" [ref=e4]
+  - document:
+    - main
+  - img "JoyologyLogo"
+  - link "Facebook" [ref=e5]:
+    - /url: https://www.facebook.com/profile.php?id=100091741268150
+  - link "Instagram" [ref=e6]:
+    - /url: https://www.instagram.com/joyology_official/
+  - link "Weedmaps" [ref=e7]:
+    - /url: https://weedmaps.com/brands/joyology/products
+  - link "LinkedIn" [ref=e8]:
+    - /url: https://www.linkedin.com/company/joyologycannabliss/
+  - list:
+    - listitem:
+      - link "About" [ref=e9]:
+        - /url: https://joyology.com/about/
+    - listitem:
+      - link "FAQs" [ref=e10]:
+        - /url: https://joyology.com/faqs/
+    - listitem:
+      - link "Cannabis Delivery" [ref=e11]:
+        - /url: https://joyology.com/cannabis/cannabis-delivery/
+    - listitem:
+      - link "Curbside Pickup" [ref=e12]:
+        - /url: https://joyology.com/cannabis/curbside-pickup/
+    - listitem:
+      - link "In-Store Pickup" [ref=e13]:
+        - /url: https://joyology.com/cannabis/in-store-pickup/
+  - list:
+    - listitem:
+      - link "Recreational Cannabis" [ref=e14]:
+        - /url: https://joyology.com/cannabis/recreational-cannabis/
+    - listitem:
+      - link "Privacy Policy" [ref=e15]:
+        - /url: https://joyology.com/privacy-policy/
+    - listitem:
+      - link "Contact" [ref=e16]:
+        - /url: https://joyology.com/contact/
+  - text: © 2026 Joyology All rights reserved.
+  - link "Designed by Range Marketing" [ref=e17]:
+    - /url: https://rangemarketing.com/
+  - text: are you 21 or older?
+  - button "Yes" [ref=e18]
+  - button "No" [ref=e19]

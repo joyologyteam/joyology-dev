@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Menu | Joyology Cannabis</title>
+    <link rel="icon" href="/media/favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --green: #8CC541;
+            --light-green: #C8DC64;
+            --blue-green: #80C9AB;
+            --acid: #E2F752;
+            --sky: #41C6EF;
+            --root: #1A1F1C;
+            --cloud: #F4F7F5;
+            --silver: #9BA5A1;
+            --white: #FFFFFF;
+            --teal: #2A7C6F;
+            --red: #E04F5F;
+        }
+
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--root);
+            background: var(--cloud);
+            overflow-x: hidden;
+            padding-bottom: 72px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+        /* ---- BUTTONS ---- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .btn-primary {
+            background: var(--green);
+            color: var(--white);
+            padding: 14px 32px;
+            font-size: 13px;
+        }
+        .btn-primary:hover {
+            background: var(--teal);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(140, 197, 65, 0.3);
+        }
+        .btn-sm { padding: 10px 22px; font-size: 11px; }
+        .btn-ghost {
+            background: transparent;
+            color: var(--root);
+            border: 1.5px solid rgba(26,31,28,0.12);
+            padding: 10px 22px;
+            font-size: 11px;
+        }
+        .btn-ghost:hover {
+            border-color: var(--green);
+            color: var(--green);
+        }
+        .btn-gradient {
+            background: linear-gradient(135deg, #E2F752 0%, #8CC541 100%);
+            color: var(--root);
+            padding: 10px 22px;
+            font-size: 11px;
+        }
+
+        /* ---- HEADER ---- */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10000;
+            padding: 18px 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .header.scrolled {
+            padding: 10px 0;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+        }
+        .header-inner {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo img {
+            height: 96px;
+            width: auto;
+            transition: height 0.4s ease;
+        }
+        .header.scrolled .logo img { height: 96px; }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .nav-link {
+            padding: 10px 18px;
+            font-size: 14px;
+            font-weight: 700;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            color: var(--root);
+        }
+        .header:not(.scrolled) .nav-link { color: var(--white); }
+        .header.scrolled .nav-link:hover { background: rgba(42, 124, 111, 0.08); color: var(--teal); }
+        .header:not(.scrolled) .nav-link:hover { background: rgba(255, 255, 255, 0.15); color: var(--white); }
+
+        /* Location selector */
+        .loc-selector { position: relative; }
+        .loc-selector-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 10px;
+            border: 1.5px solid rgba(26,31,28,0.12);
+            background: var(--cloud);
+            cursor: pointer;
+            font-family: 'Nunito', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--root);
+            transition: all 0.3s ease;
+        }
+        .header:not(.scrolled) .loc-selector-btn {
+            color: var(--white);
+            border-color: rgba(255,255,255,0.25);
+            background: rgba(255,255,255,0.08);
+        }
+        .header.scrolled .loc-selector-btn {
+            color: var(--root);
+            border-color: rgba(26,31,28,0.12);
+            background: var(--cloud);
+        }
+        .loc-selector-btn:hover { border-color: var(--green); }
+        .loc-selector-btn .loc-pin { color: var(--green); font-size: 12px; }
+        .loc-selector-btn .loc-chevron { font-size: 9px; opacity: 0.5; transition: transform 0.3s ease; }
+        .loc-selector.open .loc-chevron { transform: rotate(180deg); }
+        .loc-selector-menu {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 0;
+            background: var(--white);
+            border-radius: 16px;
+            min-width: 280px;
+            padding: 8px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(8px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.04);
+            z-index: 100;
+        }
+        .loc-selector.open .loc-selector-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .loc-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 14px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+            font-family: 'Nunito', sans-serif;
+        }
+        .loc-option:hover { background: var(--cloud); }
+        .loc-option.active { background: rgba(140,197,65,0.08); }
+        .loc-option-icon {
+            width: 36px; height: 36px; border-radius: 10px;
+            background: var(--cloud); display: flex; align-items: center; justify-content: center;
+            color: var(--green); font-size: 14px; flex-shrink: 0;
+        }
+        .loc-option.active .loc-option-icon { background: var(--green); color: var(--white); }
+        .loc-option-info h5 { font-size: 14px; font-weight: 700; color: var(--root); margin-bottom: 1px; line-height: 1.2; }
+        .loc-option-info p { font-size: 11px; color: var(--silver); margin: 0; line-height: 1.3; }
+        .loc-option-check { margin-left: auto; color: var(--green); font-size: 13px; opacity: 0; }
+        .loc-option.active .loc-option-check { opacity: 1; }
+
+        /* Dropdown */
+        .dropdown { position: relative; }
+        .dropdown-menu {
+            position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%) translateY(8px);
+            background: var(--white); border-radius: 16px; padding: 10px; min-width: 200px;
+            opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04); z-index: 100;
+        }
+        .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .dropdown-menu a {
+            display: flex; align-items: center; gap: 10px; padding: 10px 14px;
+            border-radius: 8px; font-size: 14px; font-weight: 600; color: var(--root); transition: all 0.2s;
+        }
+        .dropdown-menu a:hover { background: var(--cloud); color: var(--green); }
+        .dropdown-menu a i { font-size: 14px; color: var(--silver); width: 18px; text-align: center; }
+        .dropdown-menu a:hover i { color: var(--green); }
+
+        .mobile-menu-btn {
+            display: none; background: none; border: none; font-size: 22px;
+            cursor: pointer; padding: 8px; border-radius: 10px;
+            transition: all 0.3s ease; color: var(--root);
+        }
+        .header:not(.scrolled) .mobile-menu-btn { color: var(--white); }
+        .header.scrolled .mobile-menu-btn { color: var(--root); }
+
+        /* Mobile nav */
+        .mobile-nav {
+            position: fixed; inset: 0; background: var(--white); z-index: 99999;
+            display: flex; flex-direction: column; padding: 80px 32px 32px;
+            transform: translateX(100%); transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .mobile-nav.open { transform: translateX(0); }
+        .mobile-nav-close {
+            position: absolute; top: 20px; right: 24px; background: none;
+            border: none; font-size: 28px; cursor: pointer; color: var(--root); padding: 8px;
+        }
+        .mobile-nav a {
+            display: block; padding: 16px 0; font-size: 22px; font-weight: 700;
+            color: var(--root); border-bottom: 1px solid var(--cloud);
+        }
+        .mobile-nav a:hover { color: var(--green); }
+        .mobile-nav .btn { margin-top: 24px; width: 100%; }
+        .mobile-loc-selector { padding-bottom: 20px; margin-bottom: 8px; border-bottom: 1px solid var(--cloud); }
+        .mobile-loc-label {
+            font-size: 13px; font-weight: 600; color: var(--silver);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;
+        }
+        .mobile-loc-options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .mobile-loc-opt {
+            padding: 12px 14px; border-radius: 12px; border: 1.5px solid rgba(26,31,28,0.08);
+            background: var(--cloud); font-family: 'Nunito', sans-serif; font-size: 14px;
+            font-weight: 700; color: var(--root); cursor: pointer; transition: all 0.2s ease; text-align: center;
+        }
+        .mobile-loc-opt:hover { border-color: var(--green); }
+        .mobile-loc-opt.active { background: rgba(140,197,65,0.12); border-color: var(--green); color: var(--teal); }
+
+        /* ---- LOCATION BAR ---- */
+        .location-bar {
+            margin-top: 100px;
+            background: var(--white);
+            border-bottom: 1px solid rgba(26,31,28,0.06);
+            padding: 20px 0;
+        }
+        .location-bar-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .location-bar-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .location-bar-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: rgba(140,197,65,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green);
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        .location-bar-name {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--root);
+            line-height: 1.2;
+        }
+        .location-bar-details {
+            font-size: 13px;
+            color: var(--silver);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 2px;
+        }
+        .location-bar-details span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .location-bar-open {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 50px;
+            background: rgba(140,197,65,0.1);
+            color: var(--green);
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .location-bar-open .pulse {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--green);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.85); }
+        }
+
+        /* ---- DUTCHIE BANNER ---- */
+        .dutchie-banner {
+            background: linear-gradient(135deg, var(--root) 0%, #2a3530 100%);
+            padding: 16px 0;
+            text-align: center;
+        }
+        .dutchie-banner p {
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .dutchie-banner strong {
+            color: var(--acid);
+        }
+
+        /* ---- CATEGORY TABS ---- */
+        .category-tabs {
+            padding: 24px 0 0;
+            background: var(--white);
+            position: sticky;
+            top: 70px;
+            z-index: 100;
+            border-bottom: 1px solid rgba(26,31,28,0.06);
+        }
+        .category-tabs-inner {
+            display: flex;
+            gap: 6px;
+            overflow-x: auto;
+            padding-bottom: 16px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .category-tabs-inner::-webkit-scrollbar { display: none; }
+        .cat-tab {
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1.5px solid rgba(26,31,28,0.08);
+            background: var(--white);
+            color: var(--silver);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .cat-tab:hover {
+            border-color: var(--green);
+            color: var(--root);
+        }
+        .cat-tab.active {
+            background: var(--green);
+            border-color: var(--green);
+            color: var(--white);
+        }
+
+        /* ---- PRODUCT GRID ---- */
+        .shop-content {
+            padding: 32px 0 80px;
+        }
+        .product-count {
+            font-size: 14px;
+            color: var(--silver);
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        .product-count strong { color: var(--root); }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        /* ---- PRODUCT CARD ---- */
+        .product-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(26,31,28,0.04);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: cardIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+        }
+        .product-card:nth-child(1) { animation-delay: 0.02s; }
+        .product-card:nth-child(2) { animation-delay: 0.04s; }
+        .product-card:nth-child(3) { animation-delay: 0.06s; }
+        .product-card:nth-child(4) { animation-delay: 0.08s; }
+        .product-card:nth-child(5) { animation-delay: 0.10s; }
+        .product-card:nth-child(6) { animation-delay: 0.12s; }
+        .product-card:nth-child(7) { animation-delay: 0.14s; }
+        .product-card:nth-child(8) { animation-delay: 0.16s; }
+        .product-card:nth-child(9) { animation-delay: 0.18s; }
+        .product-card:nth-child(10) { animation-delay: 0.20s; }
+        .product-card:nth-child(11) { animation-delay: 0.22s; }
+        .product-card:nth-child(12) { animation-delay: 0.24s; }
+        .product-card:nth-child(13) { animation-delay: 0.26s; }
+        .product-card:nth-child(14) { animation-delay: 0.28s; }
+        .product-card:nth-child(15) { animation-delay: 0.30s; }
+        .product-card:nth-child(16) { animation-delay: 0.32s; }
+
+        @keyframes cardIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 48px rgba(0,0,0,0.08), 0 0 0 1px rgba(140,197,65,0.12);
+        }
+        .product-img {
+            position: relative;
+            aspect-ratio: 1;
+            background: var(--cloud);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 20px;
+        }
+        .product-img img {
+            max-width: 85%;
+            max-height: 85%;
+            object-fit: contain;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .product-card:hover .product-img img {
+            transform: scale(1.06);
+        }
+        .product-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+        .badge-flower { background: rgba(140,197,65,0.12); color: #5a9a1a; }
+        .badge-pre-rolls { background: rgba(107,91,149,0.12); color: #6B5B95; }
+        .badge-vaporizers { background: rgba(65,198,239,0.12); color: #1a8fc4; }
+        .badge-edibles { background: rgba(255,159,28,0.12); color: #d4820a; }
+        .badge-concentrates { background: rgba(224,79,95,0.12); color: #c43a4e; }
+
+        .product-body {
+            padding: 16px 18px 18px;
+        }
+        .product-brand {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--silver);
+            margin-bottom: 4px;
+        }
+        .product-name {
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--root);
+            line-height: 1.3;
+            margin-bottom: 6px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .product-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 14px;
+            font-size: 12px;
+            color: var(--silver);
+        }
+        .product-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .product-price {
+            font-size: 20px;
+            font-weight: 900;
+            color: var(--root);
+        }
+        .product-price .from {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--silver);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .btn-add-cart {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            border: none;
+            background: var(--green);
+            color: var(--white);
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .btn-add-cart:hover {
+            background: var(--teal);
+            transform: scale(1.08);
+        }
+
+        /* ---- FOOTER ---- */
+        .footer {
+            background: var(--root);
+            padding: 80px 0 40px;
+            color: rgba(255,255,255,0.6);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+            gap: 48px;
+        }
+        .footer-brand p { font-size: 14px; line-height: 1.7; margin-top: 16px; }
+        .footer-logo { height: 84px; width: auto; margin-bottom: 8px; }
+        .social-links { display: flex; gap: 12px; margin-top: 20px; }
+        .social-links a {
+            width: 40px; height: 40px; border-radius: 12px;
+            background: rgba(255,255,255,0.06); display: flex;
+            align-items: center; justify-content: center;
+            font-size: 16px; color: rgba(255,255,255,0.4);
+            transition: all 0.3s ease;
+        }
+        .social-links a:hover { background: var(--green); color: var(--white); transform: translateY(-2px); }
+        .footer-col h4 {
+            font-size: 13px; font-weight: 800; text-transform: uppercase;
+            letter-spacing: 2px; color: var(--white); margin-bottom: 20px;
+        }
+        .footer-col a {
+            display: block; font-size: 14px; padding: 6px 0;
+            color: rgba(255,255,255,0.5); transition: color 0.2s;
+        }
+        .footer-col a:hover { color: var(--green); }
+        .footer-bottom {
+            margin-top: 56px; padding-top: 28px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 13px;
+        }
+        .footer-bottom-links { display: flex; gap: 24px; }
+        .footer-bottom-links a { color: rgba(255,255,255,0.4); transition: color 0.2s; }
+        .footer-bottom-links a:hover { color: var(--green); }
+
+        /* ---- BOTTOM NAV ---- */
+        .bottom-nav {
+            position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+            background: rgba(26,31,28,0.95); backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px); padding: 12px 28px;
+            display: flex; align-items: center; justify-content: space-between;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .bottom-nav-locations { display: flex; align-items: center; gap: 16px; }
+        .bottom-nav-locations a {
+            font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.4); transition: color 0.2s;
+        }
+        .bottom-nav-locations a:hover { color: var(--white); }
+        .bottom-nav-locations a.highlight { color: var(--green); font-weight: 700; }
+        .bottom-nav-actions { display: flex; gap: 10px; }
+        .bottom-nav .btn { font-size: 11px; padding: 10px 22px; }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 1100px) {
+            .nav { display: none; }
+            .mobile-menu-btn { display: block; }
+            .product-grid { grid-template-columns: repeat(3, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+        }
+
+        @media (max-width: 768px) {
+            .product-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+            .location-bar-inner { flex-direction: column; align-items: flex-start; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+            .bottom-nav-locations { display: none; }
+            .bottom-nav { justify-content: center; }
+            .category-tabs { top: 62px; }
+        }
+
+        @media (max-width: 480px) {
+            .product-grid { gap: 10px; }
+            .product-body { padding: 12px 14px 14px; }
+            .product-name { font-size: 13px; }
+            .product-price { font-size: 17px; }
+            .product-img { padding: 14px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header scrolled" id="header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <img src="/media/logo-gradient-cannabis.png" alt="Joyology Cannabis" id="headerLogo">
+            </a>
+
+            <nav class="nav">
+                <div class="loc-selector" id="locSelector">
+                    <button class="loc-selector-btn" id="locSelectorBtn">
+                        <i class="fas fa-map-marker-alt loc-pin"></i>
+                        <span id="locSelectorLabel">Lake Orion</span>
+                        <i class="fas fa-chevron-down loc-chevron"></i>
+                    </button>
+                    <div class="loc-selector-menu" id="locSelectorMenu">
+                        <button class="loc-option active" data-slug="lake-orion" data-name="Lake Orion">
+                            <div class="loc-option-icon"><i class="fas fa-store"></i></div>
+                            <div class="loc-option-info">
+                                <h5>Lake Orion</h5>
+                                <p>4098 S Baldwin Rd, Lake Orion, MI</p>
+                            </div>
+                            <i class="fas fa-check loc-option-check"></i>
+                        </button>
+                        <button class="loc-option" data-slug="monroe" data-name="Monroe">
+                            <div class="loc-option-icon"><i class="fas fa-store"></i></div>
+                            <div class="loc-option-info">
+                                <h5>Monroe</h5>
+                                <p>14880 LaPlaisance Rd, Monroe, MI</p>
+                            </div>
+                            <i class="fas fa-check loc-option-check"></i>
+                        </button>
+                        <button class="loc-option" data-slug="centerline" data-name="Centerline">
+                            <div class="loc-option-icon"><i class="fas fa-store"></i></div>
+                            <div class="loc-option-info">
+                                <h5>Centerline</h5>
+                                <p>25831 Sherwood Ave, Center Line, MI</p>
+                            </div>
+                            <i class="fas fa-check loc-option-check"></i>
+                        </button>
+                        <button class="loc-option" data-slug="mt-clemens" data-name="Mt. Clemens">
+                            <div class="loc-option-icon"><i class="fas fa-store"></i></div>
+                            <div class="loc-option-info">
+                                <h5>Mt. Clemens</h5>
+                                <p>195 N Malow St, Mt Clemens, MI</p>
+                            </div>
+                            <i class="fas fa-check loc-option-check"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="/shop/" class="nav-link">Shop <i class="fas fa-chevron-down" style="font-size:9px;margin-left:4px;opacity:0.5;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="/shop/#flower"><i class="fas fa-leaf"></i> Flower</a>
+                        <a href="/shop/#pre-rolls"><i class="fas fa-smoking"></i> Pre-rolls</a>
+                        <a href="/shop/#vaporizers"><i class="fas fa-wind"></i> Vapes & carts</a>
+                        <a href="/shop/#edibles"><i class="fas fa-cookie-bite"></i> Edibles</a>
+                        <a href="/shop/#concentrates"><i class="fas fa-droplet"></i> Concentrates</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="/about/" class="nav-link">About <i class="fas fa-chevron-down" style="font-size:9px;margin-left:4px;opacity:0.5;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="/brands/"><i class="fas fa-award"></i> Our brands</a>
+                        <a href="/careers/"><i class="fas fa-briefcase"></i> Careers</a>
+                        <a href="/faqs/"><i class="fas fa-circle-question"></i> FAQs</a>
+                    </div>
+                </div>
+
+                <a href="/blog/" class="nav-link">Blog</a>
+
+                <a href="/daily-deals/" class="btn btn-primary btn-sm">View deals</a>
+            </nav>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu"><i class="fas fa-times"></i></button>
+
+        <div class="mobile-loc-selector">
+            <p class="mobile-loc-label"><i class="fas fa-map-marker-alt" style="color:var(--green);margin-right:6px;"></i> Your location</p>
+            <div class="mobile-loc-options">
+                <button class="mobile-loc-opt active" data-slug="lake-orion" data-name="Lake Orion">Lake Orion</button>
+                <button class="mobile-loc-opt" data-slug="monroe" data-name="Monroe">Monroe</button>
+                <button class="mobile-loc-opt" data-slug="centerline" data-name="Centerline">Centerline</button>
+                <button class="mobile-loc-opt" data-slug="mt-clemens" data-name="Mt. Clemens">Mt. Clemens</button>
+            </div>
+        </div>
+
+        <a href="/shop/">Shop menu</a>
+        <a href="/shop/#flower">Flower</a>
+        <a href="/shop/#pre-rolls">Pre-rolls</a>
+        <a href="/shop/#vaporizers">Vapes & carts</a>
+        <a href="/shop/#edibles">Edibles</a>
+        <a href="/shop/#concentrates">Concentrates</a>
+        <a href="/about/">About</a>
+        <a href="/brands/">Our brands</a>
+        <a href="/blog/">Blog</a>
+        <a href="/daily-deals/" class="btn btn-primary">View today's deals</a>
+    </div>
+
+    <!-- Dutchie Banner -->
+    <div class="dutchie-banner">
+        <div class="container">
+            <p><strong>Online ordering powered by Dutchie</strong> &mdash; coming soon</p>
+        </div>
+    </div>
+
+    <!-- Location Bar -->
+    <div class="location-bar">
+        <div class="container">
+            <div class="location-bar-inner">
+                <div class="location-bar-info">
+                    <div class="location-bar-icon"><i class="fas fa-store"></i></div>
+                    <div>
+                        <div class="location-bar-name" id="shopLocName">Joyology Lake Orion</div>
+                        <div class="location-bar-details">
+                            <span id="shopLocAddress"><i class="fas fa-map-marker-alt"></i> 4098 S Baldwin Rd, Lake Orion, MI 48359</span>
+                            <span><i class="fas fa-clock"></i> Open daily 9am &ndash; 9pm</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="location-bar-open">
+                    <div class="pulse"></div>
+                    Open now
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category Tabs -->
+    <div class="category-tabs">
+        <div class="container">
+            <div class="category-tabs-inner">
+                <button class="cat-tab active" data-cat="all">All products</button>
+                <button class="cat-tab" data-cat="flower"><i class="fas fa-leaf" style="margin-right:6px;font-size:11px;"></i> Flower</button>
+                <button class="cat-tab" data-cat="pre-rolls"><i class="fas fa-smoking" style="margin-right:6px;font-size:11px;"></i> Pre-Rolls</button>
+                <button class="cat-tab" data-cat="vaporizers"><i class="fas fa-wind" style="margin-right:6px;font-size:11px;"></i> Vaporizers</button>
+                <button class="cat-tab" data-cat="edibles"><i class="fas fa-cookie-bite" style="margin-right:6px;font-size:11px;"></i> Edibles</button>
+                <button class="cat-tab" data-cat="concentrates"><i class="fas fa-droplet" style="margin-right:6px;font-size:11px;"></i> Concentrates</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Grid -->
+    <section class="shop-content">
+        <div class="container">
+            <p class="product-count"><strong id="productCountNum">16</strong> products available</p>
+            <div class="product-grid" id="productGrid">
+                <!-- Products injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="/media/logo-cannabis-white.png" alt="Joyology Cannabis" class="footer-logo">
+                    <p>Cultivating joy, wellness, and community connection through premium, approachable cannabis experiences. Michigan's destination for elevated wellness.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Locations</h4>
+                    <a href="/location/lake-orion/">Lake Orion</a>
+                    <a href="/location/monroe/">Monroe</a>
+                    <a href="/location/centerline-sherwood/">Centerline</a>
+                    <a href="/location/mt-clemens-malow/">Mt. Clemens</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <a href="/shop/#flower">Flower</a>
+                    <a href="/shop/#pre-rolls">Pre-rolls</a>
+                    <a href="/shop/#edibles">Edibles</a>
+                    <a href="/shop/#vaporizers">Vapes & carts</a>
+                    <a href="/shop/#concentrates">Concentrates</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="/about/">About us</a>
+                    <a href="/brands/">Our brands</a>
+                    <a href="/careers/">Careers</a>
+                    <a href="/blog/">Blog</a>
+                    <a href="/faqs/">FAQs</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick links</h4>
+                    <a href="/daily-deals/">Daily deals</a>
+                    <a href="/locations/">All locations</a>
+                    <a href="#">Loyalty program</a>
+                    <a href="#">Contact us</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Joyology Cannabis. All rights reserved. Must be 21+ to enter.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bottom Nav -->
+    <div class="bottom-nav">
+        <div class="bottom-nav-locations">
+            <a href="/locations/" class="highlight"><i class="fas fa-map-marker-alt"></i> Find a location</a>
+            <a href="/location/lake-orion/">Lake Orion</a>
+            <a href="/location/monroe/">Monroe</a>
+            <a href="/location/centerline-sherwood/">Centerline</a>
+            <a href="/location/mt-clemens-malow/">Mt. Clemens</a>
+        </div>
+        <div class="bottom-nav-actions">
+            <a href="/daily-deals/" class="btn btn-gradient btn-sm">View deals</a>
+            <a href="/" class="btn btn-primary btn-sm">Home</a>
+        </div>
+    </div>
+
+    <script>
+        // ---- Location Data ----
+        var locData = {
+            'lake-orion': { name: 'Lake Orion', address: '4098 S Baldwin Rd, Lake Orion, MI 48359' },
+            'monroe': { name: 'Monroe', address: '14880 LaPlaisance Rd, Monroe, MI 48161' },
+            'centerline': { name: 'Centerline', address: '25831 Sherwood Ave, Center Line, MI 48015' },
+            'mt-clemens': { name: 'Mt. Clemens', address: '195 N Malow St, Mt Clemens, MI 48043' }
+        };
+
+        // ---- Product Data ----
+        var products = [
+            { name: 'Blue Dream Premium Flower', brand: 'Stiiiizy', category: 'flower', weight: '3.5g', price: 35, img: 'https://images.dutchie.com/bf74c9cb0b7d7455d182a2475b0cc28a?w=500&fm=webp' },
+            { name: 'Wedding Cake Indoor', brand: 'MKX', category: 'flower', weight: '3.5g', price: 40, img: 'https://images.dutchie.com/42f661bfd65c22413324889caa770e36?w=500&fm=webp' },
+            { name: 'Gelato #41 Smalls', brand: 'Mitten Extracts', category: 'flower', weight: '7g', price: 55, img: 'https://images.dutchie.com/3e34f662ecbe58736709d97373eff735?w=500&fm=webp' },
+            { name: 'Zkittlez OG Popcorn Buds', brand: 'Platinum Vape', category: 'flower', weight: '14g', price: 85, img: 'https://images.dutchie.com/09c6af159f20af33932dbc68af1257a7?w=500&fm=webp' },
+            { name: 'Live Resin Cartridge - Mango', brand: 'Stiiiizy', category: 'vaporizers', weight: '1g', price: 45, img: 'https://images.dutchie.com/11eebad6b5ec7dc819d08598b29dea28?w=500&fm=webp' },
+            { name: 'All-In-One Disposable Vape', brand: 'Platinum Vape', category: 'vaporizers', weight: '0.5g', price: 25, img: 'https://images.dutchie.com/a350f6b8c34c276dfedd6c2471d939c5?w=500&fm=webp' },
+            { name: 'CDT Pod - Strawberry Cough', brand: 'Sauce', category: 'vaporizers', weight: '1g', price: 50, img: 'https://images.dutchie.com/f8752e3587674f1fa8b7bd72550019a5?w=500&fm=webp' },
+            { name: 'Gummy Bears 10pk', brand: 'MKX', category: 'edibles', weight: '100mg', price: 20, img: 'https://images.dutchie.com/b21506ec795df9a0ab44d17f7bcab927?w=500&fm=webp' },
+            { name: 'Dark Chocolate Bar', brand: 'Mitten Extracts', category: 'edibles', weight: '200mg', price: 28, img: 'https://images.dutchie.com/b77418a0c1b538fc5a2da4f1c911b4d8?w=500&fm=webp' },
+            { name: 'Sour Watermelon Chews', brand: 'Jeeter', category: 'edibles', weight: '100mg', price: 18, img: 'https://images.dutchie.com/a8f52556abb53dc76852e8811fe1eb43?w=500&fm=webp' },
+            { name: 'Baby Jeeter Infused Pre-Roll', brand: 'Jeeter', category: 'pre-rolls', weight: '0.5g', price: 15, img: 'https://images.dutchie.com/5860084b77c97529a5028cc4b9ef9fc9?w=500&fm=webp' },
+            { name: 'King Size Cone 3-Pack', brand: 'Packs', category: 'pre-rolls', weight: '3g', price: 30, img: 'https://images.dutchie.com/6a05c41160f2b508809b77986f98d62b?w=500&fm=webp' },
+            { name: 'Diamond Infused Blunt', brand: 'Muha Meds', category: 'pre-rolls', weight: '1.5g', price: 22, img: 'https://images.dutchie.com/0fd0ac9515367cb8d01a1ccec58b3a9f?w=500&fm=webp' },
+            { name: 'Live Rosin Badder', brand: 'Sauce', category: 'concentrates', weight: '1g', price: 55, img: 'https://images.dutchie.com/f67f6e5fb7f4e07f42495988d403900f?w=500&fm=webp' },
+            { name: 'Cured Resin Sugar Wax', brand: 'Platinum Vape', category: 'concentrates', weight: '1g', price: 35, img: 'https://images.dutchie.com/95aa5c3a54ce39036a3fe2b754d64b8d?w=500&fm=webp' },
+            { name: 'Terp Diamonds - GMO', brand: 'MKX', category: 'concentrates', weight: '1g', price: 48, img: 'https://images.dutchie.com/f67f6e5fb7f4e07f42495988d403900f?w=500&fm=webp' }
+        ];
+
+        // ---- Render Products ----
+        var grid = document.getElementById('productGrid');
+        var countEl = document.getElementById('productCountNum');
+
+        function renderProducts(cat) {
+            var filtered = cat === 'all' ? products : products.filter(function(p) { return p.category === cat; });
+            countEl.textContent = filtered.length;
+
+            grid.innerHTML = filtered.map(function(p) {
+                return '<div class="product-card" data-cat="' + p.category + '">' +
+                    '<div class="product-img">' +
+                        '<span class="product-badge badge-' + p.category + '">' + p.category.replace('-', ' ') + '</span>' +
+                        '<img src="' + p.img + '" alt="' + p.name + '" loading="lazy">' +
+                    '</div>' +
+                    '<div class="product-body">' +
+                        '<div class="product-brand">' + p.brand + '</div>' +
+                        '<div class="product-name">' + p.name + '</div>' +
+                        '<div class="product-meta">' +
+                            '<span><i class="fas fa-weight-hanging"></i> ' + p.weight + '</span>' +
+                        '</div>' +
+                        '<div class="product-footer">' +
+                            '<div class="product-price"><span class="from">from </span>$' + p.price + '</div>' +
+                            '<button class="btn-add-cart" aria-label="Add to cart"><i class="fas fa-plus"></i></button>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>';
+            }).join('');
+        }
+
+        // ---- Category Tabs ----
+        var tabs = document.querySelectorAll('.cat-tab');
+        var activeCat = 'all';
+
+        tabs.forEach(function(tab) {
+            tab.addEventListener('click', function() {
+                tabs.forEach(function(t) { t.classList.remove('active'); });
+                tab.classList.add('active');
+                activeCat = tab.dataset.cat;
+                renderProducts(activeCat);
+            });
+        });
+
+        // Handle hash-based category selection
+        function checkHash() {
+            var hash = window.location.hash.replace('#', '');
+            if (hash && ['flower', 'pre-rolls', 'vaporizers', 'edibles', 'concentrates'].indexOf(hash) !== -1) {
+                tabs.forEach(function(t) { t.classList.remove('active'); });
+                var target = document.querySelector('.cat-tab[data-cat="' + hash + '"]');
+                if (target) {
+                    target.classList.add('active');
+                    activeCat = hash;
+                    renderProducts(hash);
+                }
+            }
+        }
+
+        // ---- Location Management ----
+        var currentLoc = localStorage.getItem('joyology-location') || 'lake-orion';
+        var locSelector = document.getElementById('locSelector');
+        var locSelectorBtn = document.getElementById('locSelectorBtn');
+        var locSelectorLabel = document.getElementById('locSelectorLabel');
+        var locSelectorMenu = document.getElementById('locSelectorMenu');
+        var shopLocName = document.getElementById('shopLocName');
+        var shopLocAddress = document.getElementById('shopLocAddress');
+
+        function setLocation(slug) {
+            currentLoc = slug;
+            localStorage.setItem('joyology-location', slug);
+            var loc = locData[slug];
+
+            // Update nav selector
+            locSelectorLabel.textContent = loc.name;
+            locSelectorMenu.querySelectorAll('.loc-option').forEach(function(opt) {
+                opt.classList.toggle('active', opt.dataset.slug === slug);
+            });
+
+            // Update mobile selector
+            document.querySelectorAll('.mobile-loc-opt').forEach(function(opt) {
+                opt.classList.toggle('active', opt.dataset.slug === slug);
+            });
+
+            // Update location bar
+            shopLocName.textContent = 'Joyology ' + loc.name;
+            shopLocAddress.innerHTML = '<i class="fas fa-map-marker-alt"></i> ' + loc.address;
+
+            locSelector.classList.remove('open');
+        }
+
+        // Initialize
+        setLocation(currentLoc);
+        renderProducts('all');
+        checkHash();
+
+        // Desktop dropdown toggle
+        locSelectorBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            locSelector.classList.toggle('open');
+        });
+
+        // Desktop option click
+        locSelectorMenu.querySelectorAll('.loc-option').forEach(function(opt) {
+            opt.addEventListener('click', function() { setLocation(this.dataset.slug); });
+        });
+
+        // Mobile option click
+        document.querySelectorAll('.mobile-loc-opt').forEach(function(opt) {
+            opt.addEventListener('click', function() { setLocation(this.dataset.slug); });
+        });
+
+        // Close on outside click
+        document.addEventListener('click', function(e) {
+            if (!locSelector.contains(e.target)) locSelector.classList.remove('open');
+        });
+
+        // Hash change listener
+        window.addEventListener('hashchange', checkHash);
+
+        // ---- Header scroll ----
+        var header = document.getElementById('header');
+        var headerLogo = document.getElementById('headerLogo');
+        function updateHeader() {
+            var scrolled = window.scrollY > 20;
+            header.classList.toggle('scrolled', true); // Always scrolled style on shop page
+        }
+        updateHeader();
+
+        // ---- Mobile Menu ----
+        var mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        var mobileNav = document.getElementById('mobileNav');
+        var mobileNavClose = document.getElementById('mobileNavClose');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileNav.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        });
+        mobileNavClose.addEventListener('click', function() {
+            mobileNav.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+        mobileNav.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                mobileNav.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
+</body>
+</html>

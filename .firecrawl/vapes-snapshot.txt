@@ -1,0 +1,822 @@
+- document:
+  - paragraph:
+    - strong:
+      - link "Joyology Offers Daily/Weekly Special Offers. Click To See Now" [ref=e1]:
+        - /url: /shop/specials/
+      - text: "!"
+  - link "View Cart" [ref=e2]:
+    - /url: /cart/
+  - link "Headless shop nav logo HOME" [ref=e3]:
+    - /url: https://joyology.com
+    - img "Headless shop nav logo"
+    - text: HOME
+  - img
+  - text: Currently shopping
+  - combobox "Select shopping location" [ref=e4]:
+    - option "Where are you shopping?" [ref=e5]
+    - option "Centerline" [ref=e6]
+    - option "Lake Orion" [ref=e7] [selected]
+    - option "Monroe" [ref=e8]
+    - option "Mt. Clemens | Malow St" [ref=e9]
+  - text: 4898 Bald Mountain Road, Auburn Hills, MI 48326, USA OPEN - Closes at 11:45 PM
+  - link "Add to Cart" [ref=e10]
+  - navigation "Primary menu" [ref=e11]
+  - document:
+    - main:
+      - navigation "Shop navigation" [ref=e12]:
+        - navigation "Product category filters" [ref=e13]:
+          - button "Show all products" [ref=e14]: All
+          - button "View specials" [ref=e15]: Deals
+          - button "Filter by Flower" [ref=e16]: Flower
+          - button "Filter by Pre-Rolls" [ref=e17]: Pre-Rolls
+          - button "Filter by Vaporizers" [ref=e18] [pressed]: Vaporizers
+          - button "Filter by Edibles" [ref=e19]: Edibles
+          - button "Filter by Concentrates" [ref=e20]: Concentrates
+          - button "Filter by CBD" [ref=e21]: CBD
+          - button "Filter by Tinctures" [ref=e22]: Tinctures
+          - button "Filter by Topicals" [ref=e23]: Topicals
+          - button "Filter by Accessories" [ref=e24]: Accessories
+        - text: OPEN Pickup OPEN Delivery
+      - complementary "Product filters":
+        - radiogroup "Order fulfillment method":
+          - text: Select how you would like to receive your order
+          - radio [ref=e25] [checked]
+          - text: Pickup
+          - radio [ref=e26] [nth=1]
+          - text: Delivery
+        - textbox "Search for products" [ref=e27]:
+          - /placeholder: Search...
+        - button "VAPORIZERS" [ref=e28]:
+          - img
+          - text: VAPORIZERS
+        - group "Filter options":
+          - text: Show deals
+          - checkbox "Show deals" [ref=e29]
+          - region "Category filters" [ref=e30]:
+            - region "Category" [ref=e31]:
+              - button "Category" [ref=e32] [expanded]
+              - checkbox "Filter by Flower" [ref=e33]
+              - text: Flower
+              - checkbox "Filter by Pre-Rolls" [ref=e34]
+              - text: Pre-Rolls
+              - checkbox "Filter by Vaporizers" [ref=e35] [checked]
+              - text: Vaporizers
+              - checkbox "Filter by Edibles" [ref=e36]
+              - text: Edibles
+              - checkbox "Filter by Concentrates" [ref=e37]
+              - text: Concentrates
+              - checkbox "Filter by CBD" [ref=e38]
+              - text: CBD
+              - checkbox "Filter by Tinctures" [ref=e39]
+              - text: Tinctures
+              - checkbox "Filter by Topicals" [ref=e40]
+              - text: Topicals
+              - checkbox "Filter by Accessories" [ref=e41]
+              - text: Accessories
+          - region "Brand filters" [ref=e42]:
+            - region "Brand" [ref=e43]:
+              - button "Brand" [ref=e44] [expanded]
+              - checkbox "Filter by 30 Pack" [ref=e45]
+              - text: 30 Pack
+              - checkbox "Filter by 313 Rolls" [ref=e46]
+              - text: 313 Rolls
+              - checkbox "Filter by 710 Labs" [ref=e47]
+              - text: 710 Labs
+              - checkbox "Filter by Accessories" [ref=e48] [nth=1]
+              - text: Accessories
+              - checkbox "Filter by Adult Sesh" [ref=e49]
+              - text: Adult Sesh
+              - checkbox "Filter by Afternoon Delite" [ref=e50]
+              - text: Afternoon Delite
+              - checkbox "Filter by Alien Brainz" [ref=e51]
+              - text: Alien Brainz
+              - checkbox "Filter by Amnesia" [ref=e52]
+              - text: Amnesia
+              - checkbox "Filter by Anarchy" [ref=e53]
+              - text: Anarchy
+              - checkbox "Filter by Armada Cannabis Co." [ref=e54]
+              - text: Armada Cannabis Co.
+              - checkbox "Filter by Bamn" [ref=e55]
+              - text: Bamn
+              - checkbox "Filter by Banned" [ref=e56]
+              - text: Banned
+              - checkbox "Filter by Berry Green" [ref=e57]
+              - text: Berry Green
+              - checkbox "Filter by Bespoke" [ref=e58]
+              - text: Bespoke
+              - checkbox "Filter by Best Dirty Lemonade" [ref=e59]
+              - text: Best Dirty Lemonade
+              - checkbox "Filter by Betty Co." [ref=e60]
+              - text: Betty Co.
+              - checkbox "Filter by Black Market" [ref=e61]
+              - text: Black Market
+              - checkbox "Filter by Bloom" [ref=e62]
+              - text: Bloom
+              - checkbox "Filter by Blume" [ref=e63]
+              - text: Blume
+              - checkbox "Filter by Blume" [ref=e64] [nth=1]
+              - text: Blume
+              - checkbox "Filter by Bossy" [ref=e65]
+              - text: Bossy
+              - checkbox "Filter by Brass Knuckles" [ref=e66]
+              - text: Brass Knuckles
+              - checkbox "Filter by Breeze Canna" [ref=e67]
+              - text: Breeze Canna
+              - checkbox "Filter by Budderface" [ref=e68]
+              - text: Budderface
+              - checkbox "Filter by Cali-blaze" [ref=e69]
+              - text: Cali-blaze
+              - checkbox "Filter by Cali Packs" [ref=e70]
+              - text: Cali Packs
+              - checkbox "Filter by Camino" [ref=e71]
+              - text: Camino
+              - checkbox "Filter by Cannabispm" [ref=e72]
+              - text: Cannabispm
+              - checkbox "Filter by Cannalicious Labs" [ref=e73]
+              - text: Cannalicious Labs
+              - checkbox "Filter by Cannapure" [ref=e74]
+              - text: Cannapure
+              - checkbox "Filter by Cannon Balls" [ref=e75]
+              - text: Cannon Balls
+              - checkbox "Filter by Cashed" [ref=e76]
+              - text: Cashed
+              - checkbox "Filter by Caviar Gold" [ref=e77]
+              - text: Caviar Gold
+              - checkbox "Filter by Cheech & Chong" [ref=e78]
+              - text: Cheech & Chong
+              - checkbox "Filter by Chill Medicated" [ref=e79]
+              - text: Chill Medicated
+              - checkbox "Filter by Choice" [ref=e80]
+              - text: Choice
+              - checkbox "Filter by Church Cannabis Company" [ref=e81]
+              - text: Church Cannabis Company
+              - checkbox "Filter by Cloverdale" [ref=e82]
+              - text: Cloverdale
+              - checkbox "Filter by Cosmic Cowboy" [ref=e83]
+              - text: Cosmic Cowboy
+              - checkbox "Filter by Covert Cups" [ref=e84]
+              - text: Covert Cups
+              - checkbox "Filter by Cq" [ref=e85]
+              - text: Cq
+              - checkbox "Filter by Craft Hydroponic" [ref=e86]
+              - text: Craft Hydroponic
+              - checkbox "Filter by Crude Boys" [ref=e87]
+              - text: Crude Boys
+              - checkbox "Filter by Daily Grind" [ref=e88]
+              - text: Daily Grind
+              - checkbox "Filter by Daily's" [ref=e89]
+              - text: Daily's
+              - checkbox "Filter by Dealer's Choice" [ref=e90]
+              - text: Dealer's Choice
+              - checkbox "Filter by Deli Flower - Best Reserve" [ref=e91]
+              - text: Deli Flower - Best Reserve
+              - checkbox "Filter by Deli Flower - Good Tier" [ref=e92]
+              - text: Deli Flower - Good Tier
+              - checkbox "Filter by Deli Flower - Great Tier" [ref=e93]
+              - text: Deli Flower - Great Tier
+              - checkbox "Filter by Deli Flower - Infused Flower" [ref=e94]
+              - text: Deli Flower - Infused Flower
+              - checkbox "Filter by Deli Flower - Private Stock" [ref=e95]
+              - text: Deli Flower - Private Stock
+              - checkbox "Filter by Detroit Dope" [ref=e96]
+              - text: Detroit Dope
+              - checkbox "Filter by Detroit Edibles" [ref=e97]
+              - text: Detroit Edibles
+              - checkbox "Filter by Detroit Oil Co." [ref=e98]
+              - text: Detroit Oil Co.
+              - checkbox "Filter by Dixie" [ref=e99]
+              - text: Dixie
+              - checkbox "Filter by Doghouse Farms" [ref=e100]
+              - text: Doghouse Farms
+              - checkbox "Filter by Doink Roller" [ref=e101]
+              - text: Doink Roller
+              - checkbox "Filter by Dope Rope" [ref=e102]
+              - text: Dope Rope
+              - checkbox "Filter by Dragonfly" [ref=e103]
+              - text: Dragonfly
+              - checkbox "Filter by Dream Edibles" [ref=e104]
+              - text: Dream Edibles
+              - checkbox "Filter by Drip" [ref=e105]
+              - text: Drip
+              - checkbox "Filter by East Fork Cultivars" [ref=e106]
+              - text: East Fork Cultivars
+              - checkbox "Filter by Element" [ref=e107]
+              - text: Element
+              - checkbox "Filter by Elevated Lakes" [ref=e108]
+              - text: Elevated Lakes
+              - checkbox "Filter by Escape Artists" [ref=e109]
+              - text: Escape Artists
+              - checkbox "Filter by Feel Energy" [ref=e110]
+              - text: Feel Energy
+              - checkbox "Filter by Fire Styxx" [ref=e111]
+              - text: Fire Styxx
+              - checkbox "Filter by Flower Of Life" [ref=e112]
+              - text: Flower Of Life
+              - checkbox "Filter by Flower Power Cannabis" [ref=e113]
+              - text: Flower Power Cannabis
+              - checkbox "Filter by Fly" [ref=e114]
+              - text: Fly
+              - checkbox "Filter by Franklin Fields" [ref=e115]
+              - text: Franklin Fields
+              - checkbox "Filter by Fresh Canna" [ref=e116]
+              - text: Fresh Canna
+              - checkbox "Filter by Freshy Fine" [ref=e117]
+              - text: Freshy Fine
+              - checkbox "Filter by Frosted" [ref=e118]
+              - text: Frosted
+              - checkbox "Filter by Frozen" [ref=e119]
+              - text: Frozen
+              - checkbox "Filter by Galenas" [ref=e120]
+              - text: Galenas
+              - checkbox "Filter by Gelato" [ref=e121]
+              - text: Gelato
+              - checkbox "Filter by Giving Tree Gardens" [ref=e122]
+              - text: Giving Tree Gardens
+              - checkbox "Filter by Gold Crown" [ref=e123]
+              - text: Gold Crown
+              - checkbox "Filter by Goldkine" [ref=e124]
+              - text: Goldkine
+              - checkbox "Filter by Goodgood" [ref=e125]
+              - text: Goodgood
+              - checkbox "Filter by Goodlyfe Farms" [ref=e126]
+              - text: Goodlyfe Farms
+              - checkbox "Filter by Good Tide" [ref=e127]
+              - text: Good Tide
+              - checkbox "Filter by Grab N Go" [ref=e128]
+              - text: Grab N Go
+              - checkbox "Filter by Grasshopper" [ref=e129]
+              - text: Grasshopper
+              - checkbox "Filter by Grimas" [ref=e130]
+              - text: Grimas
+              - checkbox "Filter by Grip Canna" [ref=e131]
+              - text: Grip Canna
+              - checkbox "Filter by Gus's Real Exotics" [ref=e132]
+              - text: Gus's Real Exotics
+              - checkbox "Filter by Guuzotix" [ref=e133]
+              - text: Guuzotix
+              - checkbox "Filter by Harbor Farmz" [ref=e134]
+              - text: Harbor Farmz
+              - checkbox "Filter by Higher Innovations" [ref=e135]
+              - text: Higher Innovations
+              - checkbox "Filter by High Grade" [ref=e136]
+              - text: High Grade
+              - checkbox "Filter by High Hemp" [ref=e137]
+              - text: High Hemp
+              - checkbox "Filter by Highly Casual" [ref=e138]
+              - text: Highly Casual
+              - checkbox "Filter by Homiez" [ref=e139]
+              - text: Homiez
+              - checkbox "Filter by Hyman" [ref=e140]
+              - text: Hyman
+              - checkbox "Filter by Hype Cannabis" [ref=e141]
+              - text: Hype Cannabis
+              - checkbox "Filter by Hy-r" [ref=e142]
+              - text: Hy-r
+              - checkbox "Filter by Hytek" [ref=e143]
+              - text: Hytek
+              - checkbox "Filter by Ice Kream Hash" [ref=e144]
+              - text: Ice Kream Hash
+              - checkbox "Filter by Ill Exotics" [ref=e145]
+              - text: Ill Exotics
+              - checkbox "Filter by Information Entropy" [ref=e146]
+              - text: Information Entropy
+              - checkbox "Filter by Jeeter" [ref=e147]
+              - text: Jeeter
+              - checkbox "Filter by Joyology" [ref=e148]
+              - text: Joyology
+              - checkbox "Filter by Juicy Lucie" [ref=e149]
+              - text: Juicy Lucie
+              - checkbox "Filter by Kiva" [ref=e150]
+              - text: Kiva
+              - checkbox "Filter by Kutz" [ref=e151]
+              - text: Kutz
+              - checkbox "Filter by Kutz Premium Cannabis" [ref=e152]
+              - text: Kutz Premium Cannabis
+              - checkbox "Filter by Legasea" [ref=e153]
+              - text: Legasea
+              - checkbox "Filter by Lift Off" [ref=e154]
+              - text: Lift Off
+              - checkbox "Filter by Lit Labs" [ref=e155]
+              - text: Lit Labs
+              - checkbox "Filter by Lookah" [ref=e156]
+              - text: Lookah
+              - checkbox "Filter by Loosies" [ref=e157]
+              - text: Loosies
+              - checkbox "Filter by Lost Farm" [ref=e158]
+              - text: Lost Farm
+              - checkbox "Filter by Mac Pharms" [ref=e159]
+              - text: Mac Pharms
+              - checkbox "Filter by Made By A Farmer" [ref=e160]
+              - text: Made By A Farmer
+              - checkbox "Filter by Magic" [ref=e161]
+              - text: Magic
+              - checkbox "Filter by Magnum" [ref=e162]
+              - text: Magnum
+              - checkbox "Filter by Mary Jones" [ref=e163]
+              - text: Mary Jones
+              - checkbox "Filter by Mary's Medicinals" [ref=e164]
+              - text: Mary's Medicinals
+              - checkbox "Filter by Michigander Fire" [ref=e165]
+              - text: Michigander Fire
+              - checkbox "Filter by Midwest Extracts" [ref=e166]
+              - text: Midwest Extracts
+              - checkbox "Filter by Mitten Extracts" [ref=e167]
+              - text: Mitten Extracts
+              - checkbox "Filter by Mkx Oil Co." [ref=e168]
+              - text: Mkx Oil Co.
+              - checkbox "Filter by Mojo Chocolates" [ref=e169]
+              - text: Mojo Chocolates
+              - checkbox "Filter by Monopoly Melts" [ref=e170]
+              - text: Monopoly Melts
+              - checkbox "Filter by Muha Meds" [ref=e171]
+              - text: Muha Meds
+              - checkbox "Filter by My Friend" [ref=e172]
+              - text: My Friend
+              - checkbox "Filter by My Zypps" [ref=e173]
+              - text: My Zypps
+              - checkbox "Filter by No Bad Days" [ref=e174]
+              - text: No Bad Days
+              - checkbox "Filter by Nom Nom" [ref=e175]
+              - text: Nom Nom
+              - checkbox "Filter by North Coast" [ref=e176]
+              - text: North Coast
+              - checkbox "Filter by Northern Connections" [ref=e177]
+              - text: Northern Connections
+              - checkbox "Filter by Northern Lights Fx" [ref=e178]
+              - text: Northern Lights Fx
+              - checkbox "Filter by Numb" [ref=e179]
+              - text: Numb
+              - checkbox "Filter by Odyssey" [ref=e180]
+              - text: Odyssey
+              - checkbox "Filter by Og Farms" [ref=e181]
+              - text: Og Farms
+              - checkbox "Filter by Old School Hash Co." [ref=e182]
+              - text: Old School Hash Co.
+              - checkbox "Filter by Ooze" [ref=e183]
+              - text: Ooze
+              - checkbox "Filter by Orbit" [ref=e184]
+              - text: Orbit
+              - checkbox "Filter by Oz Special - $35 (2 For $45)" [ref=e185]
+              - text: Oz Special - $35 (2 For $45)
+              - checkbox "Filter by Oz Special - $60 (2 For $100)" [ref=e186]
+              - text: Oz Special - $60 (2 For $100)
+              - checkbox "Filter by Oz Special - $70 (2 For $130)" [ref=e187]
+              - text: Oz Special - $70 (2 For $130)
+              - checkbox "Filter by Paylo" [ref=e188]
+              - text: Paylo
+              - checkbox "Filter by Peninsula Gardens" [ref=e189]
+              - text: Peninsula Gardens
+              - checkbox "Filter by Petra" [ref=e190]
+              - text: Petra
+              - checkbox "Filter by Platinum Vape" [ref=e191]
+              - text: Platinum Vape
+              - checkbox "Filter by Play" [ref=e192]
+              - text: Play
+              - checkbox "Filter by Pleasanteas" [ref=e193]
+              - text: Pleasanteas
+              - checkbox "Filter by Pop Canna Co" [ref=e194]
+              - text: Pop Canna Co
+              - checkbox "Filter by Pot Shot" [ref=e195]
+              - text: Pot Shot
+              - checkbox "Filter by Pressure Pack" [ref=e196]
+              - text: Pressure Pack
+              - checkbox "Filter by Primitiv" [ref=e197]
+              - text: Primitiv
+              - checkbox "Filter by Pro Gro" [ref=e198]
+              - text: Pro Gro
+              - checkbox "Filter by Propaganda" [ref=e199]
+              - text: Propaganda
+              - checkbox "Filter by Pure Essentials" [ref=e200]
+              - text: Pure Essentials
+              - checkbox "Filter by Quick Smokes" [ref=e201]
+              - text: Quick Smokes
+              - checkbox "Filter by Raw" [ref=e202]
+              - text: Raw
+              - checkbox "Filter by Ray's Lemonade" [ref=e203]
+              - text: Ray's Lemonade
+              - checkbox "Filter by Redeye Cannabis Co." [ref=e204]
+              - text: Redeye Cannabis Co.
+              - checkbox "Filter by Resinco" [ref=e205]
+              - text: Resinco
+              - checkbox "Filter by Ripn" [ref=e206]
+              - text: Ripn
+              - checkbox "Filter by Rise" [ref=e207]
+              - text: Rise
+              - checkbox "Filter by Ritual" [ref=e208]
+              - text: Ritual
+              - checkbox "Filter by Rocket" [ref=e209]
+              - text: Rocket
+              - checkbox "Filter by Rollin Stoned" [ref=e210]
+              - text: Rollin Stoned
+              - checkbox "Filter by Rollz" [ref=e211]
+              - text: Rollz
+              - checkbox "Filter by Roses" [ref=e212]
+              - text: Roses
+              - checkbox "Filter by Rosslyn" [ref=e213]
+              - text: Rosslyn
+              - checkbox "Filter by Rove" [ref=e214]
+              - text: Rove
+              - checkbox "Filter by Sauce" [ref=e215]
+              - text: Sauce
+              - checkbox "Filter by Seed Junky" [ref=e216]
+              - text: Seed Junky
+              - checkbox "Filter by Shattered Thoughts" [ref=e217]
+              - text: Shattered Thoughts
+              - checkbox "Filter by Slurp Juice" [ref=e218]
+              - text: Slurp Juice
+              - checkbox "Filter by Smoorhouse" [ref=e219]
+              - text: Smoorhouse
+              - checkbox "Filter by Snowhitez" [ref=e220]
+              - text: Snowhitez
+              - checkbox "Filter by Society C" [ref=e221]
+              - text: Society C
+              - checkbox "Filter by Special Blue" [ref=e222]
+              - text: Special Blue
+              - checkbox "Filter by Splash" [ref=e223]
+              - text: Splash
+              - checkbox "Filter by Squishies" [ref=e224]
+              - text: Squishies
+              - checkbox "Filter by Stiiizy" [ref=e225]
+              - text: Stiiizy
+              - checkbox "Filter by Str8" [ref=e226]
+              - text: Str8
+              - checkbox "Filter by Superb" [ref=e227]
+              - text: Superb
+              - checkbox "Filter by Superfire" [ref=e228]
+              - text: Superfire
+              - checkbox "Filter by Sweet Justice" [ref=e229]
+              - text: Sweet Justice
+              - checkbox "Filter by Swisher" [ref=e230]
+              - text: Swisher
+              - checkbox "Filter by Swisher Blunts" [ref=e231]
+              - text: Swisher Blunts
+              - checkbox "Filter by Terpeez" [ref=e232]
+              - text: Terpeez
+              - checkbox "Filter by Terple Gang" [ref=e233]
+              - text: Terple Gang
+              - checkbox "Filter by Terra" [ref=e234]
+              - text: Terra
+              - checkbox "Filter by The 8th" [ref=e235]
+              - text: The 8th
+              - checkbox "Filter by The Factory" [ref=e236]
+              - text: The Factory
+              - checkbox "Filter by Tonic" [ref=e237]
+              - text: Tonic
+              - checkbox "Filter by Tonic Fizz" [ref=e238]
+              - text: Tonic Fizz
+              - checkbox "Filter by Top Smoke" [ref=e239]
+              - text: Top Smoke
+              - checkbox "Filter by Trap House" [ref=e240]
+              - text: Trap House
+              - checkbox "Filter by Treetown" [ref=e241]
+              - text: Treetown
+              - checkbox "Filter by Triple Phoenix" [ref=e242]
+              - text: Triple Phoenix
+              - checkbox "Filter by Trusmoke Cannabis" [ref=e243]
+              - text: Trusmoke Cannabis
+              - checkbox "Filter by Twisted Trees" [ref=e244]
+              - text: Twisted Trees
+              - checkbox "Filter by Uncle Arnie's" [ref=e245]
+              - text: Uncle Arnie's
+              - checkbox "Filter by Unrivaled Solventless Powered By Legasea" [ref=e246]
+              - text: Unrivaled Solventless Powered By Legasea
+              - checkbox "Filter by Unsubscribed" [ref=e247]
+              - text: Unsubscribed
+              - checkbox "Filter by Uplyfted Cannabis Co." [ref=e248]
+              - text: Uplyfted Cannabis Co.
+              - checkbox "Filter by Vapin Ape" [ref=e249]
+              - text: Vapin Ape
+              - checkbox "Filter by Vlasic Labs" [ref=e250]
+              - text: Vlasic Labs
+              - checkbox "Filter by Voodoo" [ref=e251]
+              - text: Voodoo
+              - checkbox "Filter by Wana" [ref=e252]
+              - text: Wana
+              - checkbox "Filter by Wyld" [ref=e253]
+              - text: Wyld
+              - checkbox "Filter by Zig Zag" [ref=e254]
+              - text: Zig Zag
+          - region "Subcategory filters" [ref=e255]:
+            - region "Subcategory" [ref=e256]:
+              - button "Subcategory" [ref=e257]
+          - region "Strain filters" [ref=e258]:
+            - region "Strain" [ref=e259]:
+              - button "Strain" [ref=e260]
+          - region "Effects filters" [ref=e261]:
+            - region "Effects" [ref=e262]:
+              - button "Effects" [ref=e263]
+          - region "Weights filters" [ref=e264]:
+            - region "Weights" [ref=e265]:
+              - button "Weights" [ref=e266]
+          - region "THC Potency filters" [ref=e267]:
+            - region "THC Potency" [ref=e268]:
+              - button "THC Potency" [ref=e269]
+          - region "CBD Potency filters" [ref=e270]:
+            - region "CBD Potency" [ref=e271]:
+              - button "CBD Potency" [ref=e272]
+          - region "Price filters" [ref=e273]:
+            - region "Price" [ref=e274]:
+              - button "Price" [ref=e275]
+          - button "Clear all filters" [ref=e276]: Clear All
+      - heading "Shop Vaporizers" [ref=e277] [level=2]
+      - button "Popular" [ref=e278]:
+        - text: Popular
+        - img
+      - list:
+        - listitem: Popular
+        - listitem: Name
+        - listitem: "Price: Low to High"
+        - listitem: "Price: High to Low"
+        - listitem: "Potency: Low to High"
+        - listitem: "Potency: High to Low"
+      - button "Card" [ref=e279]:
+        - img
+        - text: Card
+        - img
+      - list:
+        - listitem:
+          - img
+          - text: List
+        - listitem:
+          - img
+          - text: Card
+      - article "Muha Meds | Bubblegum Burst Disposable product details" [ref=e280]:
+        - link "Special offer - 24% OFF ALL DISPOSABLE VAPES" [ref=e281]:
+          - /url: /shop/lake-orion/special/69aae79640ddb00007ae9bbb/
+        - button "Muha Meds | Bubblegum Burst Disposable product image" [ref=e282]:
+          - img "Muha Meds | Bubblegum Burst Disposable product image"
+        - text: Muha Meds
+        - button "Muha Meds | Bubblegum Burst Disposable" [ref=e283]
+        - text: Vaporizers - Disposables
+        - strong: Indica
+        - text: THC 87.35% 2g $36.49
+        - strong: $27.73
+        - button "Add Muha Meds | Bubblegum Burst Disposable to cart" [ref=e284]
+      - article "Muha Meds | Frozen Pomegranate Disposable product details" [ref=e285]:
+        - link "Special offer - 24% OFF ALL DISPOSABLE VAPES" [ref=e286] [nth=1]:
+          - /url: /shop/lake-orion/special/69aae79640ddb00007ae9bbb/
+        - button "Muha Meds | Frozen Pomegranate Disposable product image" [ref=e287]:
+          - img "Muha Meds | Frozen Pomegranate Disposable product image"
+        - text: Muha Meds
+        - button "Muha Meds | Frozen Pomegranate Disposable" [ref=e288]
+        - text: Vaporizers - Disposables
+        - strong: Sativa
+        - text: THC 88.01% 2g $36.49
+        - strong: $27.73
+        - button "Add Muha Meds | Frozen Pomegranate Disposable to cart" [ref=e289]
+      - article "Cherry Gelato | Melted Diamond Live Resin Vaporizer | 1.0g (Reload) product details" [ref=e290]:
+        - link "Special offer - 24% OFF ALL CARTS" [ref=e291]:
+          - /url: /shop/lake-orion/special/69aae903ba5d4f0007185c50/
+        - button "Cherry Gelato | Melted Diamond Live Resin Vaporizer | 1.0g (Reload) product image" [ref=e292]:
+          - img "Cherry Gelato | Melted Diamond Live Resin Vaporizer | 1.0g (Reload) product image"
+        - text: Rove
+        - button "Cherry Gelato | Melted Diamond Live Resin Vaporizer | 1.0g (Reload)" [ref=e293]
+        - text: Vaporizers - Pods
+        - strong: Hybrid
+        - text: THC 89.9% 1g $39.95
+        - strong: $30.36
+        - button "Add Cherry Gelato | Melted Diamond Live Resin Vaporizer | 1.0g (Reload) to cart" [ref=e294]
+      - article "Platinum Vape | Orange Push-up 510 Cart product details" [ref=e295]:
+        - link "Special offer - 24% OFF ALL CARTS" [ref=e296] [nth=1]:
+          - /url: /shop/lake-orion/special/69aae903ba5d4f0007185c50/
+        - button "Platinum Vape | Orange Push-up 510 Cart product image" [ref=e297]:
+          - img "Platinum Vape | Orange Push-up 510 Cart product image"
+        - text: Platinum Vape
+        - button "Platinum Vape | Orange Push-up 510 Cart" [ref=e298]
+        - text: Vaporizers - Cartridges
+        - strong: Sativa
+        - text: THC 79.76% 1g $9.95
+        - strong: $7.56
+        - button "Add Platinum Vape | Orange Push-up 510 Cart to cart" [ref=e299]
+      - article "Muha Meds | Dragon Berry Runtz Disposable product details" [ref=e300]:
+        - link "Special offer - 24% OFF ALL DISPOSABLE VAPES" [ref=e301] [nth=2]:
+          - /url: /shop/lake-orion/special/69aae79640ddb00007ae9bbb/
+        - button "Muha Meds | Dragon Berry Runtz Disposable product image" [ref=e302]:
+          - img "Muha Meds | Dragon Berry Runtz Disposable product image"
+        - text: Muha Meds
+        - button "Muha Meds | Dragon Berry Runtz Disposable" [ref=e303]
+        - text: Vaporizers - Disposables
+        - strong: Indica
+        - text: THC 89.95% 2g $36.49
+        - strong: $27.73
+        - button "Add Muha Meds | Dragon Berry Runtz Disposable to cart" [ref=e304]
+      - article "Strawberry Cough | Melted Diamond Live Resin Vaporizer | 1g (Ready-To-Use) product details" [ref=e305]:
+        - link "Special offer - 24% OFF ALL DISPOSABLE VAPES" [ref=e306] [nth=3]:
+          - /url: /shop/lake-orion/special/69aae79640ddb00007ae9bbb/
+        - button "Strawberry Cough | Melted Diamond Live Resin Vaporizer | 1g (Ready-To-Use) product image" [ref=e307]:
+          - img "Strawberry Cough | Melted Diamond Live Resin Vaporizer | 1g (Ready-To-Use) product image"
+        - text: Rove
+        - button "Strawberry Cough | Melted Diamond Live Resin Vaporizer | 1g (Ready-To-Use)" [ref=e308]
+        - text: Vaporizers - Live resin disposable
+        - strong: Sativa
+        - text: THC 92.5% 1g $44.95
+        - strong: $34.16
+        - button "Add Strawberry Cough | Melted Diamond Live Resin Vaporizer | 1g (Ready-To-Use) to cart" [ref=e309]
+      - article "Good Good | Runtz Bizarre Disposable product details" [ref=e310]:
+        - link "Special offer - 24% OFF ALL DISPOSABLE VAPES" [ref=e311] [nth=4]:
+          - /url: /shop/lake-orion/special/69aae79640ddb00007ae9bbb/
+        - button "Good Good | Runtz Bizarre Disposable product image" [ref=e312]:
+          - img "Good Good | Runtz Bizarre Disposable product image"
+        - text: GoodGood
+        - button "Good Good | Runtz Bizarre Disposable" [ref=e313]
+        - text: Vaporizers - Disposables
+        - strong: Hybrid
+        - text: THC 86.36% 3g $21.49
+        - strong: $15
+        - button "Add Good Good | Runtz Bizarre Disposable to cart" [ref=e314]
+      - article "Mitten Extracts | Sluricane | 2G Disposable product details" [ref=e315]:
+        - link "Special offer - 24% OFF ALL DISPOSABLE VAPES" [ref=e316] [nth=5]:
+          - /url: /shop/lake-orion/special/69aae79640ddb00007ae9bbb/
+        - button "Mitten Extracts | Sluricane | 2G Disposable product image" [ref=e317]:
+          - img "Mitten Extracts | Sluricane | 2G Disposable product image"
+        - text: Mitten Extracts
+        - button "Mitten Extracts | Sluricane | 2G Disposable" [ref=e318]
+        - text: Vaporizers - Disposables
+        - strong: Indica
+        - text: THC 87.91% 2g $34.45
+        - strong: $26.18
+        - button "Add Mitten Extracts | Sluricane | 2G Disposable to cart" [ref=e319]
+      - article "Muha Meds | Horchata Disposable product details" [ref=e320]:
+        - link "Special offer - 24% OFF ALL DISPOSABLE VAPES" [ref=e321] [nth=6]:
+          - /url: /shop/lake-orion/special/69aae79640ddb00007ae9bbb/
+        - button "Muha Meds | Horchata Disposable product image" [ref=e322]:
+          - img "Muha Meds | Horchata Disposable product image"
+        - text: Muha Meds
+        - button "Muha Meds | Horchata Disposable" [ref=e323]
+        - text: Vaporizers - Disposables
+        - strong: Indica
+        - text: THC 85.92% 2g $36.49
+        - strong: $27.73
+        - button "Add Muha Meds | Horchata Disposable to cart" [ref=e324]
+      - article "Cheech & Chong | Red Light Disposable product details" [ref=e325]:
+        - link "Special offer - 24% OFF ALL DISPOSABLE VAPES" [ref=e326] [nth=7]:
+          - /url: /shop/lake-orion/special/69aae79640ddb00007ae9bbb/
+        - button "Cheech & Chong | Red Light Disposable product image" [ref=e327]:
+          - img "Cheech & Chong | Red Light Disposable product image"
+        - text: Cheech & Chong
+        - button "Cheech & Chong | Red Light Disposable" [ref=e328]
+        - text: Vaporizers - Disposables
+        - strong: Indica
+        - text: THC 88.3% 2g $22.49
+        - strong: $17.09
+        - button "Add Cheech & Chong | Red Light Disposable to cart" [ref=e329]
+      - article "Mitten Extracts | OG Kush | 2G Disposable product details" [ref=e330]:
+        - link "Special offer - 24% OFF ALL DISPOSABLE VAPES" [ref=e331] [nth=8]:
+          - /url: /shop/lake-orion/special/69aae79640ddb00007ae9bbb/
+        - button "Mitten Extracts | OG Kush | 2G Disposable product image" [ref=e332]:
+          - img "Mitten Extracts | OG Kush | 2G Disposable product image"
+        - text: Mitten Extracts
+        - button "Mitten Extracts | OG Kush | 2G Disposable" [ref=e333]
+        - text: Vaporizers - Disposables
+        - strong: Indica
+        - text: THC 86.79% 2g $34.45
+        - strong: $26.18
+        - button "Add Mitten Extracts | OG Kush | 2G Disposable to cart" [ref=e334]
+      - article "Pineapple Express | Melted Diamond Live Resin Vaporizer | 1.0g (Reload) product details" [ref=e335]:
+        - link "Special offer - 24% OFF ALL CARTS" [ref=e336] [nth=2]:
+          - /url: /shop/lake-orion/special/69aae903ba5d4f0007185c50/
+        - button "Pineapple Express | Melted Diamond Live Resin Vaporizer | 1.0g (Reload) product image" [ref=e337]:
+          - img "Pineapple Express | Melted Diamond Live Resin Vaporizer | 1.0g (Reload) product image"
+        - text: Rove
+        - button "Pineapple Express | Melted Diamond Live Resin Vaporizer | 1.0g (Reload)" [ref=e338]
+        - text: Vaporizers - Pods
+        - strong: Hybrid
+        - text: THC 89.2% 1g $39.95
+        - strong: $30.36
+        - button "Add Pineapple Express | Melted Diamond Live Resin Vaporizer | 1.0g (Reload) to cart" [ref=e339]
+      - article "No Bad Days | Pink Lemonade Disposable product details" [ref=e340]:
+        - link "Special offer - 40% OFF - No Bad Days 3G Disposables" [ref=e341]:
+          - /url: /shop/lake-orion/special/69a9237ee33c9c000764ba68/
+        - button "No Bad Days | Pink Lemonade Disposable product image" [ref=e342]:
+          - img "No Bad Days | Pink Lemonade Disposable product image"
+        - text: No Bad Days
+        - button "No Bad Days | Pink Lemonade Disposable" [ref=e343]
+        - text: Vaporizers - Disposables
+        - strong: Sativa
+        - text: THC 82.39% 3g $37.49
+        - strong: $22.49
+        - button "Add No Bad Days | Pink Lemonade Disposable to cart" [ref=e344]
+      - article "Platinum Vape | Twice Baked 510 Cart product details" [ref=e345]:
+        - link "Special offer - 24% OFF ALL CARTS" [ref=e346] [nth=3]:
+          - /url: /shop/lake-orion/special/69aae903ba5d4f0007185c50/
+        - button "Platinum Vape | Twice Baked 510 Cart product image" [ref=e347]:
+          - img "Platinum Vape | Twice Baked 510 Cart product image"
+        - text: Platinum Vape
+        - button "Platinum Vape | Twice Baked 510 Cart" [ref=e348]
+        - text: Vaporizers - Cartridges
+        - strong: Indica
+        - text: THC 72.84% 1g $9.95
+        - strong: $7.56
+        - button "Add Platinum Vape | Twice Baked 510 Cart to cart" [ref=e349]
+      - article "Sauce | Platinum Rose Live Resin Disposable Vape product details" [ref=e350]:
+        - link "Special offer - 24% OFF ALL DISPOSABLE VAPES" [ref=e351] [nth=9]:
+          - /url: /shop/lake-orion/special/69aae79640ddb00007ae9bbb/
+        - button "Sauce | Platinum Rose Live Resin Disposable Vape product image" [ref=e352]:
+          - img "Sauce | Platinum Rose Live Resin Disposable Vape product image"
+        - text: Sauce
+        - button "Sauce | Platinum Rose Live Resin Disposable Vape" [ref=e353]
+        - text: Vaporizers - Live resin disposable
+        - strong: Hybrid
+        - text: THC 83.5% 1g $27.49
+        - strong: $20.89
+        - button "Add Sauce | Platinum Rose Live Resin Disposable Vape to cart" [ref=e354]
+      - article "Mitten Extracts | Watermelon Z | 2G Disposable product details" [ref=e355]:
+        - link "Special offer - 24% OFF ALL DISPOSABLE VAPES" [ref=e356] [nth=10]:
+          - /url: /shop/lake-orion/special/69aae79640ddb00007ae9bbb/
+        - button "Mitten Extracts | Watermelon Z | 2G Disposable product image" [ref=e357]:
+          - img "Mitten Extracts | Watermelon Z | 2G Disposable product image"
+        - text: Mitten Extracts
+        - button "Mitten Extracts | Watermelon Z | 2G Disposable" [ref=e358]
+        - text: Vaporizers - Disposables
+        - strong: Indica
+        - text: THC 86.59% 2g $34.45
+        - strong: $26.18
+        - button "Add Mitten Extracts | Watermelon Z | 2G Disposable to cart" [ref=e359]
+      - article "Mitten Extracts | Honeydew 510 Cart product details" [ref=e360]:
+        - link "Special offer - 24% OFF ALL CARTS" [ref=e361] [nth=4]:
+          - /url: /shop/lake-orion/special/69aae903ba5d4f0007185c50/
+        - button "Mitten Extracts | Honeydew 510 Cart product image" [ref=e362]:
+          - img "Mitten Extracts | Honeydew 510 Cart product image"
+        - text: Mitten Extracts
+        - button "Mitten Extracts | Honeydew 510 Cart" [ref=e363]
+        - text: Vaporizers - Cartridges
+        - strong: Hybrid
+        - text: THC 82.78% 1g $13.95
+        - strong: $10.60
+        - button "Add Mitten Extracts | Honeydew 510 Cart to cart" [ref=e364]
+      - article "Muha Meds | Sweet Dreams Disposable product details" [ref=e365]:
+        - link "Special offer - 24% OFF ALL DISPOSABLE VAPES" [ref=e366] [nth=11]:
+          - /url: /shop/lake-orion/special/69aae79640ddb00007ae9bbb/
+        - button "Muha Meds | Sweet Dreams Disposable product image" [ref=e367]:
+          - img "Muha Meds | Sweet Dreams Disposable product image"
+        - text: Muha Meds
+        - button "Muha Meds | Sweet Dreams Disposable" [ref=e368]
+        - text: Vaporizers - Disposables
+        - strong: Indica
+        - text: THC 80.37% 2g $36.49
+        - strong: $27.73
+        - button "Add Muha Meds | Sweet Dreams Disposable to cart" [ref=e369]
+      - article "Platinum Vape | Peach Rings 510 Cart product details" [ref=e370]:
+        - link "Special offer - 24% OFF ALL CARTS" [ref=e371] [nth=5]:
+          - /url: /shop/lake-orion/special/69aae903ba5d4f0007185c50/
+        - button "Platinum Vape | Peach Rings 510 Cart product image" [ref=e372]:
+          - img "Platinum Vape | Peach Rings 510 Cart product image"
+        - text: Platinum Vape
+        - button "Platinum Vape | Peach Rings 510 Cart" [ref=e373]
+        - text: Vaporizers - Cartridges
+        - strong: Sativa
+        - text: THC 79.15% 1g $9.95
+        - strong: $7.56
+        - button "Add Platinum Vape | Peach Rings 510 Cart to cart" [ref=e374]
+      - article "Muha Meds | Pineapple Paradise Disposable product details" [ref=e375]:
+        - link "Special offer - 24% OFF ALL DISPOSABLE VAPES" [ref=e376] [nth=12]:
+          - /url: /shop/lake-orion/special/69aae79640ddb00007ae9bbb/
+        - button "Muha Meds | Pineapple Paradise Disposable product image" [ref=e377]:
+          - img "Muha Meds | Pineapple Paradise Disposable product image"
+        - text: Muha Meds
+        - button "Muha Meds | Pineapple Paradise Disposable" [ref=e378]
+        - text: Vaporizers - Disposables
+        - strong: Hybrid
+        - text: THC 86.81% 2g $36.49
+        - strong: $27.73
+        - button "Add Muha Meds | Pineapple Paradise Disposable to cart" [ref=e379]
+      - button "Load More" [ref=e380]
+      - heading "Cannabis Dispensary in Lake Orion | Shop & Order Vaporizers Online" [ref=e381] [level=1]
+  - img "JoyologyLogo"
+  - link "Facebook" [ref=e382]:
+    - /url: https://www.facebook.com/profile.php?id=100091741268150
+  - link "Instagram" [ref=e383]:
+    - /url: https://www.instagram.com/joyology_official/
+  - link "Weedmaps" [ref=e384]:
+    - /url: https://weedmaps.com/brands/joyology/products
+  - link "LinkedIn" [ref=e385]:
+    - /url: https://www.linkedin.com/company/joyologycannabliss/
+  - list:
+    - listitem:
+      - link "About" [ref=e386]:
+        - /url: https://joyology.com/about/
+    - listitem:
+      - link "FAQs" [ref=e387]:
+        - /url: https://joyology.com/faqs/
+    - listitem:
+      - link "Cannabis Delivery" [ref=e388]:
+        - /url: https://joyology.com/cannabis/cannabis-delivery/
+    - listitem:
+      - link "Curbside Pickup" [ref=e389]:
+        - /url: https://joyology.com/cannabis/curbside-pickup/
+    - listitem:
+      - link "In-Store Pickup" [ref=e390]:
+        - /url: https://joyology.com/cannabis/in-store-pickup/
+  - list:
+    - listitem:
+      - link "Recreational Cannabis" [ref=e391]:
+        - /url: https://joyology.com/cannabis/recreational-cannabis/
+    - listitem:
+      - link "Privacy Policy" [ref=e392]:
+        - /url: https://joyology.com/privacy-policy/
+    - listitem:
+      - link "Contact" [ref=e393]:
+        - /url: https://joyology.com/contact/
+  - text: © 2026 Joyology All rights reserved.
+  - link "Designed by Range Marketing" [ref=e394]:
+    - /url: https://rangemarketing.com/

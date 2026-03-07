@@ -1,0 +1,35 @@
+@media (max-width: 50000px) {
+	.mega-only {
+		display: none !important;
+	}
+}
+@media (max-width: 5121px) {
+	.super-only {
+		display: none;
+	}
+}
+@media (min-width: 5120px) {
+	.jumbo-only {
+		display: none;
+	}
+}
+@media (max-width: 1800px) {
+	.jumbo-only {
+		display: none;
+	}
+}
+@media (min-width: 1799px) {
+	.desktop-only {
+		display: none;
+	}
+}
+@media (max-width: 575px) {
+	.desktop-only {
+		display: none;
+	}
+}
+@media (min-width: 574px) {
+	.mobile-only {
+		display: none;
+	}
+}

@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs | Joyology Cannabis</title>
+    <link rel="icon" href="/media/favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --green: #8CC541;
+            --light-green: #C8DC64;
+            --blue-green: #80C9AB;
+            --acid: #E2F752;
+            --sky: #41C6EF;
+            --root: #1A1F1C;
+            --cloud: #F4F7F5;
+            --silver: #9BA5A1;
+            --white: #FFFFFF;
+            --teal: #2A7C6F;
+            --red: #E04F5F;
+        }
+
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--root);
+            background: var(--cloud);
+            overflow-x: hidden;
+            padding-bottom: 72px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+        /* ---- BUTTONS ---- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .btn-primary {
+            background: var(--green);
+            color: var(--white);
+            padding: 14px 32px;
+            font-size: 13px;
+        }
+        .btn-primary:hover {
+            background: var(--teal);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(140, 197, 65, 0.3);
+        }
+        .btn-sm { padding: 10px 22px; font-size: 11px; }
+        .btn-ghost {
+            background: transparent;
+            color: var(--root);
+            border: 1.5px solid rgba(26,31,28,0.12);
+            padding: 10px 22px;
+            font-size: 11px;
+        }
+        .btn-ghost:hover {
+            border-color: var(--green);
+            color: var(--green);
+        }
+        .btn-gradient {
+            background: linear-gradient(135deg, #E2F752 0%, #8CC541 100%);
+            color: var(--root);
+            padding: 10px 22px;
+            font-size: 11px;
+        }
+
+        /* ---- HEADER ---- */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10000;
+            padding: 18px 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .header.scrolled {
+            padding: 10px 0;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+        }
+        .header-inner {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo img {
+            height: 96px;
+            width: auto;
+            transition: height 0.4s ease;
+        }
+        .header.scrolled .logo img { height: 96px; }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .nav-link {
+            padding: 10px 18px;
+            font-size: 14px;
+            font-weight: 700;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            color: var(--root);
+        }
+        .header:not(.scrolled) .nav-link { color: var(--white); }
+        .header.scrolled .nav-link:hover { background: rgba(42, 124, 111, 0.08); color: var(--teal); }
+        .header:not(.scrolled) .nav-link:hover { background: rgba(255, 255, 255, 0.15); color: var(--white); }
+
+        /* Location selector */
+        .loc-selector { position: relative; }
+        .loc-selector-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 10px;
+            border: 1.5px solid rgba(26,31,28,0.12);
+            background: var(--cloud);
+            cursor: pointer;
+            font-family: 'Nunito', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--root);
+            transition: all 0.3s ease;
+        }
+        .header:not(.scrolled) .loc-selector-btn {
+            color: var(--white);
+            border-color: rgba(255,255,255,0.25);
+            background: rgba(255,255,255,0.08);
+        }
+        .header.scrolled .loc-selector-btn {
+            color: var(--root);
+            border-color: rgba(26,31,28,0.12);
+            background: var(--cloud);
+        }
+        .loc-selector-btn:hover { border-color: var(--green); }
+        .loc-selector-btn .loc-pin { color: var(--green); font-size: 12px; }
+        .loc-selector-btn .loc-chevron { font-size: 9px; opacity: 0.5; transition: transform 0.3s ease; }
+        .loc-selector.open .loc-chevron { transform: rotate(180deg); }
+        .loc-selector-menu {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 0;
+            background: var(--white);
+            border-radius: 16px;
+            min-width: 280px;
+            padding: 8px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(8px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.04);
+            z-index: 100;
+        }
+        .loc-selector.open .loc-selector-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .loc-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 14px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+            font-family: 'Nunito', sans-serif;
+        }
+        .loc-option:hover { background: var(--cloud); }
+        .loc-option.active { background: rgba(140,197,65,0.08); }
+        .loc-option-icon {
+            width: 36px; height: 36px; border-radius: 10px;
+            background: var(--cloud); display: flex; align-items: center; justify-content: center;
+            color: var(--green); font-size: 14px; flex-shrink: 0;
+        }
+        .loc-option.active .loc-option-icon { background: var(--green); color: var(--white); }
+        .loc-option-info h5 { font-size: 14px; font-weight: 700; color: var(--root); margin-bottom: 1px; line-height: 1.2; }
+        .loc-option-info p { font-size: 11px; color: var(--silver); margin: 0; line-height: 1.3; }
+        .loc-option-check { margin-left: auto; color: var(--green); font-size: 13px; opacity: 0; }
+        .loc-option.active .loc-option-check { opacity: 1; }
+
+        /* Dropdown */
+        .dropdown { position: relative; }
+        .dropdown-menu {
+            position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%) translateY(8px);
+            background: var(--white); border-radius: 16px; padding: 10px; min-width: 200px;
+            opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04); z-index: 100;
+        }
+        .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .dropdown-menu a {
+            display: flex; align-items: center; gap: 10px; padding: 10px 14px;
+            border-radius: 8px; font-size: 14px; font-weight: 600; color: var(--root); transition: all 0.2s;
+        }
+        .dropdown-menu a:hover { background: var(--cloud); color: var(--green); }
+        .dropdown-menu a i { font-size: 14px; color: var(--silver); width: 18px; text-align: center; }
+        .dropdown-menu a:hover i { color: var(--green); }
+
+        .mobile-menu-btn {
+            display: none; background: none; border: none; font-size: 22px;
+            cursor: pointer; padding: 8px; border-radius: 10px;
+            transition: all 0.3s ease; color: var(--root);
+        }
+        .header:not(.scrolled) .mobile-menu-btn { color: var(--white); }
+        .header.scrolled .mobile-menu-btn { color: var(--root); }
+
+        /* Mobile nav */
+        .mobile-nav {
+            position: fixed; inset: 0; background: var(--white); z-index: 99999;
+            display: flex; flex-direction: column; padding: 80px 32px 32px;
+            transform: translateX(100%); transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .mobile-nav.open { transform: translateX(0); }
+        .mobile-nav-close {
+            position: absolute; top: 20px; right: 24px; background: none;
+            border: none; font-size: 28px; cursor: pointer; color: var(--root); padding: 8px;
+        }
+        .mobile-nav a {
+            display: block; padding: 16px 0; font-size: 22px; font-weight: 700;
+            color: var(--root); border-bottom: 1px solid var(--cloud);
+        }
+        .mobile-nav a:hover { color: var(--green); }
+        .mobile-nav .btn { margin-top: 24px; width: 100%; }
+        .mobile-loc-selector { padding-bottom: 20px; margin-bottom: 8px; border-bottom: 1px solid var(--cloud); }
+        .mobile-loc-label {
+            font-size: 13px; font-weight: 600; color: var(--silver);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;
+        }
+        .mobile-loc-options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .mobile-loc-opt {
+            padding: 12px 14px; border-radius: 12px; border: 1.5px solid rgba(26,31,28,0.08);
+            background: var(--cloud); font-family: 'Nunito', sans-serif; font-size: 14px;
+            font-weight: 700; color: var(--root); cursor: pointer; transition: all 0.2s ease; text-align: center;
+        }
+        .mobile-loc-opt:hover { border-color: var(--green); }
+        .mobile-loc-opt.active { background: rgba(140,197,65,0.12); border-color: var(--green); color: var(--teal); }
+
+        /* ---- FAQ HERO ---- */
+        .faq-hero {
+            position: relative;
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 140px 24px 80px;
+            overflow: hidden;
+        }
+        .faq-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 70% 55% at 20% 80%, rgba(140,197,65,0.65) 0%, transparent 55%),
+                radial-gradient(ellipse 60% 60% at 80% 20%, rgba(65,198,239,0.6) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 45% at 50% 50%, rgba(226,247,82,0.25) 0%, transparent 40%),
+                radial-gradient(ellipse 45% 55% at 8% 30%, rgba(42,124,111,0.4) 0%, transparent 50%),
+                radial-gradient(ellipse 40% 45% at 92% 65%, rgba(53,168,184,0.45) 0%, transparent 45%),
+                radial-gradient(ellipse 120% 120% at 50% 50%, #7DC242 0%, #5BB83A 20%, #3DBE7B 40%, #35A8B8 65%, #41C6EF 90%, #2EA0D4 100%);
+            animation: meshMove 12s ease-in-out infinite alternate;
+        }
+        @keyframes meshMove {
+            0% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.03) rotate(0.5deg); }
+            100% { transform: scale(1.06) rotate(-0.3deg); }
+        }
+        .faq-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 760px;
+        }
+        .faq-hero-label {
+            display: inline-flex; align-items: center; gap: 8px; padding: 8px 20px; border-radius: 50px;
+            background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2); font-size: 13px; font-weight: 700; color: var(--white);
+            text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 24px;
+        }
+        .faq-hero h1 {
+            font-size: 56px;
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+        .faq-hero-subtitle {
+            font-size: 22px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 0;
+            font-style: italic;
+        }
+        .hero-shape { position: absolute; border-radius: 50%; pointer-events: none; z-index: 1; }
+        .hero-shape-1 { width: 300px; height: 300px; top: -50px; right: -60px; background: radial-gradient(circle at 35% 35%, rgba(226,247,82,0.3) 0%, transparent 70%); animation: geoFloat 18s ease-in-out infinite alternate; }
+        .hero-shape-2 { width: 200px; height: 200px; bottom: -30px; left: -40px; background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15) 0%, transparent 70%); animation: geoFloat 14s ease-in-out infinite alternate; animation-delay: -4s; }
+        .hero-shape-3 { width: 120px; height: 120px; top: 30%; left: 8%; background: radial-gradient(circle at 50% 50%, rgba(140,197,65,0.25) 0%, transparent 70%); animation: geoFloat 12s ease-in-out infinite alternate; animation-delay: -7s; }
+        @keyframes geoFloat { 0% { transform: translateY(0) scale(1); } 100% { transform: translateY(-30px) scale(1.1); } }
+
+        /* ---- FAQ ACCORDION ---- */
+        .faq-section {
+            padding: 48px 0 80px;
+        }
+        .faq-list {
+            max-width: 860px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .faq-item {
+            background: var(--white);
+            border-radius: 20px;
+            border: 1px solid rgba(26,31,28,0.04);
+            overflow: hidden;
+            transition: box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: faqIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+        }
+        .faq-item:nth-child(1) { animation-delay: 0.02s; }
+        .faq-item:nth-child(2) { animation-delay: 0.04s; }
+        .faq-item:nth-child(3) { animation-delay: 0.06s; }
+        .faq-item:nth-child(4) { animation-delay: 0.08s; }
+        .faq-item:nth-child(5) { animation-delay: 0.10s; }
+        .faq-item:nth-child(6) { animation-delay: 0.12s; }
+        .faq-item:nth-child(7) { animation-delay: 0.14s; }
+        .faq-item:nth-child(8) { animation-delay: 0.16s; }
+        .faq-item:nth-child(9) { animation-delay: 0.18s; }
+        .faq-item:nth-child(10) { animation-delay: 0.20s; }
+        .faq-item:nth-child(11) { animation-delay: 0.22s; }
+        .faq-item:nth-child(12) { animation-delay: 0.24s; }
+        .faq-item:nth-child(13) { animation-delay: 0.26s; }
+        .faq-item:nth-child(14) { animation-delay: 0.28s; }
+        .faq-item:nth-child(15) { animation-delay: 0.30s; }
+        .faq-item:nth-child(16) { animation-delay: 0.32s; }
+        .faq-item:nth-child(17) { animation-delay: 0.34s; }
+        .faq-item:nth-child(18) { animation-delay: 0.36s; }
+        .faq-item:nth-child(19) { animation-delay: 0.38s; }
+        .faq-item:nth-child(20) { animation-delay: 0.40s; }
+
+        @keyframes faqIn {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+        }
+        .faq-item.open {
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08), 0 0 0 1px rgba(140,197,65,0.12);
+        }
+
+        .faq-question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            width: 100%;
+            padding: 22px 28px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--root);
+            text-align: left;
+            line-height: 1.4;
+            transition: color 0.3s ease;
+        }
+        .faq-question:hover {
+            color: var(--teal);
+        }
+        .faq-item.open .faq-question {
+            color: var(--teal);
+        }
+
+        .faq-chevron {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: var(--cloud);
+            color: var(--green);
+            font-size: 13px;
+            flex-shrink: 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .faq-item.open .faq-chevron {
+            background: var(--green);
+            color: var(--white);
+            transform: rotate(180deg);
+        }
+
+        .faq-answer-wrapper {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .faq-answer {
+            padding: 0 28px 24px;
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--silver);
+            font-weight: 600;
+        }
+        .faq-answer a {
+            color: var(--green);
+            font-weight: 700;
+            transition: color 0.2s;
+        }
+        .faq-answer a:hover {
+            color: var(--teal);
+        }
+
+        /* ---- FAQ COUNT LABEL ---- */
+        .faq-count {
+            max-width: 860px;
+            margin: 0 auto 24px;
+            font-size: 14px;
+            color: var(--silver);
+            font-weight: 600;
+        }
+        .faq-count strong { color: var(--root); }
+
+        /* ---- CTA BANNER ---- */
+        .faq-cta {
+            max-width: 860px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, var(--root) 0%, #2a3530 100%);
+            border-radius: 24px;
+            padding: 48px;
+            text-align: center;
+            margin-top: 16px;
+        }
+        .faq-cta h3 {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+        .faq-cta p {
+            font-size: 15px;
+            color: rgba(255,255,255,0.6);
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        .faq-cta .btn {
+            font-size: 12px;
+        }
+
+        /* ---- FOOTER ---- */
+        .footer {
+            background: var(--root);
+            padding: 80px 0 40px;
+            color: rgba(255,255,255,0.6);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+            gap: 48px;
+        }
+        .footer-brand p { font-size: 14px; line-height: 1.7; margin-top: 16px; }
+        .footer-logo { height: 84px; width: auto; margin-bottom: 8px; }
+        .social-links { display: flex; gap: 12px; margin-top: 20px; }
+        .social-links a {
+            width: 40px; height: 40px; border-radius: 12px;
+            background: rgba(255,255,255,0.06); display: flex;
+            align-items: center; justify-content: center;
+            font-size: 16px; color: rgba(255,255,255,0.4);
+            transition: all 0.3s ease;
+        }
+        .social-links a:hover { background: var(--green); color: var(--white); transform: translateY(-2px); }
+        .footer-col h4 {
+            font-size: 13px; font-weight: 800; text-transform: uppercase;
+            letter-spacing: 2px; color: var(--white); margin-bottom: 20px;
+        }
+        .footer-col a {
+            display: block; font-size: 14px; padding: 6px 0;
+            color: rgba(255,255,255,0.5); transition: color 0.2s;
+        }
+        .footer-col a:hover { color: var(--green); }
+        .footer-bottom {
+            margin-top: 56px; padding-top: 28px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 13px;
+        }
+        .footer-bottom-links { display: flex; gap: 24px; }
+        .footer-bottom-links a { color: rgba(255,255,255,0.4); transition: color 0.2s; }
+        .footer-bottom-links a:hover { color: var(--green); }
+
+        /* ---- BOTTOM NAV ---- */
+        .bottom-nav {
+            position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+            background: rgba(26,31,28,0.95); backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px); padding: 12px 28px;
+            display: flex; align-items: center; justify-content: space-between;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .bottom-nav-locations { display: flex; align-items: center; gap: 16px; }
+        .bottom-nav-locations a {
+            font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.4); transition: color 0.2s;
+        }
+        .bottom-nav-locations a:hover { color: var(--white); }
+        .bottom-nav-locations a.highlight { color: var(--green); font-weight: 700; }
+        .bottom-nav-actions { display: flex; gap: 10px; }
+        .bottom-nav .btn { font-size: 11px; padding: 10px 22px; }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 1100px) {
+            .nav { display: none; }
+            .mobile-menu-btn { display: block; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+        }
+
+        @media (max-width: 768px) {
+            .faq-hero { min-height: 420px; padding: 120px 24px 64px; }
+            .faq-hero h1 { font-size: 36px; }
+            .faq-hero-subtitle { font-size: 18px; }
+            .faq-question { padding: 18px 20px; font-size: 15px; }
+            .faq-answer { padding: 0 20px 20px; font-size: 14px; }
+            .faq-chevron { width: 32px; height: 32px; font-size: 11px; }
+            .faq-cta { padding: 32px 24px; border-radius: 20px; }
+            .faq-cta h3 { font-size: 20px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+            .bottom-nav-locations { display: none; }
+            .bottom-nav { justify-content: center; }
+        }
+
+        @media (max-width: 480px) {
+            .faq-hero h1 { font-size: 30px; }
+            .faq-hero-subtitle { font-size: 16px; }
+            .faq-hero-label { font-size: 11px; }
+            .faq-item { border-radius: 16px; }
+            .faq-question { padding: 16px 18px; font-size: 14px; gap: 12px; }
+            .faq-answer { padding: 0 18px 18px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header scrolled" id="header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <img src="/media/logo-gradient-cannabis.png" alt="Joyology Cannabis" id="headerLogo">
+            </a>
+
+            <nav class="nav">
+                <div class="loc-selector" id="locSelector">
+                    <button class="loc-selector-btn" id="locSelectorBtn">
+                        <i class="fas fa-map-marker-alt loc-pin"></i>
+                        <span id="locSelectorLabel">Lake Orion</span>
+                        <i class="fas fa-chevron-down loc-chevron"></i>
+                    </button>
+                    <div class="loc-selector-menu" id="locSelectorMenu">
+                        <button class="loc-option active" data-slug="lake-orion" data-name="Lake Orion">
+                            <div class="loc-option-icon"><i class="fas fa-store"></i></div>
+                            <div class="loc-option-info">
+                                <h5>Lake Orion</h5>
+                                <p>4098 S Baldwin Rd, Lake Orion, MI</p>
+                            </div>
+                            <i class="fas fa-check loc-option-check"></i>
+                        </button>
+                        <button class="loc-option" data-slug="monroe" data-name="Monroe">
+                            <div class="loc-option-icon"><i class="fas fa-store"></i></div>
+                            <div class="loc-option-info">
+                                <h5>Monroe</h5>
+                                <p>14880 LaPlaisance Rd, Monroe, MI</p>
+                            </div>
+                            <i class="fas fa-check loc-option-check"></i>
+                        </button>
+                        <button class="loc-option" data-slug="centerline" data-name="Centerline">
+                            <div class="loc-option-icon"><i class="fas fa-store"></i></div>
+                            <div class="loc-option-info">
+                                <h5>Centerline</h5>
+                                <p>25831 Sherwood Ave, Center Line, MI</p>
+                            </div>
+                            <i class="fas fa-check loc-option-check"></i>
+                        </button>
+                        <button class="loc-option" data-slug="mt-clemens" data-name="Mt. Clemens">
+                            <div class="loc-option-icon"><i class="fas fa-store"></i></div>
+                            <div class="loc-option-info">
+                                <h5>Mt. Clemens</h5>
+                                <p>195 N Malow St, Mt Clemens, MI</p>
+                            </div>
+                            <i class="fas fa-check loc-option-check"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="/shop/" class="nav-link">Shop <i class="fas fa-chevron-down" style="font-size:9px;margin-left:4px;opacity:0.5;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="/shop/#flower"><i class="fas fa-leaf"></i> Flower</a>
+                        <a href="/shop/#pre-rolls"><i class="fas fa-smoking"></i> Pre-rolls</a>
+                        <a href="/shop/#vaporizers"><i class="fas fa-wind"></i> Vapes & carts</a>
+                        <a href="/shop/#edibles"><i class="fas fa-cookie-bite"></i> Edibles</a>
+                        <a href="/shop/#concentrates"><i class="fas fa-droplet"></i> Concentrates</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="/about/" class="nav-link">About <i class="fas fa-chevron-down" style="font-size:9px;margin-left:4px;opacity:0.5;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="/brands/"><i class="fas fa-award"></i> Our brands</a>
+                        <a href="/careers/"><i class="fas fa-briefcase"></i> Careers</a>
+                        <a href="/faqs/"><i class="fas fa-circle-question"></i> FAQs</a>
+                    </div>
+                </div>
+
+                <a href="/blog/" class="nav-link">Blog</a>
+
+                <a href="/daily-deals/" class="btn btn-primary btn-sm">View deals</a>
+            </nav>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu"><i class="fas fa-times"></i></button>
+
+        <div class="mobile-loc-selector">
+            <p class="mobile-loc-label"><i class="fas fa-map-marker-alt" style="color:var(--green);margin-right:6px;"></i> Your location</p>
+            <div class="mobile-loc-options">
+                <button class="mobile-loc-opt active" data-slug="lake-orion" data-name="Lake Orion">Lake Orion</button>
+                <button class="mobile-loc-opt" data-slug="monroe" data-name="Monroe">Monroe</button>
+                <button class="mobile-loc-opt" data-slug="centerline" data-name="Centerline">Centerline</button>
+                <button class="mobile-loc-opt" data-slug="mt-clemens" data-name="Mt. Clemens">Mt. Clemens</button>
+            </div>
+        </div>
+
+        <a href="/shop/">Shop menu</a>
+        <a href="/shop/#flower">Flower</a>
+        <a href="/shop/#pre-rolls">Pre-rolls</a>
+        <a href="/shop/#vaporizers">Vapes & carts</a>
+        <a href="/shop/#edibles">Edibles</a>
+        <a href="/shop/#concentrates">Concentrates</a>
+        <a href="/about/">About</a>
+        <a href="/brands/">Our brands</a>
+        <a href="/blog/">Blog</a>
+        <a href="/daily-deals/" class="btn btn-primary">View today's deals</a>
+    </div>
+
+    <!-- FAQ Hero -->
+    <section class="faq-hero">
+        <div class="hero-shape hero-shape-1"></div>
+        <div class="hero-shape hero-shape-2"></div>
+        <div class="hero-shape hero-shape-3"></div>
+        <div class="faq-hero-content">
+            <div class="faq-hero-label"><i class="fas fa-circle-question"></i> Help center</div>
+            <h1>Frequently Asked Questions</h1>
+            <p class="faq-hero-subtitle">Everything You Need to Know About Visiting Joyology</p>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section class="faq-section">
+        <div class="container">
+            <p class="faq-count"><strong>20</strong> questions answered</p>
+            <div class="faq-list" id="faqList">
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Are pets allowed?</span>
+                        <div class="faq-chevron"><i class="fas fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer">Only registered service animals are permitted on the premises of any of our facilities.</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>I am a Concealed Pistol License holder. May I bring my firearm into the store?</span>
+                        <div class="faq-chevron"><i class="fas fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer">No weapons of any kind are allowed on the premises of any of our facilities.</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What's the legal limit of possession of cannabis?</span>
+                        <div class="faq-chevron"><i class="fas fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer">Per Michigan rules, you may possess up to 2.5 oz of cannabis product on your person in public, including in your vehicle.</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What's my daily and monthly purchase limit?</span>
+                        <div class="faq-chevron"><i class="fas fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer">Recreational &ndash; 2.5 oz per day but no monthly limit.</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Do you offer delivery service?</span>
+                        <div class="faq-chevron"><i class="fas fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer">Yes, to select areas near our provisioning centers and adult use retailers. Visit our <a href="/shop/">e-commerce page</a>, click on order now and choose a location to see if you are within our delivery area, browse our menu, and place a delivery order.</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Do you offer call ahead service?</span>
+                        <div class="faq-chevron"><i class="fas fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer">Yes, Visit the <a href="/shop/">e-commerce page</a>, click on order now and choose a location, browse our menu, and place an express pickup order.</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Who's in charge? I had a bad experience with one of your stores!</span>
+                        <div class="faq-chevron"><i class="fas fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer">Every location has a management team to field any problems or concerns. Our goal is to provide our customers with the highest quality care and customer experience. Please allow up to 24 hours for a return phone call. Email: <a href="mailto:info@joyology.com">info@joyology.com</a></div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Are you a recreational marijuana provisionary center?</span>
+                        <div class="faq-chevron"><i class="fas fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer">We are a recreational marijuana provisionary.</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What is required for entry?</span>
+                        <div class="faq-chevron"><i class="fas fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer">Valid Driver's License</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Do you offer any specials?</span>
+                        <div class="faq-chevron"><i class="fas fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer">We have specials every day through our <a href="/daily-deals/">Daily Deals</a>, which can be texted directly to you. Sign up at your nearest location!</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What discounts do you offer?</span>
+                        <div class="faq-chevron"><i class="fas fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer">10% off for Veterans. 10% off for U.A.W members &amp; Seniors 65+. For every $250 you spend you will earn $5 in-store credit.</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Can I combine discounts?</span>
+                        <div class="faq-chevron"><i class="fas fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer">No, we do not offer combined discounts, only one discount can be used per visit.</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What kinds of products do you offer?</span>
+                        <div class="faq-chevron"><i class="fas fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer">We offer many forms of cannabis, including flower, CBD, concentrates, edibles, tinctures, pre-rolls, vaporizers, and more. <a href="/shop/">Browse our full menu</a>.</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What forms of payment do you accept?</span>
+                        <div class="faq-chevron"><i class="fas fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer">Cash only, ATM available on-premises.</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Do you offer any discounts for New Customers?</span>
+                        <div class="faq-chevron"><i class="fas fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer">Receive a free gift for every $25 spent up to $100. Gifts include 1G Pre-Roll, 1G Infused Pre-Roll, Infused Drink, or 200MG Gummies (restrictions apply). Spend $100 and receive 4 gifts + a bonus gift.</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Do you offer an incentive for referrals?</span>
+                        <div class="faq-chevron"><i class="fas fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer">Bring in a new customer and you will receive an additional 10% off of your total (Both parties must be present).</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What hours are you open?</span>
+                        <div class="faq-chevron"><i class="fas fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer">All locations are open daily 9am &ndash; 9pm.</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Are you hiring?</span>
+                        <div class="faq-chevron"><i class="fas fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer">We are always looking for enthusiastic people to join our team. Visit our <a href="/careers/">Careers page</a> to apply.</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>I'm a vendor, how do I get products in your store?</span>
+                        <div class="faq-chevron"><i class="fas fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer">We are state-licensed and are only able to purchase State-Licensed products. Any further inquiries can be directed to LARA (Licensing and Regulatory Affairs).</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Where can I get a t-shirt and other Joyology items?</span>
+                        <div class="faq-chevron"><i class="fas fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer">Contact us for more information at <a href="mailto:info@joyology.com">info@joyology.com</a>.</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CTA Banner -->
+            <div class="faq-cta">
+                <h3>Still have questions?</h3>
+                <p>Our friendly staff is ready to help at any of our Michigan locations.</p>
+                <a href="mailto:info@joyology.com" class="btn btn-primary">Contact us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="/media/logo-cannabis-white.png" alt="Joyology Cannabis" class="footer-logo">
+                    <p>Cultivating joy, wellness, and community connection through premium, approachable cannabis experiences. Michigan's destination for elevated wellness.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Locations</h4>
+                    <a href="/location/lake-orion/">Lake Orion</a>
+                    <a href="/location/monroe/">Monroe</a>
+                    <a href="/location/centerline-sherwood/">Centerline</a>
+                    <a href="/location/mt-clemens-malow/">Mt. Clemens</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <a href="/shop/#flower">Flower</a>
+                    <a href="/shop/#pre-rolls">Pre-rolls</a>
+                    <a href="/shop/#edibles">Edibles</a>
+                    <a href="/shop/#vaporizers">Vapes & carts</a>
+                    <a href="/shop/#concentrates">Concentrates</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="/about/">About us</a>
+                    <a href="/brands/">Our brands</a>
+                    <a href="/careers/">Careers</a>
+                    <a href="/blog/">Blog</a>
+                    <a href="/faqs/">FAQs</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick links</h4>
+                    <a href="/daily-deals/">Daily deals</a>
+                    <a href="/locations/">All locations</a>
+                    <a href="#">Loyalty program</a>
+                    <a href="#">Contact us</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Joyology Cannabis. All rights reserved. Must be 21+ to enter.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bottom Nav -->
+    <div class="bottom-nav">
+        <div class="bottom-nav-locations">
+            <a href="/locations/" class="highlight"><i class="fas fa-map-marker-alt"></i> Find a location</a>
+            <a href="/location/lake-orion/">Lake Orion</a>
+            <a href="/location/monroe/">Monroe</a>
+            <a href="/location/centerline-sherwood/">Centerline</a>
+            <a href="/location/mt-clemens-malow/">Mt. Clemens</a>
+        </div>
+        <div class="bottom-nav-actions">
+            <a href="/daily-deals/" class="btn btn-gradient btn-sm">View deals</a>
+            <a href="/" class="btn btn-primary btn-sm">Home</a>
+        </div>
+    </div>
+
+    <script>
+        // ---- Location Data ----
+        var locData = {
+            'lake-orion': { name: 'Lake Orion', address: '4098 S Baldwin Rd, Lake Orion, MI 48359' },
+            'monroe': { name: 'Monroe', address: '14880 LaPlaisance Rd, Monroe, MI 48161' },
+            'centerline': { name: 'Centerline', address: '25831 Sherwood Ave, Center Line, MI 48015' },
+            'mt-clemens': { name: 'Mt. Clemens', address: '195 N Malow St, Mt Clemens, MI 48043' }
+        };
+
+        // ---- Location Management ----
+        var currentLoc = localStorage.getItem('joyology-location') || 'lake-orion';
+        var locSelector = document.getElementById('locSelector');
+        var locSelectorBtn = document.getElementById('locSelectorBtn');
+        var locSelectorLabel = document.getElementById('locSelectorLabel');
+        var locSelectorMenu = document.getElementById('locSelectorMenu');
+
+        function setLocation(slug) {
+            currentLoc = slug;
+            localStorage.setItem('joyology-location', slug);
+            var loc = locData[slug];
+
+            // Update nav selector
+            locSelectorLabel.textContent = loc.name;
+            locSelectorMenu.querySelectorAll('.loc-option').forEach(function(opt) {
+                opt.classList.toggle('active', opt.dataset.slug === slug);
+            });
+
+            // Update mobile selector
+            document.querySelectorAll('.mobile-loc-opt').forEach(function(opt) {
+                opt.classList.toggle('active', opt.dataset.slug === slug);
+            });
+
+            locSelector.classList.remove('open');
+        }
+
+        // Initialize
+        setLocation(currentLoc);
+
+        // Desktop dropdown toggle
+        locSelectorBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            locSelector.classList.toggle('open');
+        });
+
+        // Desktop option click
+        locSelectorMenu.querySelectorAll('.loc-option').forEach(function(opt) {
+            opt.addEventListener('click', function() { setLocation(this.dataset.slug); });
+        });
+
+        // Mobile option click
+        document.querySelectorAll('.mobile-loc-opt').forEach(function(opt) {
+            opt.addEventListener('click', function() { setLocation(this.dataset.slug); });
+        });
+
+        // Close on outside click
+        document.addEventListener('click', function(e) {
+            if (!locSelector.contains(e.target)) locSelector.classList.remove('open');
+        });
+
+        // ---- Header scroll ----
+        var header = document.getElementById('header');
+        header.classList.toggle('scrolled', true); // Always scrolled style on this page
+
+        // ---- Mobile Menu ----
+        var mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        var mobileNav = document.getElementById('mobileNav');
+        var mobileNavClose = document.getElementById('mobileNavClose');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileNav.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        });
+        mobileNavClose.addEventListener('click', function() {
+            mobileNav.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+        mobileNav.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                mobileNav.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // ---- FAQ Accordion ----
+        var faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(function(item) {
+            var btn = item.querySelector('.faq-question');
+            btn.addEventListener('click', function() {
+                var isOpen = item.classList.contains('open');
+
+                // Close all items
+                faqItems.forEach(function(other) {
+                    other.classList.remove('open');
+                    other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                    other.querySelector('.faq-answer-wrapper').style.maxHeight = '0';
+                });
+
+                // Open clicked item if it was closed
+                if (!isOpen) {
+                    item.classList.add('open');
+                    btn.setAttribute('aria-expanded', 'true');
+                    var wrapper = item.querySelector('.faq-answer-wrapper');
+                    wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

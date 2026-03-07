@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lake Orion Dispensary | Joyology Cannabis</title>
+    <link rel="icon" href="/media/favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root { --green: #8CC541; --acid: #E2F752; --sky: #41C6EF; --root: #1A1F1C; --cloud: #F4F7F5; --silver: #9BA5A1; --white: #FFFFFF; --teal: #2A7C6F; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body { font-family: 'Nunito', sans-serif; font-size: 16px; line-height: 1.6; color: var(--root); background: var(--cloud); overflow-x: hidden; padding-bottom: 72px; -webkit-font-smoothing: antialiased; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: 'Nunito', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; border-radius: 50px; border: none; cursor: pointer; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        .btn-primary { background: var(--green); color: var(--white); padding: 14px 32px; font-size: 13px; }
+        .btn-primary:hover { background: var(--teal); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(140,197,65,0.3); }
+        .btn-sm { padding: 10px 22px; font-size: 11px; }
+        .btn-ghost { background: transparent; color: var(--root); border: 1.5px solid rgba(26,31,28,0.12); padding: 14px 32px; font-size: 13px; }
+        .btn-ghost:hover { border-color: var(--green); color: var(--green); }
+        .btn-gradient { background: linear-gradient(135deg, #E2F752 0%, #8CC541 100%); color: var(--root); padding: 10px 22px; font-size: 11px; }
+        .btn-lg { padding: 16px 40px; font-size: 14px; }
+
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 10000; padding: 10px 0; background: rgba(255,255,255,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 1px 0 rgba(0,0,0,0.04); }
+        .header-inner { max-width: 1320px; margin: 0 auto; padding: 0 28px; display: flex; align-items: center; justify-content: space-between; }
+        .logo img { height: 96px; width: auto; }
+        .nav { display: flex; align-items: center; gap: 6px; }
+        .nav-link { padding: 10px 18px; font-size: 14px; font-weight: 700; border-radius: 10px; transition: all 0.3s ease; color: var(--root); }
+        .nav-link:hover { background: rgba(42,124,111,0.08); color: var(--teal); }
+        .loc-selector { position: relative; }
+        .loc-selector-btn { display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 10px; border: 1.5px solid rgba(26,31,28,0.12); background: var(--cloud); cursor: pointer; font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 700; color: var(--root); transition: all 0.3s ease; }
+        .loc-selector-btn:hover { border-color: var(--green); }
+        .loc-selector-btn .loc-pin { color: var(--green); font-size: 12px; }
+        .loc-selector-btn .loc-chevron { font-size: 9px; opacity: 0.5; transition: transform 0.3s ease; }
+        .loc-selector.open .loc-chevron { transform: rotate(180deg); }
+        .loc-selector-menu { position: absolute; top: calc(100% + 10px); left: 0; background: var(--white); border-radius: 16px; min-width: 280px; padding: 8px; opacity: 0; visibility: hidden; transform: translateY(8px); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 20px 60px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.04); z-index: 100; }
+        .loc-selector.open .loc-selector-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .loc-option { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 10px; cursor: pointer; transition: all 0.2s ease; border: none; background: none; width: 100%; text-align: left; font-family: 'Nunito', sans-serif; }
+        .loc-option:hover { background: var(--cloud); }
+        .loc-option.active { background: rgba(140,197,65,0.08); }
+        .loc-option-icon { width: 36px; height: 36px; border-radius: 10px; background: var(--cloud); display: flex; align-items: center; justify-content: center; color: var(--green); font-size: 14px; flex-shrink: 0; }
+        .loc-option.active .loc-option-icon { background: var(--green); color: var(--white); }
+        .loc-option-info h5 { font-size: 14px; font-weight: 700; color: var(--root); margin-bottom: 1px; line-height: 1.2; }
+        .loc-option-info p { font-size: 11px; color: var(--silver); margin: 0; line-height: 1.3; }
+        .loc-option-check { margin-left: auto; color: var(--green); font-size: 13px; opacity: 0; }
+        .loc-option.active .loc-option-check { opacity: 1; }
+        .dropdown { position: relative; }
+        .dropdown-menu { position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%) translateY(8px); background: var(--white); border-radius: 16px; padding: 10px; min-width: 200px; opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04); z-index: 100; }
+        .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .dropdown-menu a { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 8px; font-size: 14px; font-weight: 600; color: var(--root); transition: all 0.2s; }
+        .dropdown-menu a:hover { background: var(--cloud); color: var(--green); }
+        .dropdown-menu a i { font-size: 14px; color: var(--silver); width: 18px; text-align: center; }
+        .dropdown-menu a:hover i { color: var(--green); }
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 22px; cursor: pointer; padding: 8px; border-radius: 10px; color: var(--root); }
+        .mobile-nav { position: fixed; inset: 0; background: var(--white); z-index: 99999; display: flex; flex-direction: column; padding: 80px 32px 32px; transform: translateX(100%); transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        .mobile-nav.open { transform: translateX(0); }
+        .mobile-nav-close { position: absolute; top: 20px; right: 24px; background: none; border: none; font-size: 28px; cursor: pointer; color: var(--root); padding: 8px; }
+        .mobile-nav a { display: block; padding: 16px 0; font-size: 22px; font-weight: 700; color: var(--root); border-bottom: 1px solid var(--cloud); }
+        .mobile-nav a:hover { color: var(--green); }
+        .mobile-nav .btn { margin-top: 24px; width: 100%; }
+        .mobile-loc-selector { padding-bottom: 20px; margin-bottom: 8px; border-bottom: 1px solid var(--cloud); }
+        .mobile-loc-label { font-size: 13px; font-weight: 600; color: var(--silver); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+        .mobile-loc-options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .mobile-loc-opt { padding: 12px 14px; border-radius: 12px; border: 1.5px solid rgba(26,31,28,0.08); background: var(--cloud); font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 700; color: var(--root); cursor: pointer; transition: all 0.2s ease; text-align: center; }
+        .mobile-loc-opt:hover { border-color: var(--green); }
+        .mobile-loc-opt.active { background: rgba(140,197,65,0.12); border-color: var(--green); color: var(--teal); }
+
+        .page-hero { padding: 140px 0 80px; background: radial-gradient(ellipse 120% 120% at 50% 50%, #7DC242 0%, #5BB83A 20%, #3DBE7B 40%, #35A8B8 65%, #41C6EF 90%); text-align: center; color: var(--white); position: relative; overflow: hidden; }
+        .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 30% 20%, rgba(226,247,82,0.15) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(65,198,239,0.1) 0%, transparent 50%); }
+        .page-hero h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 900; margin-bottom: 12px; position: relative; }
+        .page-hero p { font-size: 18px; opacity: 0.9; max-width: 600px; margin: 0 auto; position: relative; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* Location detail card */
+        .location-detail-section { padding: 64px 0 48px; }
+        .location-detail-card { background: var(--white); border-radius: 24px; overflow: hidden; border: 1px solid rgba(26,31,28,0.04); max-width: 900px; margin: 0 auto; box-shadow: 0 8px 32px rgba(0,0,0,0.06); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .location-detail-card:hover { box-shadow: 0 24px 56px rgba(0,0,0,0.08), 0 0 0 1px rgba(140,197,65,0.12); }
+        .location-detail-img { height: 340px; background: linear-gradient(135deg, rgba(140,197,65,0.15), rgba(65,198,239,0.15)); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+        .location-detail-img img { width: 100%; height: 100%; object-fit: cover; }
+        .loc-card-open { position: absolute; top: 16px; right: 16px; display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 50px; background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); color: var(--green); font-size: 12px; font-weight: 700; }
+        .loc-card-open .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: pulse 2s ease-in-out infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+        .location-detail-body { padding: 36px 40px 40px; }
+        .location-detail-body h2 { font-size: 28px; font-weight: 900; margin-bottom: 16px; }
+        .loc-card-detail { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; font-size: 15px; color: var(--silver); }
+        .loc-card-detail i { color: var(--green); margin-top: 3px; width: 18px; text-align: center; flex-shrink: 0; }
+        .loc-card-detail a { color: var(--teal); font-weight: 600; transition: color 0.2s; }
+        .loc-card-detail a:hover { color: var(--green); }
+        .location-detail-actions { display: flex; gap: 14px; margin-top: 28px; flex-wrap: wrap; }
+
+        /* Map embed */
+        .map-embed-section { padding: 0 0 48px; }
+        .map-embed-wrap { max-width: 900px; margin: 0 auto; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.06); }
+        .map-embed-wrap iframe { width: 100%; height: 350px; border: 0; display: block; }
+
+        /* Feature cards */
+        .features-section { padding: 48px 0 64px; }
+        .features-section-title { text-align: center; font-size: 28px; font-weight: 900; margin-bottom: 40px; }
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 960px; margin: 0 auto; }
+        .feature-card { background: var(--white); border-radius: 20px; padding: 36px 28px; text-align: center; border: 1px solid rgba(26,31,28,0.04); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .feature-card:hover { transform: translateY(-6px); box-shadow: 0 24px 56px rgba(0,0,0,0.08), 0 0 0 1px rgba(140,197,65,0.12); }
+        .feature-icon { width: 64px; height: 64px; border-radius: 16px; background: rgba(140,197,65,0.1); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 26px; color: var(--green); }
+        .feature-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 8px; }
+        .feature-card p { font-size: 14px; color: var(--silver); line-height: 1.6; }
+
+        /* CTA section */
+        .cta-section { padding: 0 0 80px; }
+        .cta-block { background: var(--root); border-radius: 28px; padding: 56px 48px; text-align: center; color: var(--white); }
+        .cta-block h2 { font-size: 28px; font-weight: 900; margin-bottom: 12px; }
+        .cta-block p { color: rgba(255,255,255,0.6); max-width: 500px; margin: 0 auto 28px; }
+
+        .footer { background: var(--root); padding: 80px 0 40px; color: rgba(255,255,255,0.6); }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 48px; }
+        .footer-brand p { font-size: 14px; line-height: 1.7; margin-top: 16px; }
+        .footer-logo { height: 84px; width: auto; margin-bottom: 8px; }
+        .social-links { display: flex; gap: 12px; margin-top: 20px; }
+        .social-links a { width: 40px; height: 40px; border-radius: 12px; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; font-size: 16px; color: rgba(255,255,255,0.4); transition: all 0.3s ease; }
+        .social-links a:hover { background: var(--green); color: var(--white); transform: translateY(-2px); }
+        .footer-col h4 { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--white); margin-bottom: 20px; }
+        .footer-col a { display: block; font-size: 14px; padding: 6px 0; color: rgba(255,255,255,0.5); transition: color 0.2s; }
+        .footer-col a:hover { color: var(--green); }
+        .footer-bottom { margin-top: 56px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
+        .footer-bottom-links { display: flex; gap: 24px; }
+        .footer-bottom-links a { color: rgba(255,255,255,0.4); transition: color 0.2s; }
+        .footer-bottom-links a:hover { color: var(--green); }
+        .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999; background: rgba(26,31,28,0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 12px 28px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.06); }
+        .bottom-nav-locations { display: flex; align-items: center; gap: 16px; }
+        .bottom-nav-locations a { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.4); transition: color 0.2s; }
+        .bottom-nav-locations a:hover { color: var(--white); }
+        .bottom-nav-locations a.highlight { color: var(--green); font-weight: 700; }
+        .bottom-nav-actions { display: flex; gap: 10px; }
+        .bottom-nav .btn { font-size: 11px; padding: 10px 22px; }
+
+        @media (max-width: 1100px) { .nav { display: none; } .mobile-menu-btn { display: block; } .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
+        @media (max-width: 768px) { .features-grid { grid-template-columns: 1fr; max-width: 400px; } .footer-grid { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; gap: 16px; text-align: center; } .bottom-nav-locations { display: none; } .bottom-nav { justify-content: center; } .cta-block { padding: 40px 28px; } .location-detail-img { height: 220px; } .location-detail-body { padding: 28px 24px 32px; } .location-detail-actions { flex-direction: column; } .map-embed-wrap iframe { height: 260px; } }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a href="/" class="logo"><img src="/media/logo-gradient-cannabis.png" alt="Joyology Cannabis"></a>
+            <nav class="nav">
+                <div class="loc-selector" id="locSelector">
+                    <button class="loc-selector-btn" id="locSelectorBtn"><i class="fas fa-map-marker-alt loc-pin"></i><span id="locSelectorLabel">Lake Orion</span><i class="fas fa-chevron-down loc-chevron"></i></button>
+                    <div class="loc-selector-menu" id="locSelectorMenu">
+                        <button class="loc-option active" data-slug="lake-orion"><div class="loc-option-icon"><i class="fas fa-store"></i></div><div class="loc-option-info"><h5>Lake Orion</h5><p>4098 S Baldwin Rd, Lake Orion, MI</p></div><i class="fas fa-check loc-option-check"></i></button>
+                        <button class="loc-option" data-slug="monroe"><div class="loc-option-icon"><i class="fas fa-store"></i></div><div class="loc-option-info"><h5>Monroe</h5><p>14880 LaPlaisance Rd, Monroe, MI</p></div><i class="fas fa-check loc-option-check"></i></button>
+                        <button class="loc-option" data-slug="centerline"><div class="loc-option-icon"><i class="fas fa-store"></i></div><div class="loc-option-info"><h5>Centerline</h5><p>25831 Sherwood Ave, Center Line, MI</p></div><i class="fas fa-check loc-option-check"></i></button>
+                        <button class="loc-option" data-slug="mt-clemens"><div class="loc-option-icon"><i class="fas fa-store"></i></div><div class="loc-option-info"><h5>Mt. Clemens</h5><p>195 N Malow St, Mt Clemens, MI</p></div><i class="fas fa-check loc-option-check"></i></button>
+                    </div>
+                </div>
+                <div class="dropdown"><a href="/shop/" class="nav-link">Shop <i class="fas fa-chevron-down" style="font-size:9px;margin-left:4px;opacity:0.5;"></i></a><div class="dropdown-menu"><a href="/shop/#flower"><i class="fas fa-leaf"></i> Flower</a><a href="/shop/#pre-rolls"><i class="fas fa-smoking"></i> Pre-rolls</a><a href="/shop/#vaporizers"><i class="fas fa-wind"></i> Vapes & carts</a><a href="/shop/#edibles"><i class="fas fa-cookie-bite"></i> Edibles</a><a href="/shop/#concentrates"><i class="fas fa-droplet"></i> Concentrates</a></div></div>
+                <div class="dropdown"><a href="/about/" class="nav-link">About <i class="fas fa-chevron-down" style="font-size:9px;margin-left:4px;opacity:0.5;"></i></a><div class="dropdown-menu"><a href="/brands/"><i class="fas fa-award"></i> Our brands</a><a href="/careers/"><i class="fas fa-briefcase"></i> Careers</a><a href="/faqs/"><i class="fas fa-circle-question"></i> FAQs</a></div></div>
+                <a href="/blog/" class="nav-link">Blog</a>
+                <a href="/daily-deals/" class="btn btn-primary btn-sm">View deals</a>
+            </nav>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu"><i class="fas fa-times"></i></button>
+        <div class="mobile-loc-selector"><p class="mobile-loc-label"><i class="fas fa-map-marker-alt" style="color:var(--green);margin-right:6px;"></i> Your location</p><div class="mobile-loc-options"><button class="mobile-loc-opt active" data-slug="lake-orion">Lake Orion</button><button class="mobile-loc-opt" data-slug="monroe">Monroe</button><button class="mobile-loc-opt" data-slug="centerline">Centerline</button><button class="mobile-loc-opt" data-slug="mt-clemens">Mt. Clemens</button></div></div>
+        <a href="/shop/">Shop menu</a><a href="/about/">About</a><a href="/brands/">Our brands</a><a href="/blog/">Blog</a>
+        <a href="/daily-deals/" class="btn btn-primary">View today's deals</a>
+    </div>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Joyology Lake Orion</h1>
+            <p>Your neighborhood dispensary on Baldwin Road</p>
+        </div>
+    </section>
+
+    <section class="location-detail-section">
+        <div class="container">
+            <div class="location-detail-card reveal">
+                <div class="location-detail-img">
+                    <img src="/media/lakeorion.webp" alt="Joyology Lake Orion Dispensary">
+                    <div class="loc-card-open"><div class="pulse"></div> Open now</div>
+                </div>
+                <div class="location-detail-body">
+                    <h2>Lake Orion</h2>
+                    <div class="loc-card-detail"><i class="fas fa-map-marker-alt"></i><span>4098 S Baldwin Rd, Lake Orion, MI 48359</span></div>
+                    <div class="loc-card-detail"><i class="fas fa-clock"></i><span>Open daily 9am &ndash; 9pm</span></div>
+                    <div class="loc-card-detail"><i class="fas fa-phone"></i><span><a href="tel:+12489539333">(248) 953-9333</a></span></div>
+                    <div class="location-detail-actions">
+                        <a href="/shop/" class="btn btn-primary" onclick="localStorage.setItem('joyology-location','lake-orion')">Shop this location</a>
+                        <a href="https://maps.google.com/?q=4098+S+Baldwin+Rd+Lake+Orion+MI+48359" target="_blank" class="btn btn-ghost">Get directions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-embed-section">
+        <div class="container">
+            <div class="map-embed-wrap reveal">
+                <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=4098+S+Baldwin+Rd,+Lake+Orion,+MI+48359" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="container">
+            <h2 class="features-section-title reveal">Why shop Lake Orion?</h2>
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-cannabis"></i></div>
+                    <h3>Wide Selection</h3>
+                    <p>Browse 27,000+ products from over 500 premium brands, from flower and edibles to concentrates and vapes.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-user-check"></i></div>
+                    <h3>Expert Staff</h3>
+                    <p>Our knowledgeable budtenders are here to guide you to the perfect product, whether you're a first-timer or a connoisseur.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-tags"></i></div>
+                    <h3>Daily Deals</h3>
+                    <p>New specials every day on your favorite products. Check our deals page so you never miss a chance to save.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-block reveal">
+                <h2>Ready to shop?</h2>
+                <p>Browse our full menu online and pick up in store at our Lake Orion location on Baldwin Road.</p>
+                <a href="/shop/" class="btn btn-primary btn-lg" onclick="localStorage.setItem('joyology-location','lake-orion')">Shop Lake Orion menu</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><img src="/media/logo-cannabis-white.png" alt="Joyology Cannabis" class="footer-logo"><p>Cultivating joy, wellness, and community connection through premium, approachable cannabis experiences.</p><div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a></div></div><div class="footer-col"><h4>Locations</h4><a href="/location/lake-orion/">Lake Orion</a><a href="/location/monroe/">Monroe</a><a href="/location/centerline-sherwood/">Centerline</a><a href="/location/mt-clemens-malow/">Mt. Clemens</a></div><div class="footer-col"><h4>Products</h4><a href="/shop/#flower">Flower</a><a href="/shop/#pre-rolls">Pre-rolls</a><a href="/shop/#edibles">Edibles</a><a href="/shop/#vaporizers">Vapes & carts</a><a href="/shop/#concentrates">Concentrates</a></div><div class="footer-col"><h4>Company</h4><a href="/about/">About us</a><a href="/brands/">Our brands</a><a href="/careers/">Careers</a><a href="/blog/">Blog</a><a href="/faqs/">FAQs</a></div><div class="footer-col"><h4>Quick links</h4><a href="/daily-deals/">Daily deals</a><a href="/locations/">All locations</a><a href="#">Loyalty program</a><a href="#">Contact us</a></div></div><div class="footer-bottom"><p>&copy; 2025 Joyology Cannabis. All rights reserved. Must be 21+ to enter.</p><div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a></div></div></div></footer>
+
+    <div class="bottom-nav"><div class="bottom-nav-locations"><a href="/locations/" class="highlight"><i class="fas fa-map-marker-alt"></i> Find a location</a><a href="/location/lake-orion/">Lake Orion</a><a href="/location/monroe/">Monroe</a><a href="/location/centerline-sherwood/">Centerline</a><a href="/location/mt-clemens-malow/">Mt. Clemens</a></div><div class="bottom-nav-actions"><a href="/daily-deals/" class="btn btn-gradient btn-sm">View deals</a><a href="/shop/" class="btn btn-primary btn-sm">Shop menu</a></div></div>
+
+    <script>
+        var locData = { 'lake-orion': { name: 'Lake Orion' }, 'monroe': { name: 'Monroe' }, 'centerline': { name: 'Centerline' }, 'mt-clemens': { name: 'Mt. Clemens' } };
+        var currentLoc = localStorage.getItem('joyology-location') || 'lake-orion';
+        var locSelector = document.getElementById('locSelector'), locSelectorBtn = document.getElementById('locSelectorBtn'), locSelectorLabel = document.getElementById('locSelectorLabel'), locSelectorMenu = document.getElementById('locSelectorMenu');
+        function setLocation(slug) { currentLoc = slug; localStorage.setItem('joyology-location', slug); locSelectorLabel.textContent = locData[slug].name; locSelectorMenu.querySelectorAll('.loc-option').forEach(function(o){o.classList.toggle('active',o.dataset.slug===slug);}); document.querySelectorAll('.mobile-loc-opt').forEach(function(o){o.classList.toggle('active',o.dataset.slug===slug);}); locSelector.classList.remove('open'); }
+        setLocation(currentLoc);
+        locSelectorBtn.addEventListener('click', function(e) { e.stopPropagation(); locSelector.classList.toggle('open'); });
+        locSelectorMenu.querySelectorAll('.loc-option').forEach(function(o){o.addEventListener('click',function(){setLocation(this.dataset.slug);});});
+        document.querySelectorAll('.mobile-loc-opt').forEach(function(o){o.addEventListener('click',function(){setLocation(this.dataset.slug);});});
+        document.addEventListener('click', function(e) { if (!locSelector.contains(e.target)) locSelector.classList.remove('open'); });
+        var mb = document.getElementById('mobileMenuBtn'), mn = document.getElementById('mobileNav'), mc = document.getElementById('mobileNavClose');
+        mb.addEventListener('click', function(){mn.classList.add('open');document.body.style.overflow='hidden';});
+        mc.addEventListener('click', function(){mn.classList.remove('open');document.body.style.overflow='';});
+        mn.querySelectorAll('a').forEach(function(l){l.addEventListener('click',function(){mn.classList.remove('open');document.body.style.overflow='';});});
+        var observer = new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});}, {rootMargin:'0px 0px -60px 0px', threshold:0.1});
+        document.querySelectorAll('.reveal').forEach(function(el){observer.observe(el);});
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+/***********
+  ** Override CSS goes here
+  ** Typically added to live sites that aren't compiled anymore
+************/
+
+@media (max-width: 991px) {
+    .headless-hlm-locations {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.headless-hlm-location {
+    order: 999; /* Default high order to push unspecified items to the end */
+    margin-bottom:10px!important;
+}
+
+.filter-navbar-specials {
+    display: block!important;
+}
+
+.list-cart-mobile svg {
+    fill: #285066;
+}
+
+@media (max-width: 575px) {
+    .headless-product-list-item .headless-list-info-details {
+        justify-content: flex-start;
+    }
+    
+    .headless-product-special {
+        font-size: 12px;
+    }
+    
+    .headless-menu-banners {
+        display: none;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .range-headless .headless-shop-container {
+        padding-top:5px;
+    }
+    
+    .headless-product-list-item .headless-list-info-details .headless-product-potency-weight {
+        margin-left: 0;
+    }
+}
+
+.product-card-speical-name {
+    color: #285066;
+}
+
+.headless-products-list .headless-add-to-cart-mobile .headless-pricing-type-special {
+    color: #285066 !important;
+}
+
+#headless-filter-sidebar .filter-sidebar-module {
+    margin-bottom:0;
+}
+
+@media (max-width: 991.98px) {
+
+    .range-headless .headless-searchbar {
+        display: inline-block;
+    }
+    
+    .range-headless .headless-searchbar .headless-nav-searchbar-input {
+        border-bottom:0!important;
+    }
+}
+
+.range-headless .headless-products-container .headless-product-card .headless-card-image-link {
+    height: 200px;
+}
