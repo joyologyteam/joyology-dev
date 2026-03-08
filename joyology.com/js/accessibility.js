@@ -82,18 +82,18 @@
         '.a11y-toggle svg{width:26px;height:26px;fill:currentColor;}\n' +
 
         '.a11y-panel{' +
-            'position:fixed;bottom:60px;left:0;z-index:99999;' +
+            'position:fixed;bottom:60px;left:12px;z-index:99999;' +
             'width:380px;max-height:calc(100vh - 80px);' +
             'background:#1A1F1C;color:#fff;' +
             'border-radius:24px;' +
             'box-shadow:0 -8px 60px rgba(0,0,0,0.4),0 0 0 1px rgba(255,255,255,0.06);' +
-            'transform:translateY(100%);opacity:0;' +
-            'transition:transform 0.45s cubic-bezier(0.16,1,0.3,1),opacity 0.3s ease;' +
+            'transform:translateY(20px);opacity:0;visibility:hidden;pointer-events:none;' +
+            'transition:transform 0.45s cubic-bezier(0.16,1,0.3,1),opacity 0.3s ease,visibility 0s 0.45s;' +
             'display:flex;flex-direction:column;' +
             'font-family:"Nunito",sans-serif;' +
             'overflow:hidden;' +
         '}\n' +
-        '.a11y-panel.open{transform:translateY(0);opacity:1;}\n' +
+        '.a11y-panel.open{transform:translateY(0);opacity:1;visibility:visible;pointer-events:auto;transition:transform 0.45s cubic-bezier(0.16,1,0.3,1),opacity 0.3s ease,visibility 0s 0s;}\n' +
 
         '.a11y-panel-header{' +
             'display:flex;align-items:center;justify-content:space-between;' +
@@ -290,10 +290,6 @@
             'text-align:left !important;' +
             'filter:none !important;' +
             'zoom:1 !important;' +
-            'cursor:pointer !important;' +
-        '}\n' +
-        '.a11y-panel,.a11y-panel *{' +
-            'background-color:initial;color:initial;border-color:initial;' +
         '}\n' +
         // Re-apply widget backgrounds that the shield clears
         '.a11y-panel{background:#1A1F1C !important;color:#fff !important;}\n' +
