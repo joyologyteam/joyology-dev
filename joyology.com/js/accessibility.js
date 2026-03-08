@@ -58,16 +58,12 @@
 
     // ── Inject CSS ──
     function injectStyles() {
-        // Load dyslexia font via link tag (not @import which blocks rendering)
-        var fontLink = document.createElement('link');
-        fontLink.rel = 'stylesheet';
-        fontLink.href = 'https://fonts.googleapis.com/css2?family=Open+Dyslexic:wght@400;700&display=swap';
-        document.head.appendChild(fontLink);
-
         var css = '';
 
         // ── Widget chrome ──
         css += '\n' +
+        '@import url("https://fonts.googleapis.com/css2?family=Open+Dyslexic:wght@400;700&display=swap");\n' +
+
         '.a11y-toggle{' +
             'position:fixed;bottom:84px;left:20px;z-index:99998;' +
             'width:52px;height:52px;border-radius:50%;border:none;' +
@@ -82,18 +78,18 @@
         '.a11y-toggle svg{width:26px;height:26px;fill:currentColor;}\n' +
 
         '.a11y-panel{' +
-            'position:fixed;bottom:60px;left:12px;z-index:99999;' +
-            'width:380px;max-height:calc(100vh - 80px);' +
+            'position:fixed;bottom:0;left:0;z-index:99999;' +
+            'width:380px;max-height:calc(100vh - 20px);' +
             'background:#1A1F1C;color:#fff;' +
-            'border-radius:24px;' +
+            'border-radius:24px 24px 0 0;' +
             'box-shadow:0 -8px 60px rgba(0,0,0,0.4),0 0 0 1px rgba(255,255,255,0.06);' +
-            'transform:translateY(20px);opacity:0;visibility:hidden;pointer-events:none;' +
-            'transition:transform 0.45s cubic-bezier(0.16,1,0.3,1),opacity 0.3s ease,visibility 0s 0.45s;' +
+            'transform:translateY(100%);opacity:0;' +
+            'transition:transform 0.45s cubic-bezier(0.16,1,0.3,1),opacity 0.3s ease;' +
             'display:flex;flex-direction:column;' +
             'font-family:"Nunito",sans-serif;' +
             'overflow:hidden;' +
         '}\n' +
-        '.a11y-panel.open{transform:translateY(0);opacity:1;visibility:visible;pointer-events:auto;transition:transform 0.45s cubic-bezier(0.16,1,0.3,1),opacity 0.3s ease,visibility 0s 0s;}\n' +
+        '.a11y-panel.open{transform:translateY(0);opacity:1;}\n' +
 
         '.a11y-panel-header{' +
             'display:flex;align-items:center;justify-content:space-between;' +
@@ -108,7 +104,6 @@
         '.a11y-panel-close:hover{background:rgba(255,255,255,0.15);}\n' +
 
         '.a11y-panel-body{overflow-y:auto;padding:8px 0 20px;flex:1;' +
-            '-webkit-overflow-scrolling:touch;overscroll-behavior:contain;' +
             'scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.15) transparent;}\n' +
         '.a11y-panel-body::-webkit-scrollbar{width:6px;}\n' +
         '.a11y-panel-body::-webkit-scrollbar-track{background:transparent;}\n' +
@@ -267,58 +262,20 @@
         'body.a11y-hide-images [role="img"],body.a11y-hide-images picture{' +
             'opacity:0.05 !important;}\n' +
 
-        // Pause animations — exclude the widget itself so it can still open/close
-        'body.a11y-pause-animations *:not(.a11y-panel):not(.a11y-panel *)' +
-        ':not(.a11y-toggle):not(.a11y-reading-guide){' +
+        // Pause animations
+        'body.a11y-pause-animations,body.a11y-pause-animations *,' +
+        'body.a11y-pause-animations *::before,body.a11y-pause-animations *::after{' +
             'animation-play-state:paused !important;' +
             'transition-duration:0s !important;' +
+            'scroll-behavior:auto !important;' +
         '}\n' +
-        'body.a11y-pause-animations{scroll-behavior:auto !important;}\n' +
 
         // Responsive
         '@media(max-width:480px){' +
-            '.a11y-panel{width:100%;left:0;right:0;border-radius:20px 20px 0 0;bottom:56px;max-height:calc(100vh - 76px);}' +
+            '.a11y-panel{width:100%;border-radius:20px 20px 0 0;}' +
             '.a11y-toggle{bottom:80px;left:14px;width:46px;height:46px;font-size:20px;}' +
             '.a11y-toggle svg{width:22px;height:22px;}' +
-        '}\n' +
-
-        // ── Shield: protect the widget from its own accessibility overrides ──
-        '.a11y-panel,.a11y-panel *,.a11y-toggle,.a11y-toggle *{' +
-            'font-family:"Nunito",sans-serif !important;' +
-            'letter-spacing:normal !important;' +
-            'word-spacing:normal !important;' +
-            'text-align:left !important;' +
-            'filter:none !important;' +
-            'zoom:1 !important;' +
-        '}\n' +
-        // Re-apply widget backgrounds that the shield clears
-        '.a11y-panel{background:#1A1F1C !important;color:#fff !important;}\n' +
-        '.a11y-panel-header{border-bottom-color:rgba(255,255,255,0.08) !important;}\n' +
-        '.a11y-panel-title{color:#fff !important;}\n' +
-        '.a11y-panel-title svg{fill:#8CC541 !important;}\n' +
-        '.a11y-panel-close{background:rgba(255,255,255,0.08) !important;color:#fff !important;border-color:transparent !important;}\n' +
-        '.a11y-section-title{color:#8CC541 !important;}\n' +
-        '.a11y-slider-label{color:#fff !important;}\n' +
-        '.a11y-slider-btn{background:rgba(255,255,255,0.05) !important;color:#fff !important;border-color:rgba(255,255,255,0.12) !important;}\n' +
-        '.a11y-slider-val{color:#E2F752 !important;}\n' +
-        '.a11y-tile{background:rgba(255,255,255,0.03) !important;border-color:rgba(255,255,255,0.08) !important;color:#fff !important;}\n' +
-        '.a11y-tile.active{background:rgba(140,197,65,0.12) !important;border-color:rgba(140,197,65,0.4) !important;}\n' +
-        '.a11y-tile-icon{color:rgba(255,255,255,0.7) !important;}\n' +
-        '.a11y-tile.active .a11y-tile-icon{color:#8CC541 !important;}\n' +
-        '.a11y-tile-label{color:rgba(255,255,255,0.7) !important;}\n' +
-        '.a11y-tile.active .a11y-tile-label{color:#fff !important;}\n' +
-        '.a11y-align-btn{background:rgba(255,255,255,0.03) !important;color:#fff !important;border-color:rgba(255,255,255,0.08) !important;}\n' +
-        '.a11y-align-btn.active{background:rgba(140,197,65,0.12) !important;border-color:rgba(140,197,65,0.4) !important;color:#8CC541 !important;}\n' +
-        '.a11y-reset{background:rgba(224,79,95,0.15) !important;color:#E04F5F !important;border-color:transparent !important;}\n' +
-        '.a11y-reset-wrap{border-top-color:rgba(255,255,255,0.06) !important;}\n' +
-        '.a11y-statement a{color:rgba(255,255,255,0.35) !important;outline:none !important;}\n' +
-        // Shield: keep line-height sane inside widget
-        '.a11y-panel *{line-height:1.4 !important;}\n' +
-        '.a11y-panel .a11y-tile{line-height:1 !important;}\n' +
-        // Shield: no image hiding inside widget
-        '.a11y-panel svg,.a11y-toggle svg{opacity:1 !important;}\n' +
-        // Shield: keep toggle visible and styled
-        '.a11y-toggle{background:linear-gradient(135deg,#2A7C6F 0%,#1A1F1C 100%) !important;color:#fff !important;border-color:transparent !important;}\n';
+        '}\n';
 
         var style = document.createElement('style');
         style.id = 'a11y-styles';
@@ -516,21 +473,6 @@
             }
         });
 
-        // Prevent page scroll when scrolling inside the panel
-        var panelBody = panel.querySelector('.a11y-panel-body');
-        panelBody.addEventListener('wheel', function(e) {
-            var atTop = panelBody.scrollTop <= 0;
-            var atBottom = panelBody.scrollTop + panelBody.clientHeight >= panelBody.scrollHeight;
-            if ((e.deltaY < 0 && atTop) || (e.deltaY > 0 && atBottom)) {
-                e.preventDefault();
-            }
-        }, { passive: false });
-
-        // Prevent touch scroll propagation from panel to page
-        panel.addEventListener('touchmove', function(e) {
-            e.stopPropagation();
-        }, { passive: true });
-
         // Close on escape
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && isOpen) {
@@ -538,8 +480,8 @@
             }
         });
 
-        // Close on click outside (use mousedown to avoid conflicts with button clicks)
-        document.addEventListener('mousedown', function(e) {
+        // Close on click outside
+        document.addEventListener('click', function(e) {
             if (isOpen && !panel.contains(e.target) && !toggleBtn.contains(e.target)) {
                 togglePanel(false);
             }
