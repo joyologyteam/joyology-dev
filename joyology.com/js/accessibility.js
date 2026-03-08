@@ -59,6 +59,7 @@
     // ── Inject CSS ──
     function injectStyles() {
         var css = '';
+        var X = ':not(.a11y-panel):not(.a11y-panel *)';
 
         // ── Widget chrome ──
         css += '\n' +
@@ -180,22 +181,22 @@
         'body.a11y-fs-4{font-size:24px !important;}\n' +
 
         // Line height
-        'body.a11y-lh-1{line-height:1.8 !important;}body.a11y-lh-1 *{line-height:inherit !important;}' +
-        'body.a11y-lh-2{line-height:2.0 !important;}body.a11y-lh-2 *{line-height:inherit !important;}' +
-        'body.a11y-lh-3{line-height:2.4 !important;}body.a11y-lh-3 *{line-height:inherit !important;}' +
-        'body.a11y-lh-4{line-height:2.8 !important;}body.a11y-lh-4 *{line-height:inherit !important;}\n' +
+        'body.a11y-lh-1{line-height:1.8 !important;}body.a11y-lh-1 *' + X + '{line-height:inherit !important;}' +
+        'body.a11y-lh-2{line-height:2.0 !important;}body.a11y-lh-2 *' + X + '{line-height:inherit !important;}' +
+        'body.a11y-lh-3{line-height:2.4 !important;}body.a11y-lh-3 *' + X + '{line-height:inherit !important;}' +
+        'body.a11y-lh-4{line-height:2.8 !important;}body.a11y-lh-4 *' + X + '{line-height:inherit !important;}\n' +
 
         // Letter spacing
-        'body.a11y-ls-1{letter-spacing:1px !important;}body.a11y-ls-1 *{letter-spacing:inherit !important;}' +
-        'body.a11y-ls-2{letter-spacing:2px !important;}body.a11y-ls-2 *{letter-spacing:inherit !important;}' +
-        'body.a11y-ls-3{letter-spacing:3px !important;}body.a11y-ls-3 *{letter-spacing:inherit !important;}' +
-        'body.a11y-ls-4{letter-spacing:4px !important;}body.a11y-ls-4 *{letter-spacing:inherit !important;}\n' +
+        'body.a11y-ls-1{letter-spacing:1px !important;}body.a11y-ls-1 *' + X + '{letter-spacing:inherit !important;}' +
+        'body.a11y-ls-2{letter-spacing:2px !important;}body.a11y-ls-2 *' + X + '{letter-spacing:inherit !important;}' +
+        'body.a11y-ls-3{letter-spacing:3px !important;}body.a11y-ls-3 *' + X + '{letter-spacing:inherit !important;}' +
+        'body.a11y-ls-4{letter-spacing:4px !important;}body.a11y-ls-4 *' + X + '{letter-spacing:inherit !important;}\n' +
 
         // Word spacing
-        'body.a11y-ws-1{word-spacing:4px !important;}body.a11y-ws-1 *{word-spacing:inherit !important;}' +
-        'body.a11y-ws-2{word-spacing:8px !important;}body.a11y-ws-2 *{word-spacing:inherit !important;}' +
-        'body.a11y-ws-3{word-spacing:12px !important;}body.a11y-ws-3 *{word-spacing:inherit !important;}' +
-        'body.a11y-ws-4{word-spacing:16px !important;}body.a11y-ws-4 *{word-spacing:inherit !important;}\n' +
+        'body.a11y-ws-1{word-spacing:4px !important;}body.a11y-ws-1 *' + X + '{word-spacing:inherit !important;}' +
+        'body.a11y-ws-2{word-spacing:8px !important;}body.a11y-ws-2 *' + X + '{word-spacing:inherit !important;}' +
+        'body.a11y-ws-3{word-spacing:12px !important;}body.a11y-ws-3 *' + X + '{word-spacing:inherit !important;}' +
+        'body.a11y-ws-4{word-spacing:16px !important;}body.a11y-ws-4 *' + X + '{word-spacing:inherit !important;}\n' +
 
         // Page zoom
         'body.a11y-zoom-1{zoom:1.1;}' +
@@ -203,23 +204,23 @@
         'body.a11y-zoom-3{zoom:1.5;}\n' +
 
         // Text alignment
-        'body.a11y-align-left *{text-align:left !important;}' +
-        'body.a11y-align-center *{text-align:center !important;}' +
-        'body.a11y-align-right *{text-align:right !important;}' +
-        'body.a11y-align-justify *{text-align:justify !important;}\n' +
+        'body.a11y-align-left *' + X + '{text-align:left !important;}' +
+        'body.a11y-align-center *' + X + '{text-align:center !important;}' +
+        'body.a11y-align-right *' + X + '{text-align:right !important;}' +
+        'body.a11y-align-justify *' + X + '{text-align:justify !important;}\n' +
 
         // High contrast
         'body.a11y-high-contrast{filter:contrast(1.4) !important;}' +
-        'body.a11y-high-contrast *{border-color:currentColor !important;}\n' +
+        'body.a11y-high-contrast *' + X + '{border-color:currentColor !important;}\n' +
 
         // Dark contrast
         'body.a11y-dark-contrast{background:#000 !important;color:#fff !important;}' +
-        'body.a11y-dark-contrast *{background-color:#000 !important;color:#fff !important;border-color:#fff !important;}' +
+        'body.a11y-dark-contrast *' + X + '{background-color:#000 !important;color:#fff !important;border-color:#fff !important;}' +
         'body.a11y-dark-contrast img{filter:brightness(0.8) !important;}\n' +
 
         // Light contrast
         'body.a11y-light-contrast{background:#fff !important;color:#000 !important;}' +
-        'body.a11y-light-contrast *{background-color:#fff !important;color:#000 !important;border-color:#000 !important;}\n' +
+        'body.a11y-light-contrast *' + X + '{background-color:#fff !important;color:#000 !important;border-color:#000 !important;}\n' +
 
         // Monochrome
         'body.a11y-monochrome{filter:grayscale(100%) !important;}\n' +
@@ -235,19 +236,19 @@
         'body.a11y-invert img,body.a11y-invert video{filter:invert(1) hue-rotate(180deg) !important;}\n' +
 
         // Dyslexia font
-        'body.a11y-dyslexia *{font-family:"OpenDyslexic","Open Dyslexic",sans-serif !important;}\n' +
+        'body.a11y-dyslexia *' + X + '{font-family:"OpenDyslexic","Open Dyslexic",sans-serif !important;}\n' +
 
         // Highlight links
-        'body.a11y-highlight-links a{outline:3px solid #E2F752 !important;outline-offset:2px !important;' +
+        'body.a11y-highlight-links a' + X + '{outline:3px solid #E2F752 !important;outline-offset:2px !important;' +
             'text-decoration:underline !important;text-underline-offset:3px !important;}\n' +
 
         // Highlight headings
-        'body.a11y-highlight-headings h1,body.a11y-highlight-headings h2,' +
-        'body.a11y-highlight-headings h3,body.a11y-highlight-headings h4,' +
-        'body.a11y-highlight-headings h5,body.a11y-highlight-headings h6{' +
+        'body.a11y-highlight-headings h1' + X + ',body.a11y-highlight-headings h2' + X + ',' +
+        'body.a11y-highlight-headings h3' + X + ',body.a11y-highlight-headings h4' + X + ',' +
+        'body.a11y-highlight-headings h5' + X + ',body.a11y-highlight-headings h6' + X + '{' +
             'outline:3px solid #41C6EF !important;outline-offset:4px !important;border-radius:4px;}\n' +
 
-        // Big cursor
+        // Big cursor — OK to apply globally, visual only
         'body.a11y-big-cursor,body.a11y-big-cursor *{' +
             'cursor:url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'48\' height=\'48\' viewBox=\'0 0 48 48\'%3E%3Cpath d=\'M8 4l28 20H20l8 16-5 2-8-16-7 7z\' fill=\'%23000\' stroke=\'%23fff\' stroke-width=\'2\'/%3E%3C/svg%3E") 4 4, auto !important;' +
         '}\n' +
@@ -262,13 +263,14 @@
         'body.a11y-hide-images [role="img"],body.a11y-hide-images picture{' +
             'opacity:0.05 !important;}\n' +
 
-        // Pause animations
-        'body.a11y-pause-animations,body.a11y-pause-animations *,' +
-        'body.a11y-pause-animations *::before,body.a11y-pause-animations *::after{' +
+        // Pause animations — exclude widget so it can still open/close
+        'body.a11y-pause-animations *' + X + ',' +
+        'body.a11y-pause-animations *' + X + '::before,' +
+        'body.a11y-pause-animations *' + X + '::after{' +
             'animation-play-state:paused !important;' +
             'transition-duration:0s !important;' +
-            'scroll-behavior:auto !important;' +
         '}\n' +
+        'body.a11y-pause-animations{scroll-behavior:auto !important;}\n' +
 
         // Responsive
         '@media(max-width:480px){' +
