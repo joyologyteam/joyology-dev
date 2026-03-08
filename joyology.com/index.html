@@ -1677,7 +1677,7 @@
             left: 0;
             right: 0;
             z-index: 10000;
-            height: 44px;
+            height: 56px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1731,20 +1731,20 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 16px;
+            gap: 20px;
             width: 100%;
             max-width: 1280px;
-            padding: 0 56px 0 32px;
+            padding: 0 60px 0 32px;
         }
 
         .promo-banner-tag {
             display: inline-flex;
             align-items: center;
-            gap: 5px;
-            padding: 3px 10px;
+            gap: 6px;
+            padding: 5px 14px;
             border-radius: 50px;
             background: linear-gradient(135deg, var(--acid) 0%, var(--green) 100%);
-            font-size: 10px;
+            font-size: 11px;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 1.5px;
@@ -1753,11 +1753,11 @@
             flex-shrink: 0;
         }
         .promo-banner-tag i {
-            font-size: 9px;
+            font-size: 10px;
         }
 
         .promo-banner-text {
-            font-size: 13px;
+            font-size: 15px;
             font-weight: 700;
             color: rgba(255,255,255,0.92);
             white-space: nowrap;
@@ -1772,12 +1772,12 @@
         .promo-banner-cta {
             display: inline-flex;
             align-items: center;
-            gap: 5px;
-            padding: 4px 14px;
+            gap: 6px;
+            padding: 6px 18px;
             border-radius: 50px;
             background: rgba(255,255,255,0.1);
             border: 1px solid rgba(255,255,255,0.15);
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -1795,7 +1795,7 @@
             transform: translateY(-1px);
         }
         .promo-banner-cta i {
-            font-size: 9px;
+            font-size: 10px;
             transition: transform 0.3s ease;
         }
         .promo-banner-cta:hover i {
@@ -1811,9 +1811,9 @@
             background: none;
             border: none;
             color: rgba(255,255,255,0.35);
-            font-size: 14px;
+            font-size: 16px;
             cursor: pointer;
-            padding: 6px;
+            padding: 8px;
             border-radius: 50%;
             transition: all 0.3s ease;
             display: flex;
@@ -1827,25 +1827,25 @@
 
         /* Push header and page content down when banner is visible */
         body:has(.promo-banner:not(.dismissed)) .header {
-            top: 44px;
+            top: 56px;
         }
         body:has(.promo-banner:not(.dismissed)) .hero {
-            padding-top: 44px;
+            padding-top: 56px;
         }
         body:has(.promo-banner:not(.dismissed)) .scroll-progress {
-            top: 44px;
+            top: 56px;
         }
 
         @media (max-width: 768px) {
-            .promo-banner { height: 40px; }
+            .promo-banner { height: 48px; }
             .promo-banner-tag { display: none; }
-            .promo-banner-inner { padding: 0 44px 0 16px; gap: 10px; }
-            .promo-banner-text { font-size: 12px; }
-            .promo-banner-cta { padding: 3px 10px; font-size: 10px; }
+            .promo-banner-inner { padding: 0 48px 0 16px; gap: 12px; }
+            .promo-banner-text { font-size: 13px; }
+            .promo-banner-cta { padding: 4px 12px; font-size: 11px; }
             .promo-banner-close { right: 12px; }
-            body:has(.promo-banner:not(.dismissed)) .header { top: 40px; }
-            body:has(.promo-banner:not(.dismissed)) .hero { padding-top: 40px; }
-            body:has(.promo-banner:not(.dismissed)) .scroll-progress { top: 40px; }
+            body:has(.promo-banner:not(.dismissed)) .header { top: 48px; }
+            body:has(.promo-banner:not(.dismissed)) .hero { padding-top: 48px; }
+            body:has(.promo-banner:not(.dismissed)) .scroll-progress { top: 48px; }
         }
     </style>
 </head>
