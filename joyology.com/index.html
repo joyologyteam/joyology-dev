@@ -1667,12 +1667,202 @@
             .products-grid { grid-template-columns: 1fr 1fr; }
             .product-card { padding: 28px 16px 24px; }
         }
+
+        /* =============================================
+           PROMO BANNER
+        ============================================= */
+        .promo-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10000;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(90deg, #1A1F1C 0%, #2A3A2E 40%, #1A1F1C 100%);
+            overflow: hidden;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+        }
+        .promo-banner.dismissed {
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Animated shimmer accent line along the bottom edge */
+        .promo-banner::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, var(--acid) 20%, var(--green) 50%, var(--sky) 80%, transparent 100%);
+            background-size: 200% 100%;
+            animation: bannerShimmer 4s ease-in-out infinite;
+        }
+        @keyframes bannerShimmer {
+            0% { background-position: 100% 0; }
+            100% { background-position: -100% 0; }
+        }
+
+        /* Subtle floating particles inside the banner */
+        .promo-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(1px 1px at 15% 50%, rgba(226,247,82,0.4) 0%, transparent 100%),
+                radial-gradient(1px 1px at 45% 30%, rgba(140,197,65,0.3) 0%, transparent 100%),
+                radial-gradient(1px 1px at 75% 60%, rgba(65,198,239,0.3) 0%, transparent 100%),
+                radial-gradient(1px 1px at 90% 40%, rgba(226,247,82,0.25) 0%, transparent 100%);
+            animation: bannerParticles 6s ease-in-out infinite alternate;
+        }
+        @keyframes bannerParticles {
+            0% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        .promo-banner-inner {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            width: 100%;
+            max-width: 1280px;
+            padding: 0 56px 0 32px;
+        }
+
+        .promo-banner-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 3px 10px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--acid) 0%, var(--green) 100%);
+            font-size: 10px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--root);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .promo-banner-tag i {
+            font-size: 9px;
+        }
+
+        .promo-banner-text {
+            font-size: 13px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.92);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .promo-banner-text strong {
+            color: var(--acid);
+            font-weight: 800;
+        }
+
+        .promo-banner-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 14px;
+            border-radius: 50px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.15);
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--white);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
+            text-decoration: none;
+        }
+        .promo-banner-cta:hover {
+            background: var(--green);
+            border-color: var(--green);
+            color: var(--white);
+            transform: translateY(-1px);
+        }
+        .promo-banner-cta i {
+            font-size: 9px;
+            transition: transform 0.3s ease;
+        }
+        .promo-banner-cta:hover i {
+            transform: translateX(2px);
+        }
+
+        .promo-banner-close {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.35);
+            font-size: 14px;
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .promo-banner-close:hover {
+            color: var(--white);
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Push header and page content down when banner is visible */
+        body:has(.promo-banner:not(.dismissed)) .header {
+            top: 44px;
+        }
+        body:has(.promo-banner:not(.dismissed)) .hero {
+            padding-top: 44px;
+        }
+        body:has(.promo-banner:not(.dismissed)) .scroll-progress {
+            top: 44px;
+        }
+
+        @media (max-width: 768px) {
+            .promo-banner { height: 40px; }
+            .promo-banner-tag { display: none; }
+            .promo-banner-inner { padding: 0 44px 0 16px; gap: 10px; }
+            .promo-banner-text { font-size: 12px; }
+            .promo-banner-cta { padding: 3px 10px; font-size: 10px; }
+            .promo-banner-close { right: 12px; }
+            body:has(.promo-banner:not(.dismissed)) .header { top: 40px; }
+            body:has(.promo-banner:not(.dismissed)) .hero { padding-top: 40px; }
+            body:has(.promo-banner:not(.dismissed)) .scroll-progress { top: 40px; }
+        }
     </style>
 </head>
 <body>
 
     <!-- Scroll Progress -->
     <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Promo Banner — swap content here for promotions, announcements, etc. -->
+    <div class="promo-banner" id="promoBanner">
+        <div class="promo-banner-inner">
+            <span class="promo-banner-tag"><i class="fas fa-bolt"></i> New</span>
+            <span class="promo-banner-text">Now open in <strong>Lake Orion</strong> — Michigan's newest Joyology location!</span>
+            <a href="/location/lake-orion/" class="promo-banner-cta">Learn more <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <button class="promo-banner-close" id="promoBannerClose" aria-label="Dismiss banner"><i class="fas fa-times"></i></button>
+    </div>
 
     <!-- Header -->
     <header class="header" id="header">
@@ -2366,6 +2556,21 @@
                 card.style.transform = '';
             });
         });
+
+        // ---- Promo Banner Dismiss ----
+        (function() {
+            var banner = document.getElementById('promoBanner');
+            var closeBtn = document.getElementById('promoBannerClose');
+            if (!banner || !closeBtn) return;
+            // Restore dismissed state for this session
+            if (sessionStorage.getItem('promo-banner-dismissed')) {
+                banner.classList.add('dismissed');
+            }
+            closeBtn.addEventListener('click', function() {
+                banner.classList.add('dismissed');
+                sessionStorage.setItem('promo-banner-dismissed', '1');
+            });
+        })();
     </script>
 </body>
 </html>

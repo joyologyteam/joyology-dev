@@ -115,6 +115,8 @@
         .loc-card-open { position: absolute; top: 16px; right: 16px; display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 50px; background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); color: var(--green); font-size: 12px; font-weight: 700; }
         .loc-card-open .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: pulse 2s ease-in-out infinite; }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+        .loc-card-closed { color: #E05252; }
+        .loc-card-closed .pulse { background: #E05252; }
         .loc-card-body { padding: 28px 28px 32px; }
         .loc-card-body h2 { font-size: 24px; font-weight: 900; margin-bottom: 8px; }
         .loc-card-detail { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; font-size: 14px; color: var(--silver); }
@@ -200,12 +202,12 @@
                 <div class="loc-card reveal">
                     <div class="loc-card-img">
                         <img src="/media/lakeorion.webp" alt="Joyology Lake Orion">
-                        <div class="loc-card-open"><div class="pulse"></div> Open now</div>
+                        <div class="loc-card-open" data-location="lake-orion"><div class="pulse"></div> Open now</div>
                     </div>
                     <div class="loc-card-body">
                         <h2>Lake Orion</h2>
                         <div class="loc-card-detail"><i class="fas fa-map-marker-alt"></i><span>4098 S Baldwin Rd, Lake Orion, MI 48359</span></div>
-                        <div class="loc-card-detail"><i class="fas fa-clock"></i><span>Open daily 9am &ndash; 9pm</span></div>
+                        <div class="loc-card-detail"><i class="fas fa-clock"></i><span>Mon&ndash;Sat 7am&ndash;12am &middot; Sun 9am&ndash;10pm</span></div>
                         <div class="loc-card-detail"><i class="fas fa-phone"></i><span>Call for details</span></div>
                         <div class="loc-card-actions">
                             <a href="/shop/" class="btn btn-primary btn-sm" onclick="localStorage.setItem('joyology-location','lake-orion')">Shop this location</a>
@@ -217,12 +219,12 @@
                 <div class="loc-card reveal">
                     <div class="loc-card-img">
                         <img src="/media/monroe.webp" alt="Joyology Monroe">
-                        <div class="loc-card-open"><div class="pulse"></div> Open now</div>
+                        <div class="loc-card-open" data-location="monroe"><div class="pulse"></div> Open now</div>
                     </div>
                     <div class="loc-card-body">
                         <h2>Monroe</h2>
                         <div class="loc-card-detail"><i class="fas fa-map-marker-alt"></i><span>14880 LaPlaisance Rd, Monroe, MI 48161</span></div>
-                        <div class="loc-card-detail"><i class="fas fa-clock"></i><span>Open daily 9am &ndash; 9pm</span></div>
+                        <div class="loc-card-detail"><i class="fas fa-clock"></i><span>Mon&ndash;Sat 7am&ndash;12am &middot; Sun 9am&ndash;10pm</span></div>
                         <div class="loc-card-detail"><i class="fas fa-phone"></i><span>Call for details</span></div>
                         <div class="loc-card-actions">
                             <a href="/shop/" class="btn btn-primary btn-sm" onclick="localStorage.setItem('joyology-location','monroe')">Shop this location</a>
@@ -234,7 +236,7 @@
                 <div class="loc-card reveal">
                     <div class="loc-card-img">
                         <img src="/media/centerline.jpg" alt="Joyology Centerline">
-                        <div class="loc-card-open"><div class="pulse"></div> Open now</div>
+                        <div class="loc-card-open" data-location="centerline"><div class="pulse"></div> Open now</div>
                     </div>
                     <div class="loc-card-body">
                         <h2>Centerline</h2>
@@ -251,12 +253,12 @@
                 <div class="loc-card reveal">
                     <div class="loc-card-img">
                         <div class="loc-card-placeholder"><i class="fas fa-store"></i></div>
-                        <div class="loc-card-open"><div class="pulse"></div> Open now</div>
+                        <div class="loc-card-open" data-location="mt-clemens"><div class="pulse"></div> Open now</div>
                     </div>
                     <div class="loc-card-body">
                         <h2>Mt. Clemens</h2>
                         <div class="loc-card-detail"><i class="fas fa-map-marker-alt"></i><span>195 N Malow St, Mt Clemens, MI 48043</span></div>
-                        <div class="loc-card-detail"><i class="fas fa-clock"></i><span>Open daily 9am &ndash; 9pm</span></div>
+                        <div class="loc-card-detail"><i class="fas fa-clock"></i><span>Open daily 8am &ndash; 10pm</span></div>
                         <div class="loc-card-detail"><i class="fas fa-phone"></i><span>Call for details</span></div>
                         <div class="loc-card-actions">
                             <a href="/shop/" class="btn btn-primary btn-sm" onclick="localStorage.setItem('joyology-location','mt-clemens')">Shop this location</a>
@@ -298,6 +300,35 @@
         mn.querySelectorAll('a').forEach(function(l){l.addEventListener('click',function(){mn.classList.remove('open');document.body.style.overflow='';});});
         var observer = new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});}, {rootMargin:'0px 0px -60px 0px', threshold:0.1});
         document.querySelectorAll('.reveal').forEach(function(el){observer.observe(el);});
+
+        // Dynamic open/closed status based on actual store hours (all times ET)
+        (function() {
+            var storeHours = {
+                'lake-orion': { mon:[7,0], tue:[7,0], wed:[7,0], thu:[7,0], fri:[7,0], sat:[7,0], sun:[9,22] },
+                'monroe':     { mon:[7,0], tue:[7,0], wed:[7,0], thu:[7,0], fri:[7,0], sat:[7,0], sun:[9,22] },
+                'mt-clemens': { mon:[8,22], tue:[8,22], wed:[8,22], thu:[8,22], fri:[8,22], sat:[8,22], sun:[8,22] },
+                'centerline': { mon:[9,21], tue:[9,21], wed:[9,21], thu:[9,21], fri:[9,21], sat:[9,21], sun:[9,21] }
+            };
+            var dayNames = ['sun','mon','tue','wed','thu','fri','sat'];
+            var now = new Date();
+            var et = new Date(now.toLocaleString('en-US', { timeZone: 'America/Detroit' }));
+            var day = dayNames[et.getDay()];
+            var currentTime = et.getHours() + et.getMinutes() / 60;
+
+            document.querySelectorAll('[data-location]').forEach(function(badge) {
+                var slug = badge.getAttribute('data-location');
+                var hours = storeHours[slug];
+                if (!hours) return;
+                var schedule = hours[day];
+                var open = schedule[0];
+                var close = schedule[1] === 0 ? 24 : schedule[1];
+                var isOpen = currentTime >= open && currentTime < close;
+                if (!isOpen) {
+                    badge.innerHTML = '<div class="pulse"></div> Closed';
+                    badge.classList.add('loc-card-closed');
+                }
+            });
+        })();
     </script>
 </body>
 </html>
