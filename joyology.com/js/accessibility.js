@@ -60,6 +60,8 @@
     function injectStyles() {
         var css = '';
         var X = ':not(.a11y-panel):not(.a11y-panel *)';
+        // Direct-child selector excluding widget elements (for filter rules that break position:fixed)
+        var F = ' > *:not(.a11y-panel):not(.a11y-toggle):not(.a11y-reading-guide)';
 
         // ── Widget chrome ──
         css += '\n' +
@@ -209,30 +211,30 @@
         'body.a11y-align-right *' + X + '{text-align:right !important;}' +
         'body.a11y-align-justify *' + X + '{text-align:justify !important;}\n' +
 
-        // High contrast
-        'body.a11y-high-contrast{filter:contrast(1.4) !important;}' +
+        // High contrast — filter on children so position:fixed widget isn't broken
+        'body.a11y-high-contrast' + F + '{filter:contrast(1.4) !important;}' +
         'body.a11y-high-contrast *' + X + '{border-color:currentColor !important;}\n' +
 
-        // Dark contrast
+        // Dark contrast (no filter, just colors — safe on body)
         'body.a11y-dark-contrast{background:#000 !important;color:#fff !important;}' +
         'body.a11y-dark-contrast *' + X + '{background-color:#000 !important;color:#fff !important;border-color:#fff !important;}' +
         'body.a11y-dark-contrast img{filter:brightness(0.8) !important;}\n' +
 
-        // Light contrast
+        // Light contrast (no filter, just colors — safe on body)
         'body.a11y-light-contrast{background:#fff !important;color:#000 !important;}' +
         'body.a11y-light-contrast *' + X + '{background-color:#fff !important;color:#000 !important;border-color:#000 !important;}\n' +
 
-        // Monochrome
-        'body.a11y-monochrome{filter:grayscale(100%) !important;}\n' +
+        // Monochrome — filter on children
+        'body.a11y-monochrome' + F + '{filter:grayscale(100%) !important;}\n' +
 
-        // High saturation
-        'body.a11y-high-saturation{filter:saturate(2) !important;}\n' +
+        // High saturation — filter on children
+        'body.a11y-high-saturation' + F + '{filter:saturate(2) !important;}\n' +
 
-        // Low saturation
-        'body.a11y-low-saturation{filter:saturate(0.4) !important;}\n' +
+        // Low saturation — filter on children
+        'body.a11y-low-saturation' + F + '{filter:saturate(0.4) !important;}\n' +
 
-        // Invert colors
-        'body.a11y-invert{filter:invert(1) hue-rotate(180deg) !important;}' +
+        // Invert colors — filter on children
+        'body.a11y-invert' + F + '{filter:invert(1) hue-rotate(180deg) !important;}' +
         'body.a11y-invert img,body.a11y-invert video{filter:invert(1) hue-rotate(180deg) !important;}\n' +
 
         // Dyslexia font
