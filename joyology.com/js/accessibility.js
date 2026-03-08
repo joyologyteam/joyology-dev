@@ -294,7 +294,7 @@
         toggleBtn.className = 'a11y-toggle';
         toggleBtn.setAttribute('aria-label', 'Open accessibility menu');
         toggleBtn.setAttribute('title', 'Accessibility options');
-        toggleBtn.innerHTML = '<svg class="a11y-icon" viewBox="0 0 24 24"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm9 7h-6.8l-1.2-2h-2l-1.2 2H3a1 1 0 0 0 0 2h5.2l-1.8 4.3L4 18a1 1 0 0 0 .5 1.3 1 1 0 0 0 1.3-.5L8 15.3l2 4.4a1 1 0 0 0 1.8 0l2-4.4 2.2 3.5a1 1 0 0 0 1.3.5A1 1 0 0 0 18 18l-2.4-3.7L13.8 11H21a1 1 0 0 0 0-2z"/></svg>';
+        toggleBtn.innerHTML = '<svg class="a11y-icon" viewBox="0 0 24 24"><circle cx="11.5" cy="3.5" r="2.5"/><path d="M11.5 8C11.5 8 9 8 9 8L9 14L5.5 14L7.5 20C8.3 22.2 10.8 23.5 13 22.7C15.2 21.9 16.5 19.4 15.7 17.2L14.5 14L18 14L19.5 19L21.4 18.3L19.5 12.5C19.2 11.6 18.4 11 17.5 11L12.5 11L12.5 8Z"/></svg>';
         toggleBtn.addEventListener('click', function() {
             togglePanel();
         });
@@ -321,7 +321,7 @@
         return '' +
         '<div class="a11y-panel-header">' +
             '<div class="a11y-panel-title">' +
-                '<svg class="a11y-icon" viewBox="0 0 24 24"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm9 7h-6.8l-1.2-2h-2l-1.2 2H3a1 1 0 0 0 0 2h5.2l-1.8 4.3L4 18a1 1 0 0 0 .5 1.3 1 1 0 0 0 1.3-.5L8 15.3l2 4.4a1 1 0 0 0 1.8 0l2-4.4 2.2 3.5a1 1 0 0 0 1.3.5A1 1 0 0 0 18 18l-2.4-3.7L13.8 11H21a1 1 0 0 0 0-2z"/></svg>' +
+                '<svg class="a11y-icon" viewBox="0 0 24 24"><circle cx="11.5" cy="3.5" r="2.5"/><path d="M11.5 8C11.5 8 9 8 9 8L9 14L5.5 14L7.5 20C8.3 22.2 10.8 23.5 13 22.7C15.2 21.9 16.5 19.4 15.7 17.2L14.5 14L18 14L19.5 19L21.4 18.3L19.5 12.5C19.2 11.6 18.4 11 17.5 11L12.5 11L12.5 8Z"/></svg>' +
                 'Accessibility' +
             '</div>' +
             '<button class="a11y-panel-close" data-action="close" aria-label="Close accessibility menu"><i class="fas fa-times"></i></button>' +
