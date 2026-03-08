@@ -82,10 +82,10 @@
         '.a11y-toggle svg{width:26px;height:26px;fill:currentColor;}\n' +
 
         '.a11y-panel{' +
-            'position:fixed;bottom:0;left:0;z-index:99999;' +
-            'width:380px;max-height:calc(100vh - 20px);' +
+            'position:fixed;bottom:60px;left:0;z-index:99999;' +
+            'width:380px;max-height:calc(100vh - 80px);' +
             'background:#1A1F1C;color:#fff;' +
-            'border-radius:24px 24px 0 0;' +
+            'border-radius:24px;' +
             'box-shadow:0 -8px 60px rgba(0,0,0,0.4),0 0 0 1px rgba(255,255,255,0.06);' +
             'transform:translateY(100%);opacity:0;' +
             'transition:transform 0.45s cubic-bezier(0.16,1,0.3,1),opacity 0.3s ease;' +
@@ -277,7 +277,7 @@
 
         // Responsive
         '@media(max-width:480px){' +
-            '.a11y-panel{width:100%;border-radius:20px 20px 0 0;}' +
+            '.a11y-panel{width:100%;left:0;right:0;border-radius:20px 20px 0 0;bottom:56px;max-height:calc(100vh - 76px);}' +
             '.a11y-toggle{bottom:80px;left:14px;width:46px;height:46px;font-size:20px;}' +
             '.a11y-toggle svg{width:22px;height:22px;}' +
         '}\n' +
