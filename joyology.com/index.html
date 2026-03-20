@@ -131,11 +131,7 @@
             margin-bottom: 16px;
         }
         .section-label::before {
-            content: '';
-            width: 24px;
-            height: 2px;
-            background: var(--green);
-            border-radius: 2px;
+            display: none;
         }
 
         a {
@@ -810,7 +806,7 @@
             color: var(--acid);
         }
         .hero-content .section-label::before {
-            background: var(--acid);
+            display: none;
         }
 
         .hero-brand {
@@ -1383,7 +1379,7 @@
             color: var(--acid);
             justify-content: center;
         }
-        .locations-header .section-label::before { background: var(--acid); }
+        .locations-header .section-label::before { display: none; }
         .locations-header h2 {
             color: var(--white);
             font-size: clamp(2rem, 4vw, 3rem);
@@ -2268,7 +2264,7 @@
     <section class="joy-banner">
         <div class="container">
             <div class="joy-banner-content">
-                <div class="section-label reveal" style="color:var(--acid);justify-content:center;"><span style="background:var(--acid);width:24px;height:2px;display:inline-block;border-radius:2px;margin-right:8px;"></span>Don't miss out</div>
+                <div class="section-label reveal" style="color:var(--acid);justify-content:center;">Don't miss out</div>
                 <h2 class="reveal" style="transition-delay:0.08s">Today's deals are <span>kind of amazing</span></h2>
                 <p class="reveal" style="transition-delay:0.16s">BOGO offers, daily specials, and exclusive discounts across all our Michigan locations. Check what's on today.</p>
                 <div class="joy-banner-actions reveal" style="transition-delay:0.24s">
@@ -2347,7 +2343,7 @@
         <div class="container">
             <div class="loyalty-banner-content">
                 <div class="loyalty-icon reveal"><i class="fas fa-star"></i></div>
-                <div class="section-label reveal" style="color:var(--acid);justify-content:center;"><span style="background:var(--acid);width:24px;height:2px;display:inline-block;border-radius:2px;margin-right:8px;"></span>Rewards program</div>
+                <div class="section-label reveal" style="color:var(--acid);justify-content:center;">Rewards program</div>
                 <h2 class="reveal" style="transition-delay:0.08s">Join <span>Joyology Loyalty</span></h2>
                 <p class="reveal" style="transition-delay:0.16s">Earn points on every purchase, unlock exclusive member-only deals, and get rewarded just for being you. Sign up is free and takes less than a minute.</p>
                 <div class="loyalty-banner-actions reveal" style="transition-delay:0.24s">
