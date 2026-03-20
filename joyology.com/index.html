@@ -1173,6 +1173,65 @@
         }
 
         /* =============================================
+           LOYALTY BANNER
+        ============================================= */
+        .loyalty-banner {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #2A7C6F 0%, #1A1F1C 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .loyalty-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 80% at 20% 50%, rgba(226,247,82,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 60% at 80% 50%, rgba(140,197,65,0.1) 0%, transparent 60%);
+        }
+        .loyalty-banner-content {
+            position: relative;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .loyalty-banner h2 {
+            color: var(--white);
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 20px;
+        }
+        .loyalty-banner h2 span {
+            background: var(--joy-grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .loyalty-banner p {
+            color: rgba(255,255,255,0.6);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+        .loyalty-banner-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .loyalty-banner .loyalty-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: rgba(226,247,82,0.1);
+            border: 1.5px solid rgba(226,247,82,0.2);
+            margin: 0 auto 24px;
+            font-size: 28px;
+            color: var(--acid);
+        }
+
+        /* =============================================
            BLOG / JOYITUDES
         ============================================= */
         .blog {
@@ -1657,6 +1716,7 @@
             .bottom-nav { justify-content: center; }
 
             .joy-banner { padding: 80px 0; }
+            .loyalty-banner { padding: 80px 0; }
         }
 
         @media (max-width: 480px) {
@@ -1937,6 +1997,8 @@
 
                     <a href="/blog/" class="nav-link">Blog</a>
 
+                    <a href="#" class="nav-link" style="color:var(--green);"><i class="fas fa-star" style="font-size:11px;margin-right:4px;"></i>Loyalty</a>
+
                     <a href="/daily-deals/" class="btn btn-primary btn-sm">View deals</a>
                 </nav>
 
@@ -1970,6 +2032,7 @@
         <a href="/about/">About</a>
         <a href="/brands/">Our brands</a>
         <a href="/blog/">Blog</a>
+        <a href="#" style="color:var(--green);"><i class="fas fa-star" style="font-size:16px;margin-right:8px;"></i>Loyalty program</a>
         <a href="/daily-deals/" class="btn btn-primary">View today's deals</a>
     </div>
 
@@ -2279,6 +2342,22 @@
         </div>
     </section>
 
+    <!-- ============ LOYALTY ============ -->
+    <section class="loyalty-banner">
+        <div class="container">
+            <div class="loyalty-banner-content">
+                <div class="loyalty-icon reveal"><i class="fas fa-star"></i></div>
+                <div class="section-label reveal" style="color:var(--acid);justify-content:center;"><span style="background:var(--acid);width:24px;height:2px;display:inline-block;border-radius:2px;margin-right:8px;"></span>Rewards program</div>
+                <h2 class="reveal" style="transition-delay:0.08s">Join <span>Joyology Loyalty</span></h2>
+                <p class="reveal" style="transition-delay:0.16s">Earn points on every purchase, unlock exclusive member-only deals, and get rewarded just for being you. Sign up is free and takes less than a minute.</p>
+                <div class="loyalty-banner-actions reveal" style="transition-delay:0.24s">
+                    <a href="#" class="btn btn-gradient">Join loyalty <i class="fas fa-arrow-right" style="font-size:12px;"></i></a>
+                    <a href="/locations/" class="btn btn-outline" style="border-color:rgba(255,255,255,0.2);color:var(--white);">Find your store</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ============ LOCATIONS ============ -->
     <section class="locations" id="locations">
         <div class="container">
@@ -2395,6 +2474,7 @@
             <a href="/location/mt-clemens-malow/">Mt. Clemens</a>
         </div>
         <div class="bottom-nav-actions">
+            <a href="#" class="btn btn-ghost btn-sm" style="color:var(--acid);border-color:rgba(226,247,82,0.3);"><i class="fas fa-star" style="font-size:10px;"></i> Loyalty</a>
             <a href="/daily-deals/" class="btn btn-gradient btn-sm">View deals</a>
             <a href="/shop/" class="btn btn-primary btn-sm">Shop menu</a>
         </div>
